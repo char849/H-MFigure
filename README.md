@@ -1,24 +1,4 @@
-# 六角學院 Vue 樣板
 
-> 這是六角學院的 Vue 樣板，是基於 Vite 所建立的專案。
-
-Node.js 版本建議為：18.17.1 以上
-
-## 安裝與使用
-
-以下將會引導你如何安裝此專案到你的電腦上。
-
-### 取得專案
-
-```bash
-git clone https://github.com/hexschool/vite-template.git
-```
-
-### 移動到專案資料夾
-
-```bash
-cd vite-template
-```
 
 ## 環境變數
 

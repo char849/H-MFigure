@@ -306,7 +306,7 @@
               <span class="text-info fs-4">Exhibition Information</span>
             </div>
           </div>
-          <div class="row g-5 pb-4 overflow-hidden">
+          <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4 overflow-hidden">
             <template v-for="article in articles" :key="article.id">
               <div
               class="col-12 col-xl-4 col-lg-4 mx-2 mx-xl-0 mx-lg-0 mx-md-0"

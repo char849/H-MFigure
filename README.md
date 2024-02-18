@@ -86,5 +86,3 @@ npm run deploy
 ```bash
 npm run deploy
 ```
-
-（請記得將 `.env` 中的 `REPOSITORY_NAME` 改為你的專案名稱即可。）

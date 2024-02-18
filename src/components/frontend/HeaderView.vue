@@ -311,7 +311,7 @@
               <div
               class="col-12 col-xl-4 col-lg-4 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
             >
-              <div class="mt-6 card02 rounded-5 shadow bg-white">
+              <div class="mt-0 mt-md-6 mt-lg-6 mt-xl-6 card02 rounded-5 shadow bg-white">
                 <img
                 :src="article.image"
                   class="rounded-top-5 w-100"

@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-12 d-xl-flex d-lg-flex">
           <div class="col-12 col-xl-10 col-lg-10 pt-7 pb-6 py-xl-8 py-lg-8">
-            <div class="ms-3 ms-md-9">
+            <div class="ms-3 ms-xl-0 ms-lg-0 ms-md-0 ms-md-9">
                 <img
               src="/img/logo_white.png"
               alt="logo white"

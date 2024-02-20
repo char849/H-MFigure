@@ -1,0 +1,25 @@
+.OBJECTS03 {
+  background-image: url(/public/img/OBJECTS02.svg);
+  background-position: 0 15px;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+footer {
+  .link {
+    color: #828282;
+    text-decoration: none;
+  }
+  .box-bg08 {
+    top: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .OBJECTS03 {
+    background-image: url(/public/img/OBJECTS02.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+}

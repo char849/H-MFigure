@@ -14,7 +14,7 @@
             <div class="text-info">
               <p class="mb-2">本網站僅供個人作品使用，不提供商業用途</p>
               <p class="mb-2 d-none d-sm-block">
-                Copyright © 2020 by 手作模型館. All Rights Reserved.
+                Copyright © {{ new Date().getFullYear() }} by 手作模型館. All Rights Reserved.
               </p>
               <p class="mb-2 d-block d-sm-none">
                 Copyright © 2020 by 手作模型館. All Rights<br>Reserved.

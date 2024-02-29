@@ -37,7 +37,7 @@
             <li v-for="item in categories" :key="item">
               <RouterLink
                 class="btn btn-danger rounded-pill mx-2 px-5 py-2 mt-3 mt-xl-0 mt-lg-0 mt-md-0"
-                :to="`/products?category=${item}`"
+                :to="`/products?category=${item}&page=${currentPage}`"
                 >{{ item }}</RouterLink
               >
             </li>
@@ -108,6 +108,8 @@
               </div>
             </template>
           </div>
+          <!-- 分頁元件 -->
+  <PaginationComponent :pages="pagination" @emit-pages="getProducts" />
         </div>
       </div>
     </div>
@@ -115,6 +117,7 @@
 </template>
 
 <script setup>
+import PaginationComponent from '@/components/PaginationComponent.vue';
 import axios from 'axios';
 import {
   ref, onMounted, watchEffect, provide,
@@ -128,14 +131,15 @@ const route = useRoute();
 const products = ref([]);
 const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
 const favoriteList = ref([]);
+const pagination = ref({});
 
 const getProducts = () => {
-  console.log(route);
-  const { category = '' } = route.query;
+  const { category = '', page = 1 } = route.query;
   axios
-    .get(`${VITE_API}api/${VITE_PATH}/products?category=${category}`)
+    .get(`${VITE_API}api/${VITE_PATH}/products?category=${category}&page=${page}`)
     .then((res) => {
       products.value = res.data.products;
+      pagination.value = res.data.pagination;
     })
     .catch((err) => {
       alert(err.response.data.message);
@@ -157,8 +161,6 @@ const setFavorite = (id) => {
   } else {
     favoriteList.value.push(id);
   }
-  // const favoriteStr = JSON.stringify(favoriteList.value);
-  // localStorage.setItem('homeFavorite', '');
   localStorage.setItem('homeFavorite', JSON.stringify(favoriteList.value));
   getFavorite();
 };

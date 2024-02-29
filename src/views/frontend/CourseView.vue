@@ -106,7 +106,7 @@
 
 <script setup>
 import axios from 'axios';
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
@@ -117,7 +117,7 @@ const products = ref([]);
 const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
 
 const getProducts = () => {
-  console.log(route.value);
+  console.log(route);
   const { category = '' } = route.query;
   axios
     .get(`${VITE_API}api/${VITE_PATH}/products?category=${category}`)
@@ -133,13 +133,8 @@ onMounted(() => {
   getProducts();
 });
 
-watch(
-  route,
-  (to, from) => {
-    if (to.query !== from.query) {
-      getProducts();
-    }
-  },
-  { deep: true },
-);
+watchEffect(() => {
+  getProducts();
+});
+
 </script>

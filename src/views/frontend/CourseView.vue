@@ -132,11 +132,13 @@ const products = ref([]);
 const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
 const favoriteList = ref([]);
 const pagination = ref({});
+const currentPage = ref(1);
 
-const getProducts = () => {
-  const { category = '', page = 1 } = route.query;
+// eslint-disable-next-line no-shadow
+const getProducts = (currentPage = 1) => {
+  const { category = '' } = route.query;
   axios
-    .get(`${VITE_API}api/${VITE_PATH}/products?category=${category}&page=${page}`)
+    .get(`${VITE_API}api/${VITE_PATH}/products?category=${category}&page=${currentPage}`)
     .then((res) => {
       products.value = res.data.products;
       pagination.value = res.data.pagination;

@@ -387,7 +387,6 @@ const getArticles = () => {
   const api = `${VITE_API}api/${VITE_PATH}/articles`;
   axios.get(api).then((res) => {
     articles.value = res.data.articles;
-    console.log(res.data.articles);
   });
 };
 

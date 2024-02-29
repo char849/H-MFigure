@@ -3,7 +3,7 @@
     <div class="OBJECTS02">
       <div class="container">
         <div class="row">
-          <div class="col-12 text-dark mt-7">
+          <div class="col-12 text-dark mt-xl-7 mt-lg-7 mt-md-7">
             <div
               class="fw-bold title mt-5 mb-2 d-none d-md-block d-lg-block d-xl-block"
             >
@@ -15,24 +15,28 @@
             <div
               class="fw-bold title mt-5 mb-2 d-block d-md-none d-xl-none d-lg-none"
             >
-            模型課程
+              模型課程
               <div class="text-info fw-normal fs-5 d-md-none">
                 從選擇材料到創建精美模型的所有步驟
               </div>
             </div>
             <span class="text-info fs-4">Model Course</span>
           </div>
-          <ul class="col-12 nav nav-pills d-inline-flex justify-content-end">
+          <ul
+            class="col-12 mt-5 mt-xl-0 mt-lg-0 mt-md-0 nav nav-pills
+             d-inline-flex justify-content-center justify-content-xl-end
+              justify-content-lg-end justify-content-md-end"
+          >
             <ii
               ><RouterLink
-                class="btn btn-danger rounded-pill mx-2 px-5 py-2"
+                class="btn btn-danger rounded-pill mx-2 px-5 py-2 mt-3 mt-xl-0 mt-lg-0 mt-md-0"
                 to="/products"
                 >全部課程</RouterLink
               >
             </ii>
             <li v-for="item in categories" :key="item">
               <RouterLink
-                class="btn btn-danger rounded-pill mx-2 px-5 py-2"
+                class="btn btn-danger rounded-pill mx-2 px-5 py-2 mt-3 mt-xl-0 mt-lg-0 mt-md-0"
                 :to="`/products?category=${item}`"
                 >{{ item }}</RouterLink
               >
@@ -52,8 +56,8 @@
                   />
                   <div class="card-body position-relative">
                     <div
-                      class="rounded-pill bg-secondary fs-6
-                       px-3 py-1 text-white position-absolute category"
+                      class="rounded-pill bg-secondary fs-6 px-3 py-1
+                       text-white position-absolute category"
                     >
                       {{ product.category }}
                     </div>
@@ -102,7 +106,7 @@
 
 <script setup>
 import axios from 'axios';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
@@ -111,15 +115,6 @@ const route = useRoute();
 
 const products = ref([]);
 const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
-
-// watch(()=>{
-//   'route.query': {
-//     hanlder(){
-//       getProducts();
-//     },
-//     deep: true,
-//   },
-// });
 
 const getProducts = () => {
   console.log(route.value);
@@ -137,4 +132,14 @@ const getProducts = () => {
 onMounted(() => {
   getProducts();
 });
+
+watch(
+  route,
+  (to, from) => {
+    if (to.query !== from.query) {
+      getProducts();
+    }
+  },
+  { deep: true },
+);
 </script>

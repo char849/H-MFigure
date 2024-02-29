@@ -35,7 +35,7 @@
           class="navbar-nav ms-lg-0 ms-lg-0 ms-xl-7 ms-xxl-9 d-flex align-items-center fw-bold"
         >
           <li class="nav-item active mx-auto me-lg-5 me-xl-5">
-            <RouterLink class="nav-link" to="/course">模型課程</RouterLink>
+            <RouterLink class="nav-link" to="/products">模型課程</RouterLink>
           </li>
 
           <li class="nav-item mx-auto me-lg-5 me-xl-5">

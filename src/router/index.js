@@ -13,7 +13,7 @@ const routes = [
         component: () => import('../views/frontend/HomeView.vue'),
       },
       {
-        path: 'course',
+        path: 'products',
         name: '模型課程',
         component: () => import('../views/frontend/CourseView.vue'),
       },

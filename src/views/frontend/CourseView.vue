@@ -1,13 +1,140 @@
 <template>
-  <h1>This is About page.</h1>
-  <RouterLink to="/">Home</RouterLink> |
-  <RouterLink to="/about">About</RouterLink>
+  <section class="position-relative box-bg05 mb-7">
+    <div class="OBJECTS02">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-dark mt-7">
+            <div
+              class="fw-bold title mt-5 mb-2 d-none d-md-block d-lg-block d-xl-block"
+            >
+              模型課程
+              <span class="text-info fw-normal fs-5"
+                >從選擇材料到創建精美模型的所有步驟</span
+              >
+            </div>
+            <div
+              class="fw-bold title mt-5 mb-2 d-block d-md-none d-xl-none d-lg-none"
+            >
+            模型課程
+              <div class="text-info fw-normal fs-5 d-md-none">
+                從選擇材料到創建精美模型的所有步驟
+              </div>
+            </div>
+            <span class="text-info fs-4">Model Course</span>
+          </div>
+          <ul class="col-12 nav nav-pills d-inline-flex justify-content-end">
+            <ii
+              ><RouterLink
+                class="btn btn-danger rounded-pill mx-2 px-5 py-2"
+                to="/products"
+                >全部課程</RouterLink
+              >
+            </ii>
+            <li v-for="item in categories" :key="item">
+              <RouterLink
+                class="btn btn-danger rounded-pill mx-2 px-5 py-2"
+                :to="`/products?category=${item}`"
+                >{{ item }}</RouterLink
+              >
+            </li>
+          </ul>
+          <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4">
+            <template v-for="product in products" :key="product.id">
+              <div
+                class="col-12 col-xl-4 col-lg-4 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
+              >
+                <div class="card02 rounded-5 shadow bg-white">
+                  <img
+                    :src="product.imageUrl"
+                    class="rounded-top-5 w-100 object-fit-cover"
+                    height="250"
+                    alt="img04"
+                  />
+                  <div class="card-body position-relative">
+                    <div
+                      class="rounded-pill bg-secondary fs-6
+                       px-3 py-1 text-white position-absolute category"
+                    >
+                      {{ product.category }}
+                    </div>
+                    <h4 class="card-title pt-5 px-4">
+                      【 {{ product.title }} 】
+                    </h4>
+                    <div
+                      class="fs-5 card-text text-info px-5 pt-2"
+                      v-if="product.price === product.origin_price"
+                    >
+                      {{ product.price }} 元
+                    </div>
+                    <div v-else class="mt-3 d-flex">
+                      <del class="fs-5 ms-5 card-text text-info pt-2">
+                        原價 {{ product.origin_price }} 元</del
+                      >
+                      <p class="fs-5 card-text text-dark px-4 pt-2">
+                        現在只要 {{ product.price }} 元
+                      </p>
+                    </div>
+                    <div class="pb-7 pb-md-5 pb-lg-5 pb-xl-5 pt-6 d-flex">
+                      <div class="classBtn03 position-absolute">
+                        <button
+                          type="button"
+                          class="btn btn-danger rounded-pill ps-6 pe-4 py-2 w-100"
+                        >
+                          課程介紹
+                          <img
+                            src="/img/arrow-right-long.svg"
+                            class="ps-3 pb-1"
+                            alt="arrow-right"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
-<script>
-export default {
-};
-</script>
+<script setup>
+import axios from 'axios';
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
-<style scoped>
-</style>
+const { VITE_API, VITE_PATH } = import.meta.env;
+
+const route = useRoute();
+
+const products = ref([]);
+const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
+
+// watch(()=>{
+//   'route.query': {
+//     hanlder(){
+//       getProducts();
+//     },
+//     deep: true,
+//   },
+// });
+
+const getProducts = () => {
+  console.log(route.value);
+  const { category = '' } = route.query;
+  axios
+    .get(`${VITE_API}api/${VITE_PATH}/products?category=${category}`)
+    .then((res) => {
+      products.value = res.data.products;
+    })
+    .catch((err) => {
+      alert(err.response.data.message);
+    });
+};
+
+onMounted(() => {
+  getProducts();
+});
+</script>

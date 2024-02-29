@@ -23,9 +23,9 @@
             <span class="text-info fs-4">Model Course</span>
           </div>
           <ul
-            class="col-12 mt-5 mt-xl-0 mt-lg-0 mt-md-0 nav nav-pills
-             d-inline-flex justify-content-center justify-content-xl-end
-              justify-content-lg-end justify-content-md-end"
+            class="col-12 mt-5 mt-xl-0 mt-lg-0 mt-md-0 nav
+             nav-pills d-inline-flex justify-content-center
+              justify-content-xl-end justify-content-lg-end justify-content-md-end"
           >
             <ii
               ><RouterLink
@@ -56,14 +56,24 @@
                   />
                   <div class="card-body position-relative">
                     <div
-                      class="rounded-pill bg-secondary fs-6 px-3 py-1
-                       text-white position-absolute category"
+                      class="rounded-pill bg-secondary fs-6
+                       px-3 py-1 text-white position-absolute category"
                     >
                       {{ product.category }}
                     </div>
                     <h4 class="card-title pt-5 px-4">
                       【 {{ product.title }} 】
                     </h4>
+                    <!-- Favorite icon -->
+                    <div
+                      class="card_Favorite position-absolute"
+                      @click="setFavorite(product.id)"
+                    >
+                      <span v-if="favoriteList.includes(product.id)"
+                        ><i class="bi bi-heart-fill fs-4 text-danger"></i
+                      ></span>
+                      <span v-else><i class="bi bi-heart fs-4 text-danger"></i></span>
+                    </div>
                     <div
                       class="fs-5 card-text text-info px-5 pt-2"
                       v-if="product.price === product.origin_price"
@@ -106,7 +116,9 @@
 
 <script setup>
 import axios from 'axios';
-import { ref, onMounted, watchEffect } from 'vue';
+import {
+  ref, onMounted, watchEffect, provide,
+} from 'vue';
 import { useRoute } from 'vue-router';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
@@ -115,6 +127,7 @@ const route = useRoute();
 
 const products = ref([]);
 const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
+const favoriteList = ref([]);
 
 const getProducts = () => {
   console.log(route);
@@ -129,12 +142,34 @@ const getProducts = () => {
     });
 };
 
+const getFavorite = () => {
+  const favoriteListStr = localStorage.getItem('homeFavorite');
+  if (favoriteListStr) {
+    favoriteList.value = JSON.parse(favoriteListStr);
+  }
+};
+
+const setFavorite = (id) => {
+  // 查資料裡面，有沒有這個ID
+  if (favoriteList.value.includes(id)) {
+    const index = favoriteList.value.findIndex((item) => item === id);
+    favoriteList.value.splice(index, 1);
+  } else {
+    favoriteList.value.push(id);
+  }
+  // const favoriteStr = JSON.stringify(favoriteList.value);
+  // localStorage.setItem('homeFavorite', '');
+  localStorage.setItem('homeFavorite', JSON.stringify(favoriteList.value));
+  getFavorite();
+};
+
 onMounted(() => {
   getProducts();
+  getFavorite();
 });
 
 watchEffect(() => {
   getProducts();
 });
-
+provide('favoriteList', favoriteList);
 </script>

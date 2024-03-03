@@ -24,8 +24,13 @@ const routes = [
       },
       {
         path: 'order/:id',
+        name: '課程下訂',
+        component: () => import('../views/frontend/OrderView.vue'),
+      },
+      {
+        path: 'record',
         name: '訂單記錄',
-        component: () => import('../views/frontend/OrderRecord.vue'),
+        component: () => import('../views/frontend/RecordView.vue'),
       },
       {
         path: 'information',

@@ -213,7 +213,7 @@
                   v-model="form.message"
                 ></textarea>
               </div>
-              <div class="text-end">
+              <div class="text-end mb-0 mb-md-5">
                 <button
                   type="submit"
                   class="btn btn-danger rounded-pill my-2 my-md-3 my-xl-4 ps-6 pe-5 py-3"

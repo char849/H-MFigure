@@ -82,7 +82,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th style="width: 100px" class="ps-3">姓名</th>
+                    <th style="width: 200px" class="ps-3">姓名</th>
                     <td>{{ order.user.name }}</td>
                   </tr>
                   <tr>
@@ -121,9 +121,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th class="text-danger align-middle ps-3">訂單成立</th>
-
-                    <td class="py-3">
+                    <td colspan="2" class="text-center py-3">
                       <button
                         type="button"
                         class="btn btn-danger rounded-pill w-50 py-2"

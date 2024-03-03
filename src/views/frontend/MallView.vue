@@ -44,10 +44,10 @@
               <thead>
                 <tr>
                   <th></th>
-                  <th>品名</th>
+                  <th>課程名稱</th>
                   <th style="width: 130px">上課人數</th>
                   <th></th>
-                  <th class="text-center">單價</th>
+                  <th class="text-center">總價</th>
                 </tr>
               </thead>
               <tbody>
@@ -150,7 +150,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="name" class="form-label">收件人姓名</label>
+                <label for="name" class="form-label">同學姓名</label>
                 <VeeField
                   id="name"
                   name="姓名"
@@ -168,7 +168,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="tel" class="form-label">收件人電話</label>
+                <label for="tel" class="form-label">同學電話</label>
                 <VeeField
                   id="tel"
                   name="電話"
@@ -186,7 +186,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="address" class="form-label">收件人地址</label>
+                <label for="address" class="form-label">同學地址</label>
                 <VeeField
                   id="address"
                   name="地址"
@@ -202,7 +202,6 @@
                   class="invalid-feedback"
                 ></ErrorMessage>
               </div>
-
               <div class="mb-3">
                 <label for="message" class="form-label">留言</label>
                 <textarea

@@ -18,7 +18,8 @@
             列印、手工雕塑和模型上色的過程，還能夠在實踐中體會到手作藝術的樂趣和挑戰。歡迎您參加我們的模型館，一同探索這個豐富的實體製作之旅！
           </p>
           <div class="classBtn">
-            <button
+            <RouterLink
+              to="/products"
               type="button"
               class="btn btn-danger rounded-pill my-2 my-md-3 my-xl-5 ps-5 pe-4 py-3"
             >
@@ -28,7 +29,7 @@
                 class="ps-3"
                 alt="arrow-right"
               />
-            </button>
+            </RouterLink>
           </div>
         </div>
       </div>
@@ -190,7 +191,8 @@
           <div
             class="classBtn02 mb-6 ms-3 ms-xl-0 ms-lg-0 mt-md-4 mt-xl-0 mt-lg-0"
           >
-            <button
+            <RouterLink
+              to="/products"
               type="button"
               class="btn btn-danger rounded-pill my-2 my-md-3 my-xl-5 ps-6 pe-5 py-3"
             >
@@ -200,7 +202,7 @@
                 class="ps-3"
                 alt="arrow-right"
               />
-            </button>
+            </RouterLink>
           </div>
         </div>
       </div>
@@ -262,7 +264,8 @@
           </div>
           <div class="position-absolute box05">
             <div class="classBtn mb-7">
-              <button
+              <RouterLink
+                to="/products"
                 type="button"
                 class="btn btn-danger rounded-pill my-2 my-md-3 my-xl-5 ps-6 pe-5 py-3"
               >
@@ -272,7 +275,7 @@
                   class="ps-3"
                   alt="arrow-right"
                 />
-              </button>
+              </RouterLink>
             </div>
           </div>
         </div>

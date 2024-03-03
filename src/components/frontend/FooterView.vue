@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="col-12 col-xl-2 col-lg-2">
-            <div class="mb-7 mt-xl-10 mt-lg-10 text-secondary d-flex ms-3 ms-md-9">
+            <div class="mb-7 mt-xl-10 mt-lg-10 text-secondary d-flex ms-3 ms-md-0">
               <a href="https://www.instagram.com/explore/tags/%E6%BC%A2%E6%96%87%E5%B8%9D/" target="_blank"><img src="/img/instagram.svg" alt="instagram" class="me-2" /></a> |
               <a href="https://line.me/ti/p/XYcRD84KAR" target="_blank"><img src="/img/line.svg" alt="instagram"  class="mx-2" /></a> |
               <a href="https://www.facebook.com/search/top?q=%E6%BC%A2%E6%96%87%E5%B8%9D" target="_blank"><img src="/img/facebook.svg" alt="instagram" class="ms-2" /></a>

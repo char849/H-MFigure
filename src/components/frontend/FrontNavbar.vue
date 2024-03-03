@@ -22,12 +22,19 @@
         />
       </RouterLink>
 
-      <RouterLink class="nav-link me-4 mb-5 d-lg-none" to="/favorite">
+      <RouterLink class="nav-link me-4 mb-5 d-lg-none position-relative" to="/favorite">
         <img src="/img/heart.svg" alt="favorite" />
+        <span class="position-absolute top-0 start-100
+         translate-middle badge rounded-pill bg-danger">1</span>
       </RouterLink>
 
-      <RouterLink class="nav-link me-4 mb-5 d-lg-none text-dark" to="/mall">
+      <RouterLink
+        class="nav-link me-4 mb-5 d-lg-none text-dark position-relative" to="/mall">
         <img src="/img/bag-shopping.svg" alt="mall" />
+        <span class="position-absolute top-0 start-100
+         translate-middle badge rounded-pill bg-danger"
+         >
+         {{ carts.value ? carts.value.length : 0 }}</span>
       </RouterLink>
 
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -56,14 +63,19 @@
           </RouterLink>
 
           <li class="nav-item ms-3 d-none d-lg-block nav-link">
-            <RouterLink to="/favorite">
+            <RouterLink to="/favorite" class="position-relative">
               <img src="/img/heart.svg" alt="favorite" />
+              <span class="position-absolute top-0 start-100
+         translate-middle badge rounded-pill bg-danger">1</span>
             </RouterLink>
           </li>
 
           <li class="nav-item ms-6 d-none d-lg-block nav-link">
-            <RouterLink to="/mall">
+            <RouterLink to="/mall" class="position-relative">
               <img src="/img/bag-shopping.svg" alt="mall" />
+              <span class="position-absolute top-0 start-100
+         translate-middle badge rounded-pill bg-danger">
+         {{ carts.value ? carts.value.length : 0 }}</span>
             </RouterLink>
           </li>
         </ul>
@@ -73,9 +85,16 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+
+import { useCartStore } from '@/stores/cartStore';
+
+const cartStore = useCartStore();
+
+// …const carts = ref([]);
 
 const isNavbarOpen = ref(false);
+
 // 點擊事件處理函數
 const toggleNavbar = () => {
   isNavbarOpen.value = !isNavbarOpen.value;
@@ -85,4 +104,11 @@ const toggleNavbar = () => {
     document.getElementById('navbarIcon').src = '/img/bars.svg';
   }
 };
+
+const carts = computed(() => cartStore.cart);
+
+onMounted(() => {
+  cartStore.getCart();
+});
+
 </script>

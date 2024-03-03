@@ -15,10 +15,15 @@ const routes = [
       {
         path: 'products',
         name: '模型課程',
+        component: () => import('../views/frontend/CoursesView.vue'),
+      },
+      {
+        path: 'product/:id', // 單一產品 :動態的參數
+        name: '單一產品',
         component: () => import('../views/frontend/CourseView.vue'),
       },
       {
-        path: 'record',
+        path: 'order/:id',
         name: '訂單記錄',
         component: () => import('../views/frontend/OrderRecord.vue'),
       },
@@ -50,8 +55,8 @@ const routes = [
     component: () => import('../views/admin/DashboardView.vue'),
     children: [
       {
-        path: 'course',
-        component: () => import('../views/admin/AdminCourse.vue'),
+        path: 'courses',
+        component: () => import('../views/admin/AdminCourses.vue'),
       },
       {
         path: 'orders',

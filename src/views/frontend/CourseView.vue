@@ -1,179 +1,143 @@
 <template>
-  <section class="position-relative box-bg05 mb-7">
-    <div class="OBJECTS02">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-dark mt-xl-7 mt-lg-7 mt-md-7">
-            <div
-              class="fw-bold title mt-5 mb-2 d-none d-md-block d-lg-block d-xl-block"
-            >
-              模型課程
-              <span class="text-info fw-normal fs-5"
-                >從選擇材料到創建精美模型的所有步驟</span
-              >
-            </div>
-            <div
-              class="fw-bold title mt-5 mb-2 d-block d-md-none d-xl-none d-lg-none"
-            >
-              模型課程
-              <div class="text-info fw-normal fs-5 d-md-none">
-                從選擇材料到創建精美模型的所有步驟
+  <section class="box-bg01">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-dark mt-3 mt-xl-6 mt-md-4">
+          <div class="mx-auto text-center OBJECTS">
+            <div class="fw-bold title mb-0">課程介紹</div>
+            <span class="text-info fs-4">Course Introduction</span>
+          </div>
+        </div>
+        <div class="row g-6 class03 mx-auto">
+          <div class="col-12 col-lg-6">
+            <div class="d-flex flex-column">
+              <img
+                class="img-fluid w-100 align-self-end rounded-5"
+                :src="product.imageUrl"
+                alt="product"
+              />
+              <div class="bg-secondary p-4 p-md-5 price rounded-3">
+                <div class="fs_class text-primary mb-1">
+                  特價 ${{ product.price }}
+                </div>
+                <del class="fs-4 mb-0">原價 ${{ product.origin_price }}</del>
               </div>
             </div>
-            <span class="text-info fs-4">Model Course</span>
           </div>
-          <ul
-            class="col-12 mt-5 mt-xl-0 mt-lg-0 mt-md-0 nav
-             nav-pills d-inline-flex justify-content-center
-              justify-content-xl-end justify-content-lg-end justify-content-md-end"
-          >
-            <ii
-              ><RouterLink
-                class="btn btn-danger rounded-pill mx-2 px-5 py-2 mt-3 mt-xl-0 mt-lg-0 mt-md-0"
-                to="/products"
-                >全部課程</RouterLink
-              >
-            </ii>
-            <li v-for="item in categories" :key="item">
-              <RouterLink
-                class="btn btn-danger rounded-pill mx-2 px-5 py-2 mt-3 mt-xl-0 mt-lg-0 mt-md-0"
-                :to="`/products?category=${item}&page=${currentPage}`"
-                >{{ item }}</RouterLink
-              >
-            </li>
-          </ul>
-          <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4">
-            <template v-for="product in products" :key="product.id">
-              <div
-                class="col-12 col-xl-4 col-lg-4 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
-              >
-                <div class="card02 rounded-5 shadow bg-white">
-                  <img
-                    :src="product.imageUrl"
-                    class="rounded-top-5 w-100 object-fit-cover"
-                    height="250"
-                    alt="img04"
-                  />
-                  <div class="card-body position-relative">
-                    <div
-                      class="rounded-pill bg-secondary fs-6
-                       px-3 py-1 text-white position-absolute category"
+          <div class="col-12 col-lg-6">
+            <p
+              class="d-inline-block bg-secondary text-primary py-1 px-4 rounded-5"
+            >
+              {{ product.category }}
+            </p>
+            <h1 class="text-dark mb-4">{{ product.title }}</h1>
+            <p class="fs-5 fw-bold">課程內容</p>
+            <p>{{ product.content }}</p>
+            <p class="fs-5 fw-bold">注意事項</p>
+            <p class="mb-4">{{ product.description }}</p>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <p class="fs-5 fw-bold">課程資訊</p>
+                <p class="mb-0">課程難度：{{ product.level }}</p>
+                <p class="mb-0">課程時間：{{ product.time }}</p>
+                <p class="mb-0">課程時數：{{ product.hr }}</p>
+              </div>
+              <div class="col-md-6">
+                <p class="fs-5 fw-bold text-primary">.</p>
+                <p class="mb-0">上課人數：{{ product.people }}</p>
+                <p class="mb-0">一週天數：{{ product.week }}</p>
+                <p class="mb-0">上課地點：{{ product.location }}</p>
+              </div>
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="input-group my-2">
+                    <span
+                      class="fs-6 bg-danger text-white px-4 py-2 rounded-start"
+                      >人數</span
+                    ><select
+                      id=""
+                      class="form-select w-25 me-1 ps-5"
+                      v-model="qty"
                     >
-                      {{ product.category }}
-                    </div>
-                    <h4 class="card-title pt-5 px-4">
-                      【 {{ product.title }} 】
-                    </h4>
-                    <!-- Favorite icon -->
-                    <div
-                      class="card_Favorite position-absolute"
-                      @click="setFavorite(product.id)"
-                    >
-                      <span v-if="favoriteList.includes(product.id)"
-                        ><i class="bi bi-heart-fill fs-4 text-danger"></i
-                      ></span>
-                      <span v-else><i class="bi bi-heart fs-4 text-danger"></i></span>
-                    </div>
-                    <div
-                      class="fs-5 card-text text-info px-5 pt-2"
-                      v-if="product.price === product.origin_price"
-                    >
-                      {{ product.price }} 元
-                    </div>
-                    <div v-else class="mt-3 d-flex">
-                      <del class="fs-5 ms-5 card-text text-info pt-2">
-                        原價 {{ product.origin_price }} 元</del
+                      <option
+                        :value="num"
+                        v-for="num in 5"
+                        :key="`${num}-${id}`"
                       >
-                      <p class="fs-5 card-text text-dark px-4 pt-2">
-                        現在只要 {{ product.price }} 元
-                      </p>
-                    </div>
-                    <div class="pb-7 pb-md-5 pb-lg-5 pb-xl-5 pt-6 d-flex">
-                      <div class="classBtn03 position-absolute">
-                        <button
-                          type="button"
-                          class="btn btn-danger rounded-pill ps-6 pe-4 py-2 w-100"
-                        >
-                          課程介紹
-                          <img
-                            src="/img/arrow-right-long.svg"
-                            class="ps-3 pb-1"
-                            alt="arrow-right"
-                          />
-                        </button>
-                      </div>
-                    </div>
+                        {{ num }}
+                      </option>
+                    </select>
                   </div>
                 </div>
+                <div class="col-12 col-md-6">
+                  <button
+                    type="button"
+                    class="btn btn-danger rounded-pill ps-6 pe-5 py-3 orderBtn my-3 my-md-0"
+                    @click.prevent="addToCart(product.id, qty)"
+                  >
+                    加入預約清單
+                    <img
+                      src="/img/arrow-right-long.svg"
+                      class="ps-3"
+                      alt="arrow-right"
+                    />
+                  </button>
+                </div>
               </div>
-            </template>
+            </div>
           </div>
-          <!-- 分頁元件 -->
-  <PaginationComponent :pages="pagination" @emit-pages="getProducts" />
         </div>
       </div>
+    </div>
+    <div class="d-flex justify-content-end my-5">
+      <img src="/img/Object07.svg" class="box-bg08 pb-6" alt="Object08" />
     </div>
   </section>
 </template>
 
 <script setup>
-import PaginationComponent from '@/components/PaginationComponent.vue';
 import axios from 'axios';
-import {
-  ref, onMounted, watchEffect, provide,
-} from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
-
 const route = useRoute();
+const cartData = ref({ carts: [] });
+const { id } = route.params;
 
-const products = ref([]);
-const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
-const favoriteList = ref([]);
-const pagination = ref({});
-const currentPage = ref(1);
+const product = ref({});
+const qty = ref(1);
+// const cart = ref({});
 
-// eslint-disable-next-line no-shadow
-const getProducts = (currentPage = 1) => {
-  const { category = '' } = route.query;
+const getProduct = () => {
+  axios.get(`${VITE_API}api/${VITE_PATH}/product/${id}`).then((res) => {
+    // 將遠端資料取回
+    product.value = res.data.product;
+  });
+};
+
+const addToCart = (productId, quantity) => {
+  const existingItem = cartData.value.carts.find((item) => item.product.id === productId);
+  if (existingItem && existingItem.qty + quantity > 5) {
+    alert('同課程数量不能超過5人');
+    return;
+  }
+
+  // 加入購物車的資料格式
+  const data = {
+    product_id: productId,
+    qty: quantity,
+  };
   axios
-    .get(`${VITE_API}api/${VITE_PATH}/products?category=${category}&page=${currentPage}`)
+    .post(`${VITE_API}api/${VITE_PATH}/cart`, { data }) // 將資料格式帶入
     .then((res) => {
-      products.value = res.data.products;
-      pagination.value = res.data.pagination;
-    })
-    .catch((err) => {
-      alert(err.response.data.message);
+      console.log('己加入購物車', res);
+      alert('己加入購物車');
     });
 };
 
-const getFavorite = () => {
-  const favoriteListStr = localStorage.getItem('homeFavorite');
-  if (favoriteListStr) {
-    favoriteList.value = JSON.parse(favoriteListStr);
-  }
-};
-
-const setFavorite = (id) => {
-  // 查資料裡面，有沒有這個ID
-  if (favoriteList.value.includes(id)) {
-    const index = favoriteList.value.findIndex((item) => item === id);
-    favoriteList.value.splice(index, 1);
-  } else {
-    favoriteList.value.push(id);
-  }
-  localStorage.setItem('homeFavorite', JSON.stringify(favoriteList.value));
-  getFavorite();
-};
-
 onMounted(() => {
-  getProducts();
-  getFavorite();
+  getProduct();
 });
 
-watchEffect(() => {
-  getProducts();
-});
-provide('favoriteList', favoriteList);
 </script>

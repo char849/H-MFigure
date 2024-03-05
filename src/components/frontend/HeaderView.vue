@@ -311,6 +311,7 @@
               <span class="text-info fs-4">Exhibition Information</span>
             </div>
           </div>
+          <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
           <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4" data-aos="fade-up">
             <template v-for="(article, index) in articles" :key="article.id">
               <div
@@ -391,10 +392,13 @@ const { VITE_API, VITE_PATH } = import.meta.env;
 
 const intro = ref(null);
 const articles = ref([]);
+const isLoading = ref(false);
 
 const getArticles = () => {
   const api = `${VITE_API}api/${VITE_PATH}/articles`;
+  isLoading.value = true;
   axios.get(api).then((res) => {
+    isLoading.value = false;
     articles.value = res.data.articles;
   });
 };

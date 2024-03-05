@@ -1,6 +1,6 @@
 <!-- eslint-disable no-undef -->
 <template>
-  <header class="position-relative">
+  <header class="position-relative" data-aos="fade-left">
     <div class="container bgImg position-relative">
       <div class="card position-absolute translate-middle rounded-4 mx-auto">
         <div class="card-body mx-2 px-lg-3 px-xl-6">
@@ -50,7 +50,7 @@
       </span>
     </button>
   </header>
-  <section ref="intro" class="box-bg01" id="intro">
+  <section ref="intro" class="box-bg01" id="intro" data-aos="fade-up">
     <div class="container">
       <div class="row">
         <div class="col-12 text-dark mt-9">
@@ -152,7 +152,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-xl-5 col-lg-5">
+        <div class="col-12 col-xl-5 col-lg-5" data-aos="fade-left">
           <div
             class="d-xl-flex d-lg-flex d-md-flex class02 mx-3 mx-xl-0 mx-lg-0"
           >
@@ -207,7 +207,7 @@
         </div>
       </div>
     </div>
-    <div class="position-absolute bottom-0 end-0 box02">
+    <div class="position-absolute bottom-0 end-0 box02" data-aos="fade-right">
       <img
         src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-lee849/1708078812910.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=WDqRBe%2Fc8RQizFpMlpxxvQx1onemZjulQhFClO8n%2F7DBsyoEDJ7m9X5jrRXHQsetHeuXLbeB3ZHuzxnxpoaoxrtLC4y97yOVKV67KgUZ6OMH2TtEvf1xAwVS0Oem68ef19088KssynM0bgwXDn2FkKfuZeEhZP8xaUbJN0kl4tzcuCdivsYBvc5ZZkhv%2BvlZ92korkeFe2ABRctH9n1ko%2BHlS5YNF%2FeSNLs1x2qUCIRbAr%2Bsz1VOcHzyvdcqVsYqEItvmq4hRP326Lcv44ryWAHB42CMY6hi1yeS058tvtVeBP4ssnzJ53lBvL8oTY9Q7QYvdJgD%2FBeQ%2FZc3xjwVrA%3D%3D"
         alt="img"
@@ -219,6 +219,7 @@
         src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-lee849/1708079856450.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=khdvT%2BMv3vX2o9LxtAgnz0tOiDkMsFqr%2Fo0YuKYN06rBLtdd5AuIW%2BSIMyr0l1GYgLJQnS3466gvYlN2Twe0KIxB39c6XUViQyCC%2F9glgNsFKZrmvvsgLib1a2OlwVmYMXt8kU7qB0F72X57gvASn3EYENTMFF6ThThd9KrhOBhevX2uYmLI03PzIqAJPyNfopGmSaZ2mZw7ziyVcVhGNQC%2BCJidnhahXK6ONBZUmG7cGSajTQlWz9zNyivMztP0sThYSb1h00Bg9mPAKjCRYXdj4UMCjm%2BlrP7HBlECxyc6NyMwsGa09rjeUDUX2qWIcLoHtiAg0mRFfIhTWRkWng%3D%3D"
         alt="img02"
         class="img-fluid"
+        data-aos="fade-right"
       />
     </div>
     <div class="d-flex justify-content-start">
@@ -234,6 +235,7 @@
         <div class="col-12 col-xl-6 col-lg-6"></div>
         <div
           class="col-12 col-xl-6 col-lg-6 d-xl-flex d-lg-flex z-3 box04 position-relative"
+          data-aos="fade-right"
         >
           <div class="rounded-5 bg-white shadow mx-3 px-4 py-6 me-xl-3 me-lg-3">
             <div class="me-2 mt-1">
@@ -281,7 +283,7 @@
         </div>
       </div>
     </div>
-    <div class="position-absolute start-0 bottom-0 z-0 box-bg06">
+    <div class="position-absolute start-0 bottom-0 z-0 box-bg06"  data-aos="fade-left">
       <img
         src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-lee849/1708100545759.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=U8NiaqiGtIDhWAKovvHT3gQouMGl9pTovyDJQ%2F8m4zGn%2Fze1vmCXA5y9A82GwaXGEcm2V6CALCzF%2FbdlDEg1pnpGGQFV11gGNyQASYXsFSUuV0slTrzj%2F5dDXoQR26MwgbdSKAGajNcT3T4nq9dYjJq0DEORGwafUYNpWJYg3IiBRJgUHmW9jcouzQy4xfRvXwyw2qCkHHTV68rcgjeCmAHBVdS%2BwHyPF1l7xQ1SIqqD8FytA7%2Bqvef9v0zDDtCvlahveggu6EwBKQSaWtEKO66zMFR23vzr26U5e3IZvjDhM47O439%2BRuyadCFfTWHI1sKWEofbE4kE6Ub1SFjjrg%3D%3D"
         alt="box-bg06"
@@ -309,16 +311,18 @@
               <span class="text-info fs-4">Exhibition Information</span>
             </div>
           </div>
-          <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4 overflow-hidden">
-            <template v-for="article in articles" :key="article.id">
+          <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4" data-aos="fade-up">
+            <template v-for="(article, index) in articles" :key="article.id">
               <div
+              v-if="index < 3"
               class="col-12 col-xl-4 col-lg-4 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
             >
-              <div class="mt-0 mt-md-6 mt-lg-6 mt-xl-6 card02 rounded-5 shadow bg-white">
+              <div class="card02 rounded-5 shadow bg-white">
                 <img
                 :src="article.image"
-                  class="rounded-top-5 w-100"
+                  class="rounded-top-5 w-100 object-fit-cover"
                   alt="img04"
+                  height="280"
                 />
                 <div class="card-body position-relative">
                   <h4 class="card-title pt-5 px-4">【{{ article.title }}】</h4>
@@ -334,7 +338,8 @@
                       />{{ article.date }}</span
                     >
                     <div class="classBtn03 position-absolute">
-                      <button
+                      <RouterLink
+                        to="/information"
                         type="button"
                         class="btn btn-danger rounded-pill ps-6 pe-4 py-2 w-100"
                       >
@@ -344,7 +349,7 @@
                           class="ps-3 pb-1"
                           alt="arrow-right"
                         />
-                      </button>
+                      </RouterLink>
                     </div>
                   </div>
                 </div>
@@ -356,23 +361,24 @@
       </div>
     </div>
     <div class="col-12 d-flex position-relative">
-      <div class="d-flex justify-content-start">
-      <img src="/img/Object06.svg" class="box-bg07 pb-8" alt="Object06" />
+      <div class="d-flex justify-content-start" data-aos="fade-left">
+      <img src="/img/Object06.svg" class="box-bg07 pb-5" alt="Object06" />
+    </div>
+    <div class="d-flex ms-auto justify-content-end" data-aos="fade-right">
+      <img src="/img/Object07.svg" class="box-bg07 pb-5" alt="Object07" />
     </div>
     <div
             class="position-absolute infoBtn top-0"
           >
-            <button
+            <RouterLink
+              to="/information"
               type="button"
               class="btn btn-warning rounded-pill my-2 my-lg-5 my-md-4 my-xl-5 py-3
                px-8 text-dark"
             >
             更多展覽資訊
-            </button>
+            </RouterLink>
           </div>
-    <div class="d-flex ms-auto justify-content-end">
-      <img src="/img/Object07.svg" class="box-bg07 pb-8" alt="Object07" />
-    </div>
     </div>
   </section>
 </template>

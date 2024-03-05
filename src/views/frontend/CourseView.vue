@@ -8,15 +8,17 @@
             <span class="text-info fs-4">Course Introduction</span>
           </div>
         </div>
+        <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
         <div class="row g-6 class03 mx-auto">
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-6" data-aos="fade-left">
             <div class="d-flex flex-column">
               <img
                 class="img-fluid w-100 align-self-end rounded-5"
                 :src="product.imageUrl"
-                alt="product"
               />
-              <div class="bg-secondary p-4 p-md-5 price rounded-3">
+              <div class="bg-secondary p-4 p-md-5 price rounded-3"
+              data-aos="fade-left" data-aos-delay="400"
+               >
                 <div class="fs_class text-primary mb-1">
                   特價 ${{ product.price }}
                 </div>
@@ -24,7 +26,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-6" data-aos="fade-right">
             <p
               class="d-inline-block bg-secondary text-primary py-1 px-4 rounded-5"
             >
@@ -89,50 +91,49 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-end my-5">
+    <div class="d-flex justify-content-end my-5" data-aos="fade-right">
       <img src="/img/Object07.svg" class="box-bg08 pb-6" alt="Object08" />
     </div>
   </section>
 </template>
 
 <script setup>
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Swal from 'sweetalert2';
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
 const route = useRoute();
-const cartData = ref({ carts: [] });
+// const cartData = ref({ carts: [] });
 const { id } = route.params;
 
 const product = ref({});
 const qty = ref(1);
-// const cart = ref({});
+const isLoading = ref(false);
 
 const getProduct = () => {
+  isLoading.value = true;
   axios.get(`${VITE_API}api/${VITE_PATH}/product/${id}`).then((res) => {
     // 將遠端資料取回
+    isLoading.value = false;
     product.value = res.data.product;
   });
 };
 
 const addToCart = (productId, quantity) => {
-  const existingItem = cartData.value.carts.find((item) => item.product.id === productId);
-  if (existingItem && existingItem.qty + quantity > 5) {
-    alert('同課程数量不能超過5人');
-    return;
-  }
-
   // 加入購物車的資料格式
   const data = {
     product_id: productId,
     qty: quantity,
   };
+  isLoading.value = true;
   axios
     .post(`${VITE_API}api/${VITE_PATH}/cart`, { data }) // 將資料格式帶入
-    .then((res) => {
-      console.log('己加入購物車', res);
-      alert('己加入購物車');
+    .then(() => {
+      isLoading.value = false;
+      Swal.fire('己加入到課程清單');
     });
 };
 

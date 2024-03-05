@@ -1,6 +1,17 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import './assets/all.scss';
 import { createApp } from 'vue';
+
 import { createPinia } from 'pinia';
+
+import Loading from 'vue-loading-overlay';
+
+// eslint-disable-next-line import/no-extraneous-dependencies
+import AOS from 'aos';
+
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'aos/dist/aos.css';
+import 'vue-loading-overlay/dist/css/index.css';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {
@@ -37,12 +48,17 @@ configure({
 });
 // 設定預設語系
 setLocale('zh_TW');
+AOS.init({
+  duration: 1000,
+  once: true,
+});
 
 const app = createApp(App);
 
 const pinia = createPinia();
 app.use(pinia);
 app.use(router);
+
 // app.use(VueAxios, axios);
 app.config.globalProperties.$filters = {
   date,
@@ -51,4 +67,5 @@ app.config.globalProperties.$filters = {
 app.component('VeeForm', Form);
 app.component('VeeField', Field);
 app.component('ErrorMessage', ErrorMessage);
+app.component('VueLoading', Loading);
 app.mount('#app');

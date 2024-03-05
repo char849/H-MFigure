@@ -2,7 +2,8 @@
   <div class="container-fulid box-bg09">
     <template v-if="order.is_paid">
       <div class="container mt-5 mt-md-7 mb-5">
-        <ul class="row justify-content-center list-unstyled py-0 py-md-3 px-3">
+        <ul class="row justify-content-center list-unstyled py-0 py-md-3 px-3"
+        data-aos="fade-down">
           <li class="col-md-4">
             <div
               class="bg-info p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-dark"
@@ -25,14 +26,16 @@
             </div>
           </li>
         </ul>
-        <div class="col-12 text-dark mt-1 mt-md-4">
+        <div class="col-12 text-dark mt-1 mt-md-4" data-aos="zoom-in-down">
           <div class="mx-auto text-center OBJECTS04">
             <div class="fw-bold title mb-0">課程己完成付款</div>
             <span class="text-info fs-4">Complete Payment for Course</span>
+            <VueLoading :active="isLoading" :z-index="1060"
+     class="text-center" />
           </div>
         </div>
         <div class="row justify-content-center order mx-1">
-          <div class="col-12 col-md-8">
+          <div class="col-12 col-md-8" data-aos="fade-up">
             <div class="col-12">
               <h3 class="mb-3 text-success">訂單課程清單</h3>
               <table class="table">
@@ -140,7 +143,7 @@
     </template>
     <template v-else>
       <div class="container mt-5 mt-md-7 mb-5">
-        <ul class="row justify-content-center list-unstyled py-0 py-md-3 px-3">
+        <ul class="row justify-content-center list-unstyled py-0 py-md-3 px-3" data-aos="fade-down">
           <li class="col-md-4">
             <div
               class="bg-info p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-dark"
@@ -163,14 +166,16 @@
             </div>
           </li>
         </ul>
-        <div class="col-12 text-dark mt-1 mt-md-4">
+        <div class="col-12 text-dark mt-1 mt-md-4" data-aos="zoom-in-down">
           <div class="mx-auto text-center OBJECTS04">
             <div class="fw-bold title mb-0">實體課程下訂</div>
             <span class="text-info fs-4">Place an order for the course</span>
+            <VueLoading :active="isLoading" :z-index="1060"
+     class="text-center" />
           </div>
         </div>
         <div class="row justify-content-center order mx-1">
-          <div class="col-12 col-md-8">
+          <div class="col-12 col-md-8" data-aos="fade-up">
             <div class="col-12">
               <h3 class="mb-3 text-success">訂單課程清單</h3>
               <table class="table">
@@ -275,6 +280,8 @@
 </template>
 
 <script setup>
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Swal from 'sweetalert2';
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
@@ -283,17 +290,19 @@ const { VITE_API, VITE_PATH } = import.meta.env;
 const route = useRoute();
 const router = useRouter();
 const orderId = ref(null);
-// const is_paid = ref(false);
 
 const order = ref({
   user: {},
 });
+const isLoading = ref(false);
 
 const getOrder = () => {
+  isLoading.value = true;
   orderId.value = route.params.id;
   axios
     .get(`${VITE_API}api/${VITE_PATH}/order/${orderId.value}`)
     .then((res) => {
+      isLoading.value = false;
       if (res.data.success) {
         // eslint-disable-next-line no-shadow
         order.value = res.data.order;
@@ -303,16 +312,21 @@ const getOrder = () => {
       }
     })
     .catch((err) => {
+      isLoading.value = false;
       console.log(err.response);
     });
 };
 const pay = (id) => {
+  isLoading.value = true;
   axios
     .post(`${VITE_API}api/${VITE_PATH}/pay/${id}`)
     .then(() => {
+      Swal.fire('己完成付款');
+      isLoading.value = false;
       getOrder(id);
     })
     .catch((err) => {
+      isLoading.value = false;
       console.log(err);
     });
 };

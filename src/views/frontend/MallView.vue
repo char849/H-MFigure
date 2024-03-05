@@ -1,7 +1,7 @@
 <template>
   <div class="container-fulid box-bg09">
     <div class="container mt-6 mt-md-7 mb-6 mb-md-5" v-if="cartData.carts.length > 0">
-    <ul class="row justify-content-center list-unstyled py-3 px-3">
+    <ul class="row justify-content-center list-unstyled py-3 px-3" data-aos="fade-down">
       <li class="col-md-4">
         <div
           class="bg-danger p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-white"
@@ -20,14 +20,16 @@
         </div>
       </li>
     </ul>
-    <div class="col-12 text-dark mt-1 mt-md-4">
+    <div class="col-12 text-dark mt-1 mt-md-4" data-aos="fade-down">
       <div class="mx-auto text-center OBJECTS">
         <div class="fw-bold title mb-0">預約課程清單</div>
         <span class="text-info fs-4">Course Reservation List</span>
       </div>
     </div>
     <!-- 購物車列表 -->
-    <div class="row justify-content-center order mx-1">
+    <VueLoading :active="isLoading" :z-index="1060"
+     class="text-center" />
+    <div class="row justify-content-center order mx-1" data-aos="fade-up">
       <div class="col-12 col-md-8">
         <div class="col-12">
           <div class="text-end">
@@ -59,7 +61,7 @@
                       <button
                         type="button"
                         id="btn01"
-                        class="btn btn-outline-secondary btn-sm"
+                        class="btn btn-outline-danger btn-sm"
                         @click="removeCartItem(item.id)"
                         :disabled="isLoadingItem === item.id"
                       >
@@ -80,8 +82,8 @@
                       <div class="input-group input-group-sm">
                         <div class="input-group my-3">
                           <!-- <input min="1" type="number" class="form-control" /> -->
-                          <!-- 用select的型式規定使用者輸入的資料格式，數量10個，
-                           當前值 item.qty 跟 num 1-10的值一樣的話就選那個值
+                          <!-- 用select的型式規定使用者輸入的資料格式，數量5個，
+                           當前值 item.qty 跟 num 1-5的值一樣的話就選那個值
                            :key="`${num}-${item.id}`"這種寫法可以確保是唯一值 -->
                           <select
                             class="form-select"
@@ -105,7 +107,7 @@
                     </td>
                     <td></td>
                     <td class="text-end">
-                      {{ $filters.currency(item.total) }}
+                      NT ${{ $filters.currency(item.total) }}
                     </td>
                   </tr>
                 </template>
@@ -113,7 +115,7 @@
               <tfoot>
                 <tr>
                   <td colspan="4" class="text-end">總計</td>
-                  <td class="text-end">{{ $filters.currency(cartData.total) }}</td>
+                  <td class="text-end">NT ${{ $filters.currency(cartData.total) }}</td>
                 </tr>
               </tfoot>
             </table>
@@ -222,7 +224,7 @@
                     cartData.carts.length === 0
                   "
                 >
-                  送出訂單
+                  確定預約
                 </button>
               </div>
             </VeeForm>
@@ -235,13 +237,15 @@
     <h2 class="text-info">返回模型課程</h2>
     <p class="display-3 text-info my-4 mb-md-6">預約課程列表目前尚無課程!!!</p>
     <RouterLink to="/products" class="fs-5 btn btn-danger rounded-5 py-3 px-5">
-      去逛逛吧 !
+      課程介紹 !
     </RouterLink>
   </div>
   </div>
 </template>
 
 <script setup>
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Swal from 'sweetalert2';
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
@@ -250,7 +254,6 @@ const { VITE_API, VITE_PATH } = import.meta.env;
 const formRef = ref(null);
 
 const cartData = ref({ carts: [] });
-const products = ref([]);
 const orderId = ref('');
 const form = ref({
   user: {
@@ -263,50 +266,51 @@ const form = ref({
 });
 
 const router = useRouter();
+const isLoading = ref(false);
 
 const isPhone = (value) => {
   const phoneNumber = /(^09|\+?8869)\d{2}(-?\d{3}-?\d{3})$/;
   return phoneNumber.test(value) ? true : '需要正確的電話號碼';
 };
 
-const getProducts = () => {
-  axios
-    .get(`${VITE_API}api/${VITE_PATH}/products/all`)
-    .then((res) => {
-      products.value = res.data.products;
-    })
-    .catch((err) => {
-      alert(err.response.data.message);
-    });
-};
-
 const getCarts = () => {
+  isLoading.value = true;
   axios
     .get(`${VITE_API}api/${VITE_PATH}/cart`)
     .then((res) => {
       cartData.value = res.data.data;
+      isLoading.value = false;
     })
     .catch((err) => {
+      isLoading.value = false;
       alert(err.response.data.message);
     });
 };
 const removeCartItem = (id) => {
+  isLoading.value = true;
   axios
     .delete(`${VITE_API}/api/${VITE_PATH}/cart/${id}`)
     .then(() => {
+      isLoading.value = false;
       getCarts();
+      Swal.fire('己移除單一預約課程');
     })
     .catch((err) => {
+      isLoading.value = false;
       alert(err.response.data.message);
     });
 };
 const deleteAllCarts = () => {
+  isLoading.value = true;
   axios
     .delete(`${VITE_API}/api/${VITE_PATH}/carts`)
     .then(() => {
+      isLoading.value = false;
       getCarts();
+      Swal.fire('己清空所有預約課程');
     })
     .catch((err) => {
+      isLoading.value = false;
       alert(err.response.data.message);
     });
 };
@@ -315,34 +319,39 @@ const updateCartItem = (item) => {
     product_id: item.product_id, // 要用 product_id, 不能用id, 新增相同產品到購物車時需累加項目
     qty: item.qty,
   };
-
+  isLoading.value = true;
   axios
     .put(`${VITE_API}/api/${VITE_PATH}/cart/${item.id}`, { data })
     .then(() => {
+      isLoading.value = false;
       getCarts();
+      Swal.fire('己更改預約人數');
     })
     .catch((err) => {
+      isLoading.value = false;
       alert(err.response.data.message);
     });
 };
 const createOrder = () => {
+  isLoading.value = true;
   const order = form.value;
   axios
     .post(`${VITE_API}api/${VITE_PATH}/order`, { data: order })
     .then((res) => {
       orderId.value = res.data.orderId;
       router.push(`/order/${orderId.value}`);
-      console.log(orderId.value);
+      Swal.fire('己成功預約課程');
       formRef.value.resetForm();
+      isLoading.value = false;
       getCarts();
     })
     .catch((err) => {
+      isLoading.value = false;
       alert(err.response.data.message);
     });
 };
 
 onMounted(() => {
-  getProducts();
   getCarts();
 });
 </script>

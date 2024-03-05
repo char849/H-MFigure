@@ -3,7 +3,7 @@
     <div class="OBJECTS05">
       <div class="container">
         <div class="row">
-          <div class="col-12 text-dark mt-xl-7 mt-lg-7 mt-md-7">
+          <div class="col-12 text-dark mt-xl-7 mt-lg-7 mt-md-7" data-aos="fade-down">
             <div
               class="fw-bold title mt-5 mb-2 d-none d-md-block d-lg-block d-xl-block"
             >
@@ -26,6 +26,7 @@
             class="col-12 mt-5 mt-xl-0 mt-lg-0 mt-md-5 nav
              nav-pills d-inline-flex justify-content-center
               justify-content-xl-end justify-content-lg-end justify-content-md-center"
+              data-aos="fade-down"
           >
             <ii
               ><RouterLink
@@ -43,7 +44,9 @@
               >
             </li>
           </ul>
-          <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4 justify-content-center">
+          <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
+          <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4 justify-content-center"
+           data-aos="fade-up">
             <template v-for="product in products" :key="product.id">
               <div
                 class="col-12 col-xl-4 col-lg-5 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
@@ -120,9 +123,9 @@
 <script setup>
 import PaginationComponent from '@/components/PaginationComponent.vue';
 import axios from 'axios';
-import {
-  ref, onMounted, watchEffect, provide,
-} from 'vue';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Swal from 'sweetalert2';
+import { ref, onMounted, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
@@ -134,13 +137,16 @@ const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
 const favoriteList = ref([]);
 const pagination = ref({});
 const currentPage = ref(1);
+const isLoading = ref(false);
 
 // eslint-disable-next-line no-shadow
 const getProducts = (currentPage = 1) => {
   const { category = '' } = route.query;
+  isLoading.value = true;
   axios
     .get(`${VITE_API}api/${VITE_PATH}/products?category=${category}&page=${currentPage}`)
     .then((res) => {
+      isLoading.value = false;
       products.value = res.data.products;
       pagination.value = res.data.pagination;
     })
@@ -164,17 +170,17 @@ const setFavorite = (id) => {
   } else {
     favoriteList.value.push(id);
   }
+  Swal.fire('己加入收藏清單');
   localStorage.setItem('homeFavorite', JSON.stringify(favoriteList.value));
   getFavorite();
 };
 
 onMounted(() => {
-  getProducts();
   getFavorite();
 });
 
 watchEffect(() => {
   getProducts();
 });
-provide('favoriteList', favoriteList);
+// provide('favoriteList', favoriteList);
 </script>

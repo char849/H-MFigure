@@ -2,7 +2,7 @@
   <section class="box-bg01">
     <div class="container">
       <div class="row">
-        <div class="col-12 text-dark mt-3 mt-xl-6 mt-md-4">
+        <div class="col-12 text-dark mt-3 mt-xl-6 mt-md-4" data-aos="fade-down">
           <div class="mx-auto text-center OBJECTS">
             <div class="fw-bold title mb-0">課程介紹</div>
             <span class="text-info fs-4">Course Introduction</span>

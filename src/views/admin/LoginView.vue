@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row g-2 justify-content-center OBJECTS06">
       <div class="col-12 col-md-4 text-center">
-        <h2 class="pb-5 pt-9">後台登入頁面</h2>
-        <form class="form-signin" @submit.prevent="login">
+        <h1 class="pb-5 pt-9 text-dark fw-bold">後台登入頁面</h1>
+        <form @submit.prevent="login">
           <div class="form-floating">
             <input
               type="email"

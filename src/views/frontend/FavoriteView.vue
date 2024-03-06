@@ -1,5 +1,6 @@
 <template>
   <section class="position-relative box-bg05 mb-7">
+    <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
     <div class="OBJECTS05" v-if="filterProducts.length > 0">
       <div class="container">
         <div class="row">
@@ -25,7 +26,6 @@
             </div>
             <span class="text-info fs-4">Course Collection</span>
           </div>
-          <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
           <div
             class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-7 mx-auto justify-content-center"
             data-aos="fade-up"

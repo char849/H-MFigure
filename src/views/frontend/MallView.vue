@@ -1,5 +1,7 @@
 <template>
   <div class="container-fulid box-bg09">
+    <VueLoading :active="isLoading" :z-index="1060"
+     class="text-center" />
     <div class="container mt-6 mt-md-7 mb-6 mb-md-5" v-if="cartData.carts.length > 0">
     <ul class="row justify-content-center list-unstyled py-3 px-3" data-aos="fade-down">
       <li class="col-md-4">
@@ -27,8 +29,6 @@
       </div>
     </div>
     <!-- 購物車列表 -->
-    <VueLoading :active="isLoading" :z-index="1060"
-     class="text-center" />
     <div class="row justify-content-center order mx-1" data-aos="fade-up">
       <div class="col-12 col-md-8">
         <div class="col-12">
@@ -65,12 +65,7 @@
                         @click="removeCartItem(item.id)"
                         :disabled="isLoadingItem === item.id"
                       >
-                        <font-awesome-icon
-                          icon="spinner"
-                          pulse
-                          v-if="isLoadingItem === item.id"
-                        />
-                        x
+                        <i class="bi bi-x fs-5"></i>
                       </button>
                     </td>
 
@@ -267,6 +262,7 @@ const form = ref({
 
 const router = useRouter();
 const isLoading = ref(false);
+const isLoadingItem = ref('');
 
 const isPhone = (value) => {
   const phoneNumber = /(^09|\+?8869)\d{2}(-?\d{3}-?\d{3})$/;
@@ -287,12 +283,15 @@ const getCarts = () => {
     });
 };
 const removeCartItem = (id) => {
+  isLoadingItem.value = id;
   isLoading.value = true;
   axios
     .delete(`${VITE_API}/api/${VITE_PATH}/cart/${id}`)
     .then(() => {
       isLoading.value = false;
       getCarts();
+      // 讀取完後，清空id
+      isLoadingItem.value = '';
       Swal.fire('己移除單一預約課程');
     })
     .catch((err) => {
@@ -320,11 +319,13 @@ const updateCartItem = (item) => {
     qty: item.qty,
   };
   isLoading.value = true;
+  isLoadingItem.value = item.id;
   axios
     .put(`${VITE_API}/api/${VITE_PATH}/cart/${item.id}`, { data })
     .then(() => {
       isLoading.value = false;
       getCarts();
+      isLoadingItem.value = '';
       Swal.fire('己更改預約人數');
     })
     .catch((err) => {

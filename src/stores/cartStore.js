@@ -40,7 +40,7 @@ export function useCartStore() {
   };
 }
 
-export default function useCartStoreComposition() {
+export function useCartStoreComposition() {
   const {
     cart, finalTotal, total, getCart,
   } = useCartStore();

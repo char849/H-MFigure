@@ -25,7 +25,8 @@
       <RouterLink class="nav-link me-4 mb-5 d-lg-none position-relative" to="/favorite">
         <img src="/img/heart.svg" alt="favorite" />
         <span class="position-absolute top-0 start-100
-         translate-middle badge rounded-pill bg-danger">1</span>
+         translate-middle badge rounded-pill bg-danger">
+        1</span>
       </RouterLink>
 
       <RouterLink
@@ -34,7 +35,7 @@
         <span class="position-absolute top-0 start-100
          translate-middle badge rounded-pill bg-danger"
          >
-         {{ carts.value ? carts.value.length : 0 }}</span>
+         {{ cart?.length }}</span>
       </RouterLink>
 
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -66,7 +67,8 @@
             <RouterLink to="/favorite" class="position-relative">
               <img src="/img/heart.svg" alt="favorite" />
               <span class="position-absolute top-0 start-100
-         translate-middle badge rounded-pill bg-danger">1</span>
+         translate-middle badge rounded-pill bg-danger">
+        1</span>
             </RouterLink>
           </li>
 
@@ -75,7 +77,7 @@
               <img src="/img/bag-shopping.svg" alt="mall" />
               <span class="position-absolute top-0 start-100
          translate-middle badge rounded-pill bg-danger">
-         {{ carts.value ? carts.value.length : 0 }}</span>
+        {{ cart?.length }}</span>
             </RouterLink>
           </li>
         </ul>
@@ -85,16 +87,24 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { useCartStoreComposition } from '@/stores/cartStore';
 
-import { useCartStore } from '@/stores/cartStore';
+import {
+  ref, onMounted, watchEffect,
+} from 'vue';
 
-const cartStore = useCartStore();
-
-// …const carts = ref([]);
+const { cart, getCart } = useCartStoreComposition();
 
 const isNavbarOpen = ref(false);
 
+const cartsLength = ref(0);
+const favoriteList = ref([]);
+
+watchEffect(() => {
+  if (cart) {
+    cartsLength.value = cart.length;
+  }
+});
 // 點擊事件處理函數
 const toggleNavbar = () => {
   isNavbarOpen.value = !isNavbarOpen.value;
@@ -105,10 +115,17 @@ const toggleNavbar = () => {
   }
 };
 
-const carts = computed(() => cartStore.cart);
+const getFavorite = () => {
+  const favoriteListStr = localStorage.getItem('homeFavorite');
+  if (favoriteListStr) {
+    favoriteList.value = JSON.parse(favoriteListStr);
+  }
+  console.log(favoriteList.value);
+};
 
 onMounted(() => {
-  cartStore.getCart();
+  getFavorite();
+  getCart();
 });
 
 </script>

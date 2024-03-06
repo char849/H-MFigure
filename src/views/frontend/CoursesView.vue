@@ -28,14 +28,14 @@
               justify-content-xl-end justify-content-lg-end justify-content-md-center"
               data-aos="fade-down"
           >
-            <ii
+            <li
               ><RouterLink
                 class="btn btn-danger rounded-pill mx-2 px-5 py-2 mt-3 mt-xl-0 mt-lg-0
                  mt-md-0 my-md-4"
                 to="/products"
                 >全部課程</RouterLink
               >
-            </ii>
+            </li>
             <li v-for="item in categories" :key="item">
               <RouterLink
                 class="btn btn-danger rounded-pill mx-2 px-5 py-2 mt-3 mt-xl-0 mt-lg-0 mt-md-0"
@@ -122,10 +122,15 @@
 
 <script setup>
 import PaginationComponent from '@/components/PaginationComponent.vue';
+
 import axios from 'axios';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
-import { ref, onMounted, watchEffect } from 'vue';
+
+import {
+  ref, onMounted, watchEffect,
+} from 'vue';
+
 import { useRoute } from 'vue-router';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
@@ -167,10 +172,11 @@ const setFavorite = (id) => {
   if (favoriteList.value.includes(id)) {
     const index = favoriteList.value.findIndex((item) => item === id);
     favoriteList.value.splice(index, 1);
+    Swal.fire('己移除收藏清單');
   } else {
     favoriteList.value.push(id);
+    Swal.fire('己加入收藏清單');
   }
-  Swal.fire('己加入收藏清單');
   localStorage.setItem('homeFavorite', JSON.stringify(favoriteList.value));
   getFavorite();
 };
@@ -182,5 +188,5 @@ onMounted(() => {
 watchEffect(() => {
   getProducts();
 });
-// provide('favoriteList', favoriteList);
+
 </script>

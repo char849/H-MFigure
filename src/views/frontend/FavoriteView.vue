@@ -110,7 +110,7 @@
         to="/products"
         class="fs-5 btn btn-danger rounded-5 py-3 px-5"
       >
-        課程介紹 !
+        課程介紹 !!
       </RouterLink>
     </div>
   </section>

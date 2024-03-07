@@ -19,7 +19,7 @@
               <p class="mb-2 d-block d-sm-none">
                 Copyright © 2020 by 手作模型館. All Rights<br>Reserved.
               </p>
-              <div class="d-flex">
+              <div class="d-flex d-none d-md-block">
                 <div class="pe-1"><img src="/img/cog.svg" alt="" /></div>
                 <RouterLink to="/login" class="link">後台管理</RouterLink>
               </div>

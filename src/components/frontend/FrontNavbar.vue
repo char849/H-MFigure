@@ -7,9 +7,6 @@
         @click="toggleNavbar"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
       >
         <img src="/img/bars.svg" id="navbarIcon" alt="bars" />
       </button>
@@ -43,15 +40,15 @@
           class="navbar-nav ms-lg-0 ms-lg-0 ms-xl-7 ms-xxl-9 d-flex align-items-center fw-bold"
         >
           <li class="nav-item active mx-auto me-lg-5 me-xl-5">
-            <RouterLink class="nav-link" to="/products">模型課程</RouterLink>
+            <RouterLink class="nav-link" to="/products" >模型課程</RouterLink>
           </li>
 
           <li class="nav-item mx-auto me-lg-5 me-xl-5">
-            <RouterLink class="nav-link" to="/record">訂單記錄</RouterLink>
+            <RouterLink class="nav-link" to="/record" >訂單記錄</RouterLink>
           </li>
 
           <li class="nav-item mx-auto me-lg-4 me-xl-4">
-            <RouterLink class="nav-link" to="/information">展覽資訊</RouterLink>
+            <RouterLink class="nav-link" to="/information" >展覽資訊</RouterLink>
           </li>
 
           <RouterLink class="navbar-brand d-none d-lg-block" to="/">
@@ -87,6 +84,7 @@
 </template>
 
 <script setup>
+
 import { useCartStoreComposition } from '@/stores/cartStore';
 
 import {

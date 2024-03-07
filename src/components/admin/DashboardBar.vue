@@ -2,9 +2,9 @@
   <nav
     class="navbar navbar-expand-lg fixed-top navbar-light text-success fw-bold"
   >
-    <div class="container-fluid">
+    <div class="container-fluid" :class="{ open: isNavbarOpen }">
       <RouterLink class="navbar-brand mt-0" to="/admin/products">後台首頁</RouterLink>
-      <button class="navbar-toggler" type="button" @click="toggleNavHam">
+      <button class="navbar-toggler" type="button" @click="toggleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" ref="collapse">
@@ -13,7 +13,6 @@
             <RouterLink
               class="nav-link"
               to="/admin/products"
-              @click="closeNavHam"
               >後台產品列表</RouterLink
             >
           </li>
@@ -22,7 +21,6 @@
             <RouterLink
               class="nav-link"
               to="/admin/orders"
-              @click="closeNavHam"
               >後台訂單列表</RouterLink
             >
           </li>
@@ -43,12 +41,14 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { ref } from 'vue';
 
 import { useRouter } from 'vue-router';
 
 const { VITE_API } = import.meta.env;
 
 const router = useRouter();
+const isNavbarOpen = ref(false);
 
 const logout = () => {
   const api = `${VITE_API}/logout`;

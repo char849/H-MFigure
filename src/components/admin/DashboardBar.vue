@@ -1,34 +1,73 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav
+    class="navbar navbar-expand-lg fixed-top navbar-light text-success fw-bold"
+  >
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <RouterLink class="navbar-brand mt-0" to="/admin/products">後台首頁</RouterLink>
+      <button class="navbar-toggler" type="button" @click="toggleNavHam">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+      <div class="collapse navbar-collapse" ref="collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <RouterLink
+              class="nav-link"
+              to="/admin/products"
+              @click="closeNavHam"
+              >後台產品列表</RouterLink
+            >
+          </li>
+
+          <li class="nav-item">
+            <RouterLink
+              class="nav-link"
+              to="/admin/orders"
+              @click="closeNavHam"
+              >後台訂單列表</RouterLink
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            <a
+              href="#"
+              class="nav-link"
+              @click.prevent="logout"
+              >登出</a
+            >
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
+<script setup>
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Swal from 'sweetalert2';
+import axios from 'axios';
+
+import { useRouter } from 'vue-router';
+
+const { VITE_API } = import.meta.env;
+
+const router = useRouter();
+
+const logout = () => {
+  const api = `${VITE_API}/logout`;
+  axios
+    .post(api)
+    .then((res) => {
+      if (res.data.success) {
+        router.push('/login');
+        Swal.value(res.data.message);
+      }
+    })
+    .catch((err) => {
+      if (err.response && err.response.data) {
+      // Access error response data if available
+        Swal.fire(err.response.data.message);
+      } else {
+      // Handle other types of errors
+        Swal.fire('己成功登出');
+      }
+    });
+};
+</script>

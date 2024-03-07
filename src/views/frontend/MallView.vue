@@ -42,14 +42,14 @@
               清空預約課程
             </button>
           </div>
-          <table class="table align-middle">
+            <table class="table align-middle">
               <thead>
                 <tr>
                   <th></th>
-                  <th>課程名稱</th>
-                  <th style="width: 130px">上課人數</th>
+                  <th class="class_w">課程名稱</th>
+                  <th>上課人數 / 位</th>
                   <th></th>
-                  <th class="text-center">總價</th>
+                  <th class="text-end">單價</th>
                 </tr>
               </thead>
               <tbody>
@@ -65,7 +65,7 @@
                         @click="removeCartItem(item.id)"
                         :disabled="isLoadingItem === item.id"
                       >
-                        <i class="bi bi-x fs-5"></i>
+                        <i class="bi bi-x fs-6 fs-md-5"></i>
                       </button>
                     </td>
 
@@ -81,7 +81,7 @@
                            當前值 item.qty 跟 num 1-5的值一樣的話就選那個值
                            :key="`${num}-${item.id}`"這種寫法可以確保是唯一值 -->
                           <select
-                            class="form-select"
+                            class="form-select rounded-end"
                             v-model="item.qty"
                             @change="updateCartItem(item)"
                             :disabled="isLoadingItem === item.id"
@@ -94,23 +94,20 @@
                               {{ num }}
                             </option>
                           </select>
-                          <span class="input-group-text" id="basic-addon2">{{
-                            item.product.unit
-                          }}</span>
                         </div>
                       </div>
                     </td>
                     <td></td>
                     <td class="text-end">
-                      NT ${{ $filters.currency(item.total) }}
+                      ${{ $filters.currency(item.total) }}
                     </td>
                   </tr>
                 </template>
               </tbody>
               <tfoot>
                 <tr>
-                  <td colspan="4" class="text-end">總計</td>
-                  <td class="text-end">NT ${{ $filters.currency(cartData.total) }}</td>
+                  <td colspan="4" class="text-end fw-bold">總計</td>
+                  <td class="text-end">${{ $filters.currency(cartData.total) }}</td>
                 </tr>
               </tfoot>
             </table>

@@ -18,6 +18,7 @@
   }
 
 
+
 @media (max-width: 414px) {
     .OBJECTS {
     background-image: url(/public/img/OBJECTS.svg);
@@ -29,4 +30,8 @@
     .order {
         margin-top: -170px !important;
     }
+    .class_w {
+      width: 50%;
+    }
+    
 }

@@ -106,7 +106,6 @@ import { useRoute } from 'vue-router';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
 const route = useRoute();
-// const cartData = ref({ carts: [] });
 const { id } = route.params;
 
 const product = ref({});

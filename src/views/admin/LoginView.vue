@@ -47,6 +47,9 @@
 <script setup>
 import axios from 'axios';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Swal from 'sweetalert2';
+
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -55,19 +58,22 @@ const { VITE_API } = import.meta.env;
 const router = useRouter();
 
 const user = ref({});
+const isLoading = ref(false);
 
 const login = () => {
   const api = `${VITE_API}admin/signin`;
+  isLoading.value = true;
   axios
     .post(api, user.value)
     .then((res) => {
       const { token, expired } = res.data;
-      console.log(token, expired);
       document.cookie = `hexToken=${token};expires=${new Date(expired)}`;
+      isLoading.value = false;
       router.push('/admin/products');
     })
     .catch((err) => {
-      alert(err.response.data.message);
+      isLoading.value = false;
+      Swal.value(err.response.data.message);
     });
 };
 </script>

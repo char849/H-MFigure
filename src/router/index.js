@@ -60,7 +60,7 @@ const routes = [
     component: () => import('../views/admin/DashboardView.vue'),
     children: [
       {
-        path: 'courses',
+        path: 'products',
         component: () => import('../views/admin/AdminCourses.vue'),
       },
       {
@@ -77,8 +77,15 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  linkActiveClass: 'active',
+  linkActiveClass: 'text-navActive',
   routes,
+
+  scrollBehavior() {
+    return {
+      top: 0,
+      behavior: 'smooth',
+    };
+  },
 });
 
 export default router;

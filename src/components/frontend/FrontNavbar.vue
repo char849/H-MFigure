@@ -26,7 +26,7 @@
         <img src="/img/heart.svg" alt="favorite" />
         <span class="position-absolute top-0 start-100
          translate-middle badge rounded-pill bg-danger">
-        1</span>
+         {{ favoriteList.length }}</span>
       </RouterLink>
 
       <RouterLink
@@ -35,7 +35,7 @@
         <span class="position-absolute top-0 start-100
          translate-middle badge rounded-pill bg-danger"
          >
-         {{ cart?.length }}</span>
+         {{ cartsLength }}</span>
       </RouterLink>
 
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -68,7 +68,7 @@
               <img src="/img/heart.svg" alt="favorite" />
               <span class="position-absolute top-0 start-100
          translate-middle badge rounded-pill bg-danger">
-        1</span>
+        {{ favoriteList.length }}</span>
             </RouterLink>
           </li>
 
@@ -77,7 +77,7 @@
               <img src="/img/bag-shopping.svg" alt="mall" />
               <span class="position-absolute top-0 start-100
          translate-middle badge rounded-pill bg-danger">
-        {{ cart?.length }}</span>
+        {{ cartsLength }}</span>
             </RouterLink>
           </li>
         </ul>
@@ -90,7 +90,7 @@
 import { useCartStoreComposition } from '@/stores/cartStore';
 
 import {
-  ref, onMounted, watchEffect,
+  ref, onMounted, watch,
 } from 'vue';
 
 const { cart, getCart } = useCartStoreComposition();
@@ -100,11 +100,12 @@ const isNavbarOpen = ref(false);
 const cartsLength = ref(0);
 const favoriteList = ref([]);
 
-watchEffect(() => {
-  if (cart) {
-    cartsLength.value = cart.length;
-  }
+watch(cart, (newCart) => {
+  console.log('Cart changed:', newCart);
+  cartsLength.value = newCart.length;
+  console.log('cartsLength updated:', cartsLength.value);
 });
+
 // 點擊事件處理函數
 const toggleNavbar = () => {
   isNavbarOpen.value = !isNavbarOpen.value;

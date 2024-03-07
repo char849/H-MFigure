@@ -1,10 +1,13 @@
 <template>
   <DashboardBar />
-  <RouterView v-if="status" />
+  <RouterView  v-if="status" />
 </template>
 
 <script setup>
 import axios from 'axios';
+
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Swal from 'sweetalert2';
 
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -20,15 +23,17 @@ const init = () => {
     /(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,
     '$1',
   );
-  this.$http.defaults.headers.common.Authorization = `${token}`;
+  axios.defaults.headers.common.Authorization = `${token}`;
   const api = `${VITE_API}api/user/check`;
   axios
     .post(api)
     .then(() => {
       status.value = true;
+      Swal.fire('己成功登入');
     })
-    .catch(() => {
+    .catch((err) => {
       router.push('/login');
+      Swal.fire(err.response.data.message);
     });
 };
 init();

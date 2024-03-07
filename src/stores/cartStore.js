@@ -13,6 +13,7 @@ export function useCartStore() {
     axios.get(`${VITE_API}api/${VITE_PATH}/cart`)
       .then((res) => {
         cart.value = res.data.data.carts;
+        cart.push(...res.data.data.carts);
         finalTotal.value = res.data.data.final_total;
         total.value = res.data.data.total;
         console.log('pina cart', cart.value);

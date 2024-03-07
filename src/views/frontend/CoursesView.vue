@@ -159,7 +159,6 @@ const getProducts = (currentPage = 1) => {
       alert(err.response.data.message);
     });
 };
-
 const getFavorite = () => {
   const favoriteListStr = localStorage.getItem('homeFavorite');
   if (favoriteListStr) {

@@ -86,6 +86,7 @@
 <script setup>
 
 import { useCartStoreComposition } from '@/stores/cartStore';
+import { useFavoritesStore } from '@/stores/favoritesStore';
 
 import {
   ref, onMounted, watch,
@@ -96,7 +97,7 @@ const { cart, getCart } = useCartStoreComposition();
 const isNavbarOpen = ref(false);
 
 const cartsLength = ref(0);
-const favoriteList = ref([]);
+const { favoriteList } = useFavoritesStore();
 
 watch(cart, (newCart) => {
   console.log('Cart changed:', newCart);

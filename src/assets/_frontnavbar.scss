@@ -14,6 +14,7 @@
 }
 
 
+
 @media (max-width: 991px) {  
   .navbar-brand {
     margin-top: 0 !important;
@@ -24,7 +25,10 @@
   }
   .navbar-brand {
     padding-top: 0 !important;
-  }  
+  } 
+  .navbar-nav {
+    background-color: $primary;  
+  } 
 
    
   

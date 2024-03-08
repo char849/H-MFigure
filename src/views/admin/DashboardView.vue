@@ -29,7 +29,6 @@ const init = () => {
     .post(api)
     .then(() => {
       status.value = true;
-      Swal.fire('己成功登入');
     })
     .catch((err) => {
       router.push('/login');

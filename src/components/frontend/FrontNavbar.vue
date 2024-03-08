@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-light sticky-top">
-    <div class="container" :class="{ open: isNavbarOpen }">
+    <div class="container" :class="{ 'open': isNavbarOpen, 'close': !isNavbarOpen }">
       <button
         class="navbar-toggler mb-5"
         type="button"
@@ -35,20 +35,22 @@
          {{ cartsLength }}</span>
       </RouterLink>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav" ref="collapseRef"
+       >
         <ul
           class="navbar-nav ms-lg-0 ms-lg-0 ms-xl-7 ms-xxl-9 d-flex align-items-center fw-bold"
         >
           <li class="nav-item active mx-auto me-lg-5 me-xl-5">
-            <RouterLink class="nav-link" to="/products" >模型課程</RouterLink>
+            <RouterLink class="nav-link" to="/products"
+             @click="toggleNavHam">模型課程</RouterLink>
           </li>
 
           <li class="nav-item mx-auto me-lg-5 me-xl-5">
-            <RouterLink class="nav-link" to="/record" >訂單記錄</RouterLink>
+            <RouterLink class="nav-link" to="/record" @click="toggleNavHam">訂單記錄</RouterLink>
           </li>
 
           <li class="nav-item mx-auto me-lg-4 me-xl-4">
-            <RouterLink class="nav-link" to="/information" >展覽資訊</RouterLink>
+            <RouterLink class="nav-link" to="/information" @click="toggleNavHam">展覽資訊</RouterLink>
           </li>
 
           <RouterLink class="navbar-brand d-none d-lg-block" to="/">
@@ -87,14 +89,18 @@
 
 import { useCartStoreComposition } from '@/stores/cartStore';
 import { useFavoritesStore } from '@/stores/favoritesStore';
-
 import {
   ref, onMounted, watch,
 } from 'vue';
 
+import useCollapse from '@/mixins/mixins';
+
+const { toggleNavHam } = useCollapse();
+
 const { cart, getCart } = useCartStoreComposition();
 
 const isNavbarOpen = ref(false);
+const collapseRef = ref();
 
 const cartsLength = ref(0);
 const { favoriteList } = useFavoritesStore();
@@ -113,6 +119,7 @@ const toggleNavbar = () => {
   } else {
     document.getElementById('navbarIcon').src = '/img/bars.svg';
   }
+  toggleNavHam();
 };
 
 const getFavorite = () => {

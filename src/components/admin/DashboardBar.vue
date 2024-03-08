@@ -2,17 +2,21 @@
   <nav
     class="navbar navbar-expand-lg fixed-top navbar-light text-success fw-bold"
   >
-    <div class="container-fluid" :class="{ open: isNavbarOpen }">
+    <div class="container-fluid">
       <RouterLink class="navbar-brand mt-0" to="/admin/products">後台首頁</RouterLink>
-      <button class="navbar-toggler" type="button" @click="toggleNavbar">
+      <button class="navbar-toggler collapsed" type="button"
+       data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false"
+         aria-label="Toggle navigation" @click="toggleNavHam">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" ref="collapse">
+      <div class="collapse navbar-collapse" ref="collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <RouterLink
               class="nav-link"
               to="/admin/products"
+              @click="closeNavHam"
               >後台產品列表</RouterLink
             >
           </li>
@@ -21,6 +25,7 @@
             <RouterLink
               class="nav-link"
               to="/admin/orders"
+              @click="closeNavHam"
               >後台訂單列表</RouterLink
             >
           </li>
@@ -41,14 +46,18 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import { ref } from 'vue';
+import { onMounted } from 'vue';
+
+import useCollapse from '@/mixins/mixins';
 
 import { useRouter } from 'vue-router';
+
+const { closeNavHam } = useCollapse();
 
 const { VITE_API } = import.meta.env;
 
 const router = useRouter();
-const isNavbarOpen = ref(false);
+// const isNavbarOpen = ref(false);
 
 const logout = () => {
   const api = `${VITE_API}/logout`;
@@ -70,4 +79,7 @@ const logout = () => {
       }
     });
 };
+onMounted(() => {
+  closeNavHam();
+});
 </script>

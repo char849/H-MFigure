@@ -70,10 +70,11 @@ const login = () => {
       document.cookie = `hexToken=${token};expires=${new Date(expired)}`;
       isLoading.value = false;
       router.push('/admin/products');
+      Swal.fire('己成功登入');
     })
     .catch((err) => {
       isLoading.value = false;
-      Swal.value(err.response.data.message);
+      Swal.fire(err.response);
     });
 };
 </script>

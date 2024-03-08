@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg sticky-top bg-primary position-relative">
-    <div class="container">
+  <nav class="navbar navbar-expand-lg sticky-top bg-primary">
+    <div class="container position-relative">
       <button
         class="navbar-toggler position-absolute"
         type="button"

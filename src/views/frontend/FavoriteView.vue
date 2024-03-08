@@ -139,7 +139,7 @@ const getProducts = () => {
     })
     .catch((err) => {
       isLoading.value = false;
-      alert(err.response.data.message);
+      Swal.fire(err.response.data.message);
     });
 };
 

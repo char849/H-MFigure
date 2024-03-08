@@ -1,14 +1,13 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-light sticky-top">
-    <div class="container" :class="{ 'open': isNavbarOpen, 'close': !isNavbarOpen }">
+  <nav class="navbar navbar-expand-lg sticky-top bg-primary">
+    <div class="container">
       <button
-        class="navbar-toggler mb-5"
+        class="navbar-toggler"
         type="button"
-        @click="toggleNavbar"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
       >
-        <img src="/img/bars.svg" id="navbarIcon" alt="bars" />
+        <img src="/img/bars.svg" alt="bars" />
       </button>
       <RouterLink class="navbar-brand ms mx-md-auto d-lg-none" to="/">
         <img
@@ -19,26 +18,21 @@
         />
       </RouterLink>
 
-      <RouterLink class="nav-link me-4 mb-5 d-lg-none position-relative" to="/favorite">
-        <img src="/img/heart.svg" alt="favorite" />
-        <span class="position-absolute top-0 start-100
-         translate-middle badge rounded-pill bg-danger">
-         {{ favoriteList.length }}</span>
+      <RouterLink class="nav-link me-4 mb-5 d-lg-none" to="/favorite"
+      >
+        <img src="/img/heart.svg" alt="favorite"/>
       </RouterLink>
 
       <RouterLink
-        class="nav-link me-4 mb-5 d-lg-none text-dark position-relative" to="/mall">
+        class="nav-link me-4 mb-5 d-lg-none text-dark" to="/mall">
         <img src="/img/bag-shopping.svg" alt="mall" />
-        <span class="position-absolute top-0 start-100
-         translate-middle badge rounded-pill bg-danger"
-         >
-         {{ cartsLength }}</span>
       </RouterLink>
 
       <div class="collapse navbar-collapse" id="navbarNav" ref="collapseRef"
        >
         <ul
-          class="navbar-nav ms-lg-0 ms-lg-0 ms-xl-7 ms-xxl-9 d-flex align-items-center fw-bold"
+          class="navbar-nav ms-lg-0 ms-lg-0 ms-xl-7 ms-xxl-9 d-flex align-items-center
+           fw-bold"
         >
           <li class="nav-item active mx-auto me-lg-5 me-xl-5">
             <RouterLink class="nav-link" to="/products"
@@ -49,7 +43,7 @@
             <RouterLink class="nav-link" to="/record" @click="toggleNavHam">訂單記錄</RouterLink>
           </li>
 
-          <li class="nav-item mx-auto me-lg-4 me-xl-4">
+          <li class="nav-item mx-auto me-lg-4 me-xl-4 pb-5 pb-md-0">
             <RouterLink class="nav-link" to="/information" @click="toggleNavHam">展覽資訊</RouterLink>
           </li>
 
@@ -63,76 +57,30 @@
           </RouterLink>
 
           <li class="nav-item ms-3 d-none d-lg-block nav-link">
-            <RouterLink to="/favorite" class="position-relative">
+            <RouterLink to="/favorite">
               <img src="/img/heart.svg" alt="favorite" />
-              <span class="position-absolute top-0 start-100
-         translate-middle badge rounded-pill bg-danger">
-        {{ favoriteList.length }} </span>
             </RouterLink>
           </li>
 
           <li class="nav-item ms-6 d-none d-lg-block nav-link">
-            <RouterLink to="/mall" class="position-relative">
+            <RouterLink to="/mall">
               <img src="/img/bag-shopping.svg" alt="mall" />
-              <span class="position-absolute top-0 start-100
-         translate-middle badge rounded-pill bg-danger">
-        {{ cartsLength }}</span>
             </RouterLink>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-</template>
+   </template>
 
 <script setup>
 
-import { useCartStoreComposition } from '@/stores/cartStore';
-import { useFavoritesStore } from '@/stores/favoritesStore';
-import {
-  ref, onMounted, watch,
-} from 'vue';
+import { ref } from 'vue';
 
 import useCollapse from '@/mixins/mixins';
 
-const { toggleNavHam } = useCollapse();
-
-const { cart, getCart } = useCartStoreComposition();
-
-const isNavbarOpen = ref(false);
 const collapseRef = ref();
 
-const cartsLength = ref(0);
-const { favoriteList } = useFavoritesStore();
-
-watch(cart, (newCart) => {
-  console.log('Cart changed:', newCart);
-  cartsLength.value = newCart.length;
-  console.log('cartsLength updated:', cartsLength.value);
-});
-
-// 點擊事件處理函數
-const toggleNavbar = () => {
-  isNavbarOpen.value = !isNavbarOpen.value;
-  if (isNavbarOpen.value) {
-    document.getElementById('navbarIcon').src = '/img/close.svg';
-  } else {
-    document.getElementById('navbarIcon').src = '/img/bars.svg';
-  }
-  toggleNavHam();
-};
-
-const getFavorite = () => {
-  const favoriteListStr = localStorage.getItem('homeFavorite');
-  if (favoriteListStr) {
-    favoriteList.value = JSON.parse(favoriteListStr);
-  }
-  console.log(favoriteList.value);
-};
-
-onMounted(() => {
-  getFavorite();
-  getCart();
-});
+const { toggleNavHam } = useCollapse();
 
 </script>

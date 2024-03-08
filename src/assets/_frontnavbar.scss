@@ -3,7 +3,7 @@
 }
 
 .navbar {
-  height: 88px;  
+  height: 88px;   
 }
 
 .nav-link {  
@@ -26,17 +26,7 @@
     padding-top: 0 !important;
   }  
 
-  .open {    
-    background: $primary;
-    padding-bottom: 50px;
-    border-radius: 40px;       
-    transition: 0.5s ease-out;    
-  }
-
-  .close {
-    margin-bottom: 1px;
-  }
-
+   
   
   .navbar-toggler {
     border: 0 !important;

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="text-end mt-7">
+    <div class="text-end mt-8">
       <button class="btn btn-danger" @click="openModal('new')">
         建立新課程
       </button>

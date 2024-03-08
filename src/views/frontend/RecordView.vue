@@ -93,6 +93,7 @@
                   <thead>
                     <tr>
                       <th scope="col">訂單編號</th>
+                      <th scope="col">訂單姓名</th>
                       <th scope="col">訂單日期</th>
                       <th scope="col">訂單總額</th>
                       <th scope="col">付款狀態</th>
@@ -101,6 +102,9 @@
                   <tbody>
                     <tr>
                       <th scope="row" class="text-dark">{{ order.id }}</th>
+                      <td class="text-dark">
+                        {{ order.user.name }}
+                      </td>
                       <td class="text-dark">
                         {{ $filters.date(order.paid_date) }}
                       </td>

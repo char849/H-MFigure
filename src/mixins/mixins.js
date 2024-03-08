@@ -10,11 +10,11 @@ export default () => {
     }
   };
 
-  // const openNavHam = () => {
-  //   if (collapse.value) {
-  //     collapse.value.show();
-  //   }
-  // };
+  const openNavHam = () => {
+    if (collapse.value) {
+      collapse.value.show();
+    }
+  };
 
   const toggleNavHam = () => {
     if (collapse.value) {
@@ -23,17 +23,14 @@ export default () => {
   };
 
   onMounted(() => {
-    const ulElement = document.getElementById('navbarNav');
-    if (ulElement) {
-      collapse.value = new Collapse(ulElement);
-      collapse.value.toggle();
-    } else {
-      console.error('Element with ID "navbarNav" not found.');
-    }
+    collapse.value = new Collapse(document.getElementById('navbarNav'), {
+      toggle: false,
+    });
   });
 
   return {
     closeNavHam,
     toggleNavHam,
+    openNavHam,
   };
 };

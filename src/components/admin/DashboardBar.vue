@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar navbar-expand-lg fixed-top navbar-light text-success fw-bold"
+    class="navbar navbar-expand-lg fixed-top navbar-light bg-primary text-success fw-bold"
   >
     <div class="container-fluid">
       <RouterLink class="navbar-brand mt-0" to="/admin/products">後台首頁</RouterLink>

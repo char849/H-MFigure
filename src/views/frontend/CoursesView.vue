@@ -128,7 +128,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 import {
-  ref, onMounted, watchEffect,
+  ref, watchEffect, onMounted,
 } from 'vue';
 
 import { useRoute } from 'vue-router';
@@ -156,7 +156,7 @@ const getProducts = (currentPage = 1) => {
       pagination.value = res.data.pagination;
     })
     .catch((err) => {
-      alert(err.response.data.message);
+      Swal.fire(err.response.data.message);
     });
 };
 const getFavorite = () => {

@@ -18,33 +18,44 @@
         />
       </RouterLink>
 
-      <RouterLink class="nav-link me-4 mb-5 d-lg-none" to="/favorite"
+      <RouterLink
+        class="nav-link me-4 mb-5 d-lg-none"
+        to="/favorite"
       >
-        <img src="/img/heart.svg" alt="favorite"/>
+        <img src="/img/heart.svg" alt="favorite" />
       </RouterLink>
 
       <RouterLink
-        class="nav-link me-4 mb-5 d-lg-none text-dark" to="/mall">
+        class="nav-link me-4 mb-5 d-lg-none text-dark position-relative"
+        to="/mall"
+      >
         <img src="/img/bag-shopping.svg" alt="mall" />
+        <span
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          >{{ cartsLength }}
+        </span>
       </RouterLink>
 
-      <div class="collapse navbar-collapse" id="navbarNav" ref="collapseRef"
-       >
+      <div class="collapse navbar-collapse" id="navbarNav" ref="collapseRef">
         <ul
-          class="navbar-nav ms-lg-0 ms-lg-0 ms-xl-7 ms-xxl-9 d-flex align-items-center
-           fw-bold"
+          class="navbar-nav ms-lg-0 ms-lg-0 ms-xl-7 ms-xxl-9 d-flex align-items-center fw-bold"
         >
           <li class="nav-item active mx-auto me-lg-5 me-xl-5">
-            <RouterLink class="nav-link" to="/products"
-             @click="toggleNavHam">模型課程</RouterLink>
+            <RouterLink class="nav-link" to="/products" @click="toggleNavHam"
+              >模型課程</RouterLink
+            >
           </li>
 
           <li class="nav-item mx-auto me-lg-5 me-xl-5">
-            <RouterLink class="nav-link" to="/record" @click="toggleNavHam">訂單記錄</RouterLink>
+            <RouterLink class="nav-link" to="/record" @click="toggleNavHam"
+              >訂單記錄</RouterLink
+            >
           </li>
 
           <li class="nav-item mx-auto me-lg-4 me-xl-4 pb-5 pb-md-0">
-            <RouterLink class="nav-link" to="/information" @click="toggleNavHam">展覽資訊</RouterLink>
+            <RouterLink class="nav-link" to="/information" @click="toggleNavHam"
+              >展覽資訊</RouterLink
+            >
           </li>
 
           <RouterLink class="navbar-brand d-none d-lg-block" to="/">
@@ -63,24 +74,30 @@
           </li>
 
           <li class="nav-item ms-6 d-none d-lg-block nav-link">
-            <RouterLink to="/mall">
+            <RouterLink to="/mall" class="position-relative">
               <img src="/img/bag-shopping.svg" alt="mall" />
+              <span
+                class="position-absolute top-0 start-100
+                 translate-middle badge rounded-pill bg-danger"
+                >{{ cartsLength }}
+              </span>
             </RouterLink>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-   </template>
+</template>
 
 <script setup>
-
 import { ref } from 'vue';
-
+import { storeToRefs } from 'pinia';
+import useCounterStore from '@/stores/cartStore';
 import useCollapse from '@/mixins/mixins';
 
+const cartStore = useCounterStore();
+const { cartsLength } = storeToRefs(cartStore);
+
 const collapseRef = ref();
-
 const { toggleNavHam } = useCollapse();
-
 </script>

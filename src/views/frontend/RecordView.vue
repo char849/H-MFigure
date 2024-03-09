@@ -79,7 +79,7 @@
             </div> -->
             <div v-else-if="filterOrders.length > 0" data-aos="fade-up">
               <div class="mt-2 mb-4 fs-3 ms-1 fw-medium text-dark text-center">
-                <i class="bi bi-journal-bookmark-fill"></i> 您的交易記錄
+                <i class="bi bi-journal-bookmark-fill"></i> 您的課程交易記錄
               </div>
               <div class="text-right my-3 text-danger">
                 共 {{ filterOrders.length }} 筆記錄
@@ -117,8 +117,6 @@
                     </tr>
                   </tbody>
                 </table>
-                <!-- <div>訂單編號{{ order.id }}</div>
-                  <div>金額：{{ order.total }}</div> -->
               </div>
             </div>
           </div>

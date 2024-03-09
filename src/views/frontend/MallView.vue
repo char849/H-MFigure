@@ -289,11 +289,11 @@ const removeCartItem = (id) => {
       getCarts();
       // 讀取完後，清空id
       isLoadingItem.value = '';
-      Swal.fire('己移除單一預約課程');
+      Swal.fire('己取消單一預約課程');
     })
     .catch((err) => {
       isLoading.value = false;
-      alert(err.response.data.message);
+      Swal.fire(err.response.data.message);
     });
 };
 const deleteAllCarts = () => {
@@ -303,11 +303,11 @@ const deleteAllCarts = () => {
     .then(() => {
       isLoading.value = false;
       getCarts();
-      Swal.fire('己清空所有預約課程');
+      Swal.fire('己取消所有預約課程');
     })
     .catch((err) => {
       isLoading.value = false;
-      alert(err.response.data.message);
+      Swal.fire(err.response.data.message);
     });
 };
 const updateCartItem = (item) => {

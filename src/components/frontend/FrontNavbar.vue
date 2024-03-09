@@ -32,7 +32,7 @@
         <img src="/img/bag-shopping.svg" alt="mall" />
         <span
           class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-          >{{ cartsLength }}
+          >{{ cartStore.cart.length }}
         </span>
       </RouterLink>
 
@@ -79,7 +79,7 @@
               <span
                 class="position-absolute top-0 start-100
                  translate-middle badge rounded-pill bg-danger"
-                >{{ cartsLength }}
+                >{{ cartStore.cart.length }}
               </span>
             </RouterLink>
           </li>
@@ -91,12 +91,12 @@
 
 <script setup>
 import { ref } from 'vue';
-import { storeToRefs } from 'pinia';
+// import { storeToRefs } from 'pinia';
 import useCounterStore from '@/stores/cartStore';
 import useCollapse from '@/mixins/mixins';
 
 const cartStore = useCounterStore();
-const { cartsLength } = storeToRefs(cartStore);
+// const { cartsLength } = storeToRefs(cartStore);
 
 const collapseRef = ref();
 const { toggleNavHam } = useCollapse();

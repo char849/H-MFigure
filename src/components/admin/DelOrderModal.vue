@@ -65,8 +65,8 @@ const emits = defineEmits(['del-item']);
 
 const delOrder = () => {
   const url = `${VITE_API}api/${VITE_PATH}/admin/order/${props.item.id}`;
-  axios.delete(url).then((res) => {
-    Swal.fire(res.data.message);
+  axios.delete(url).then(() => {
+    Swal.fire('己刪除未付款預約訂單');
     hideModal();
     emits('del-item');
   });

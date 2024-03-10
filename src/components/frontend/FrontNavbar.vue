@@ -92,10 +92,10 @@
 <script setup>
 import { ref } from 'vue';
 // import { storeToRefs } from 'pinia';
-import useCounterStore from '@/stores/cartStore';
+// import useCounterStore from '@/stores/cartStore';
 import useCollapse from '@/mixins/mixins';
 
-const cartStore = useCounterStore();
+// const cartStore = useCounterStore();
 // const { cartsLength } = storeToRefs(cartStore);
 
 const collapseRef = ref();

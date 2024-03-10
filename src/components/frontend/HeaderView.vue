@@ -318,7 +318,7 @@
               v-if="index < 3"
               class="col-12 col-xl-4 col-lg-4 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
             >
-              <div class="card02 rounded-5 shadow bg-white">
+              <div class="card02 rounded-5 shadow bg-white h-100">
                 <img
                 :src="article.image"
                   class="rounded-top-5 w-100 object-fit-cover"

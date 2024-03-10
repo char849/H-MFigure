@@ -1,13 +1,15 @@
 <template>
   <nav class="navbar navbar-expand-lg sticky-top bg-primary">
-    <div class="container position-relative">
+    <div class="container position-relative"
+     :class="{ 'bg-primary': isMenuOpen, 'rounded': isMenuOpen }">
       <button
         class="navbar-toggler position-absolute"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
+        @click="toggleCollapse"
       >
-        <img src="/img/bars.svg" alt="bars" />
+      <img src="/img/bars.svg" alt="bars" />
       </button>
       <RouterLink class="navbar-brand mx-md-auto d-lg-none" to="/">
         <img
@@ -30,30 +32,27 @@
         to="/mall"
       >
         <img src="/img/bag-shopping.svg" alt="mall" />
-        <span
-          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-          >
-        </span>
       </RouterLink>
 
-      <div class="collapse navbar-collapse" id="navbarNav" ref="collapseRef">
+      <div class="collapse navbar-collapse" id="navbarNav" ref="collapseRef"
+       >
         <ul
           class="navbar-nav ms-lg-0 ms-lg-0 ms-xl-7 ms-xxl-9 d-flex align-items-center fw-bold"
         >
           <li class="nav-item active mx-auto me-lg-5 me-xl-5">
-            <RouterLink class="nav-link" to="/products" @click="toggleNavHam"
+            <RouterLink class="nav-link" to="/products" @click="toggleNavHamAndCloseMenu"
               >模型課程</RouterLink
             >
           </li>
 
           <li class="nav-item mx-auto me-lg-5 me-xl-5">
-            <RouterLink class="nav-link" to="/record" @click="toggleNavHam"
+            <RouterLink class="nav-link" to="/record" @click="toggleNavHamAndCloseMenu"
               >訂單記錄</RouterLink
             >
           </li>
 
-          <li class="nav-item mx-auto me-lg-4 me-xl-4 pb-5 pb-md-0">
-            <RouterLink class="nav-link" to="/information" @click="toggleNavHam"
+          <li class="nav-item mx-auto me-lg-4 me-xl-4 pb-5 pb-md-5 pb-lg-0 pb-xl-0">
+            <RouterLink class="nav-link" to="/information"  @click="toggleNavHamAndCloseMenu"
               >展覽資訊</RouterLink
             >
           </li>
@@ -76,28 +75,36 @@
           <li class="nav-item ms-6 d-none d-lg-block nav-link">
             <RouterLink to="/mall" class="position-relative">
               <img src="/img/bag-shopping.svg" alt="mall" />
-              <span
-                class="position-absolute top-0 start-100
-                 translate-middle badge rounded-pill bg-danger"
-                >
-              </span>
             </RouterLink>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <div :class="{ 'menu-background': true, 'active': isMenuOpen }"></div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-// import { storeToRefs } from 'pinia';
-// import useCounterStore from '@/stores/cartStore';
+
 import useCollapse from '@/mixins/mixins';
 
-// const cartStore = useCounterStore();
-// const { cartsLength } = storeToRefs(cartStore);
-
-const collapseRef = ref();
+// const collapseRef = ref();
 const { toggleNavHam } = useCollapse();
+const isMenuOpen = ref(false);
+
+const closeMenu = () => {
+  isMenuOpen.value = false;
+};
+
+const toggleCollapse = () => {
+  toggleNavHam();
+  isMenuOpen.value = !isMenuOpen.value;
+};
+
+const toggleNavHamAndCloseMenu = () => {
+  toggleNavHam();
+  closeMenu();
+};
+
 </script>

@@ -35,6 +35,7 @@
           </button>
         </form>
         <p class="mt-6 mb-3 text-muted">
+          後台只提供電腦版瀏覽<br/>
       &copy; {{ new Date().getFullYear() }} - Charlotte Lee<br />
       本網站僅供個人作品使用，不提供商業用途
       <RouterLink class="nav-link text-muted" to="/">返回前台首頁</RouterLink>

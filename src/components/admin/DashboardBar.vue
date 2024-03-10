@@ -57,7 +57,6 @@ const { closeNavHam } = useCollapse();
 const { VITE_API } = import.meta.env;
 
 const router = useRouter();
-// const isNavbarOpen = ref(false);
 
 const logout = () => {
   const api = `${VITE_API}/logout`;

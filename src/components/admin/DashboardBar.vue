@@ -1,9 +1,9 @@
 <template>
   <nav
-    class="navbar navbar-expand-lg fixed-top navbar-light bg-primary text-success fw-bold"
+    class="navbar navbar-expand-lg fixed-top navbar-light bg-dark text-success fw-bold"
   >
     <div class="container-fluid">
-      <RouterLink class="navbar-brand mt-0" to="/admin/products">後台首頁</RouterLink>
+      <RouterLink class="navbar-brand mt-0 text-white" to="/admin/products">後台首頁</RouterLink>
       <button class="navbar-toggler collapsed" type="button"
        data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false"
@@ -14,7 +14,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <RouterLink
-              class="nav-link"
+              class="nav-link text-white"
               to="/admin/products"
               @click="closeNavHam"
               >後台產品列表</RouterLink
@@ -23,7 +23,7 @@
 
           <li class="nav-item">
             <RouterLink
-              class="nav-link"
+              class="nav-link text-white"
               to="/admin/orders"
               @click="closeNavHam"
               >後台訂單列表</RouterLink
@@ -32,7 +32,7 @@
           <li class="nav-item">
             <a
               href="#"
-              class="nav-link"
+              class="nav-link text-white"
               @click.prevent="logout"
               >登出</a
             >

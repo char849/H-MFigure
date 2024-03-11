@@ -1,4 +1,13 @@
 ## 單人專題
+專案技術
+Vue3 / Vite / Composition API / Vue Router / Bootstrap5 / Sass / RESTful API 
+
+第三方套件
+vee-validate / i18n / vee-validate / rules sweetalert2 /  vue-loading-overlay / axios / AOS
+
+專案管理
+Notion / whimsical / Git / GitHub / 
+
 
 ## 環境變數
 

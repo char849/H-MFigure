@@ -7,7 +7,7 @@
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
-        @click="toggleCollapse"
+        @click.prevent="toggleCollapse"
       >
       <img src="/img/bars.svg" alt="bars" />
       </button>
@@ -34,10 +34,11 @@
         <img src="/img/bag-shopping.svg" alt="mall" />
       </RouterLink>
 
-      <div class="collapse navbar-collapse" id="navbarNav" ref="collapseRef"
+      <div class="collapse navbar-collapse" id="navbarNav" ref="collapse"
        >
         <ul
           class="navbar-nav ms-lg-0 ms-lg-0 ms-xl-7 ms-xxl-9 d-flex align-items-center fw-bold"
+          @click="closeNavHam($event)"
         >
           <li class="nav-item active mx-auto me-lg-5 me-xl-5">
             <RouterLink class="nav-link" to="/products" @click="toggleNavHamAndCloseMenu"
@@ -89,8 +90,8 @@ import { ref } from 'vue';
 
 import useCollapse from '@/mixins/mixins';
 
-// const collapseRef = ref();
-const { toggleNavHam } = useCollapse();
+const collapse = ref();
+const { toggleNavHam, closeNavHam } = useCollapse();
 const isMenuOpen = ref(false);
 
 const closeMenu = () => {
@@ -100,6 +101,11 @@ const closeMenu = () => {
 const toggleCollapse = () => {
   toggleNavHam();
   isMenuOpen.value = !isMenuOpen.value;
+  console.log('isMenuOpen.value:', isMenuOpen.value);
+  if (isMenuOpen.value) {
+    console.log('Closing NavHam');
+    closeNavHam(); // 在選單打開時關閉選單
+  }
 };
 
 const toggleNavHamAndCloseMenu = () => {

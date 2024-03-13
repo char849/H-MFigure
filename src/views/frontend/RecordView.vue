@@ -70,14 +70,7 @@
             >
             <i class="bi bi-journal-check"></i> 請輸入訂購時的姓名、電話進行查詢交易記錄
             </div>
-            <!-- <div
-              v-else-if="isLoading && filterOrders.length === 0"
-              class="mt-2 mb-4 fs-3 ms-1 fw-medium text-dark text-center"
-              data-aos="fade-up"
-            >
-              <i class="bi bi-journal-x"></i> 正在載入交易記錄...
-            </div> -->
-            <div v-else-if="filterOrders.length > 0" data-aos="fade-up">
+              <div v-else-if="filterOrders.length > 0" data-aos="fade-up">
               <div class="mt-2 mb-4 fs-3 ms-1 fw-medium text-dark text-center">
                 <i class="bi bi-journal-bookmark-fill"></i> 您的課程交易記錄
               </div>
@@ -129,6 +122,8 @@
   </section>
 </template>
 <script setup>
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Swal from 'sweetalert2';
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
@@ -160,21 +155,13 @@ const getOrders = () => {
         (item) => item.user.name === form.value.user.name
           && item.user.tel === form.value.user.tel,
       );
-      console.log(res.data.orders);
     })
     .catch((err) => {
       isLoading.value = false;
-      console.log('error', err.response.data.message);
+      Swal.fire('error', err.response.data.message);
     });
 };
 
-// onMounted(() => {
-//   const storedForm = localStorage.getItem('form');
-//   if (storedForm) {
-//     form.value = JSON.parse(storedForm);
-//     getOrders();
-//   }
-// });
 onMounted(() => {
   getOrders();
 });

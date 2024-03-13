@@ -113,16 +113,6 @@ defineExpose({
                   </tr>
                 </tbody>
               </table>
-              <!-- <div class="d-flex justify-content-end">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
-                    v-model="tempOrder.is_paid" />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    <span v-if="tempOrder.is_paid">已付款</span>
-                    <span v-else>未付款</span>
-                  </label>
-                </div>
-              </div> -->
             </div>
           </div>
         </div>

@@ -13,7 +13,6 @@ import Pagination from '@/components/PaginationComponent.vue';
 const { VITE_API, VITE_PATH } = import.meta.env;
 const orderModalRef = ref(null);
 const delModalRef = ref(null);
-// const currentPage = ref();
 
 const orders = ref({});
 const isNew = ref(false);

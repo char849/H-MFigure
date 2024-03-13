@@ -276,7 +276,7 @@ const getCarts = () => {
     })
     .catch((err) => {
       isLoading.value = false;
-      alert(err.response.data.message);
+      Swal.fire(err.response.data.message);
     });
 };
 const removeCartItem = (id) => {
@@ -327,7 +327,7 @@ const updateCartItem = (item) => {
     })
     .catch((err) => {
       isLoading.value = false;
-      alert(err.response.data.message);
+      Swal.fire(err.response.data.message);
     });
 };
 const createOrder = () => {
@@ -345,7 +345,7 @@ const createOrder = () => {
     })
     .catch((err) => {
       isLoading.value = false;
-      alert(err.response.data.message);
+      Swal.fire(err.response.data.message);
     });
 };
 

@@ -306,14 +306,13 @@ const getOrder = () => {
       if (res.data.success) {
         // eslint-disable-next-line no-shadow
         order.value = res.data.order;
-        console.log(order.value);
       } else {
-        console.log(res.data.message, '', 'success');
+        Swal.fire(res.data.message, '', 'success');
       }
     })
     .catch((err) => {
       isLoading.value = false;
-      console.log(err.response);
+      Swal.fire(err.response);
     });
 };
 const pay = (id) => {
@@ -327,7 +326,7 @@ const pay = (id) => {
     })
     .catch((err) => {
       isLoading.value = false;
-      console.log(err);
+      Swal.fire(err, '', 'error');
     });
 };
 

@@ -5,9 +5,8 @@
       <button
         class="navbar-toggler position-absolute"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
         @click.prevent="toggleCollapse"
+        :aria-expanded="isMenuOpen ? 'true' : 'false'"
       >
       <img src="/img/bars.svg" alt="bars" />
       </button>
@@ -101,9 +100,7 @@ const closeMenu = () => {
 const toggleCollapse = () => {
   toggleNavHam();
   isMenuOpen.value = !isMenuOpen.value;
-  console.log('isMenuOpen.value:', isMenuOpen.value);
   if (isMenuOpen.value) {
-    console.log('Closing NavHam');
     closeNavHam(); // 在選單打開時關閉選單
   }
 };

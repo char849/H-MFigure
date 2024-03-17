@@ -1,6 +1,7 @@
 $font-primary: "Noto Sans TC";
 body {
   font-family: $font-primary, serif !important;
+  overflow-x: hidden;
 }
 
 .bgImg {

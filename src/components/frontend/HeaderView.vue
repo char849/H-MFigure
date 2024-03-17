@@ -1,9 +1,9 @@
 <!-- eslint-disable no-undef -->
 <template>
-  <header class="position-relative" data-aos="fade-left">
+  <header class="position-relative">
     <div class="container bgImg position-relative">
       <div class="card position-absolute translate-middle rounded-4 mx-auto">
-        <div class="card-body mx-2 px-lg-3 px-xl-6">
+        <div class="card-body mx-2 px-lg-3 px-xl-6" data-aos="fade-left">
           <div class="card-title fw-bold text-dark mt-2 mt-md-3 mt-xl-4">
             手作模型實體化製作班
           </div>

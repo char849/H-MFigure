@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="text-end mt-8">
-      <button class="btn btn-danger" @click="openModal('new')">
+      <button type="button" class="btn btn-danger" @click="openModal('new')">
         建立新課程
       </button>
     </div>
@@ -68,17 +68,13 @@
     ref="delModalRef"
   ></DelModal>
 </template>
+
 <script setup>
 import axios from 'axios';
-
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
-
 import { ref, onMounted } from 'vue';
-
 import DelModal from '@/components/admin/DelModal.vue';
 import PaginationComponent from '@/components/PaginationComponent.vue';
-// eslint-disable-next-line import/no-unresolved
 import ProductModal from '@/components/admin/ProductModal.vue';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
@@ -91,7 +87,6 @@ const tempProduct = ref({
 const pagination = ref({});
 const productModalRef = ref(null);
 const delModalRef = ref(null);
-
 // 參數預設值 pgae , query -> ?page=${}
 const getData = (page = 1) => {
   const url = `${VITE_API}api/${VITE_PATH}/admin/products/?page=${page}`;
@@ -99,16 +94,15 @@ const getData = (page = 1) => {
   axios
     .get(url)
     .then((res) => {
-      isLoading.value = false;
       products.value = res.data.products;
       pagination.value = res.data.pagination;
+      isLoading.value = false;
     })
     .catch((err) => {
       isLoading.value = false;
       Swal.fire(err.response.data.message);
     });
 };
-
 const openModal = (type, item) => {
   if (type === 'new') {
     tempProduct.value = {
@@ -125,7 +119,6 @@ const openModal = (type, item) => {
     delModalRef.value.openModal();
   }
 };
-
 onMounted(() => {
   getData();
 });

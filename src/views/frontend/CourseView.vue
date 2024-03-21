@@ -1,6 +1,7 @@
 <template>
   <section class="box-bg01">
-    <div class="container">
+    <div class="container-fulid box-bg10 pb-7 pb-md-9">
+      <div class="container">
       <div class="row">
         <div class="col-12 text-dark mt-3 mt-xl-6 mt-md-4" data-aos="fade-down">
           <div class="mx-auto text-center OBJECTS">
@@ -81,7 +82,7 @@
                     <img
                       src="/img/arrow-right-long.svg"
                       class="ps-3"
-                      alt="arrow-right"
+                      alt="加入預約清單"
                     />
                   </button>
                 </div>
@@ -91,15 +92,12 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-end my-5" data-aos="fade-right">
-      <img src="/img/Object07.svg" class="box-bg08 pb-6" alt="Object08" />
     </div>
   </section>
 </template>
 
 <script setup>
 import axios from 'axios';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
@@ -107,20 +105,17 @@ import { useRoute } from 'vue-router';
 const { VITE_API, VITE_PATH } = import.meta.env;
 const route = useRoute();
 const { id } = route.params;
-
 const product = ref({});
 const qty = ref(1);
 const isLoading = ref(false);
-
 const getProduct = () => {
   isLoading.value = true;
   axios.get(`${VITE_API}api/${VITE_PATH}/product/${id}`).then((res) => {
     // 將遠端資料取回
-    isLoading.value = false;
     product.value = res.data.product;
+    isLoading.value = false;
   });
 };
-
 const addToCart = (productId, quantity) => {
   // 加入購物車的資料格式
   const data = {
@@ -135,9 +130,7 @@ const addToCart = (productId, quantity) => {
       Swal.fire('己加入預約清單');
     });
 };
-
 onMounted(() => {
   getProduct();
 });
-
 </script>

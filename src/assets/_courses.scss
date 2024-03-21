@@ -1,40 +1,39 @@
-
 .OBJECTS05 {
-    background-image: url(/public/img/OBJECTS.svg);
-    background-position: 193px 15px;
-    background-repeat: no-repeat;
-    width: 100%;
-  }
+  background-image: url(/public/img/OBJECTS.svg);
+  background-position: 193px 15px;
+  background-repeat: no-repeat;
+  width: 100%;
+}
 
 .c_font {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .classBtn04 {
-    top: 65%;
-    right: -5%;
-  }
+  top: 65%;
+  right: -5%;
+}
 
-  @media (max-width: 1024px) {
-    .OBJECTS05 {
-        background-image: url(/public/img/OBJECTS.svg);
-        background-position: left 15px;
-        background-repeat: no-repeat;
-        width: 100%;
-      }
+@media (max-width: 1024px) {
+  .OBJECTS05 {
+    background-image: url(/public/img/OBJECTS.svg);
+    background-position: left 15px;
+    background-repeat: no-repeat;
+    width: 100%;
   }
+}
 
 @media (max-width: 767px) {
-    .OBJECTS05 {
-        background-image: url(/public/img/OBJECTS.svg);
-        background-position: left 15px;
-        background-repeat: no-repeat;
-        width: 100%;
-      }
+  .OBJECTS05 {
+    background-image: url(/public/img/OBJECTS.svg);
+    background-position: left 15px;
+    background-repeat: no-repeat;
+    width: 100%;
+  }
 }
 
 @media (max-width: 414px) {
-    .c_font {
-        font-size: 16px;
-    }
+  .c_font {
+    font-size: 16px;
+  }
 }

@@ -47,20 +47,14 @@
 
 <script setup>
 import axios from 'axios';
-
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
-
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const { VITE_API } = import.meta.env;
-
 const router = useRouter();
-
 const user = ref({});
 const isLoading = ref(false);
-
 const login = () => {
   const api = `${VITE_API}admin/signin`;
   isLoading.value = true;
@@ -73,9 +67,9 @@ const login = () => {
       router.push('/admin/products');
       Swal.fire('己成功登入');
     })
-    .catch((err) => {
+    .catch(() => {
       isLoading.value = false;
-      Swal.fire(err.response);
+      Swal.fire('登入失敗');
     });
 };
 </script>

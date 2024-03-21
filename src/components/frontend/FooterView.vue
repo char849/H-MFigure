@@ -7,7 +7,7 @@
             <div class="ms-3 ms-xl-0 ms-lg-0 ms-md-0 ms-md-9">
                 <img
               src="/img/logo_white.png"
-              alt="logo white"
+              alt="Logo"
               class="mb-5"
               width="300"
             />
@@ -21,7 +21,7 @@
               </p>
               <div class="d-none d-md-block">
                 <div class="d-flex">
-                <div class="pe-1"><img src="/img/cog.svg" alt="" /></div>
+                <div class="pe-1"><img src="/img/cog.svg" alt="Cog" /></div>
                 <RouterLink to="/login" class="link">後台管理</RouterLink>
               </div>
               </div>
@@ -30,16 +30,16 @@
           </div>
           <div class="col-12 col-xl-2 col-lg-2">
             <div class="mb-7 mt-xl-10 mt-lg-10 text-secondary d-flex ms-3 ms-md-0">
-              <a href="https://www.instagram.com/explore/tags/%E6%BC%A2%E6%96%87%E5%B8%9D/" target="_blank"><img src="/img/instagram.svg" alt="instagram" class="me-2" /></a> |
-              <a href="https://line.me/ti/p/XYcRD84KAR" target="_blank"><img src="/img/line.svg" alt="instagram"  class="mx-2" /></a> |
-              <a href="https://www.facebook.com/search/top?q=%E6%BC%A2%E6%96%87%E5%B8%9D" target="_blank"><img src="/img/facebook.svg" alt="instagram" class="ms-2" /></a>
+              <a href="https://www.instagram.com/explore/tags/%E6%BC%A2%E6%96%87%E5%B8%9D/" target="_blank"><img src="/img/instagram.svg" alt="Instagram" class="me-2" /></a> |
+              <a href="https://line.me/ti/p/XYcRD84KAR" target="_blank"><img src="/img/line.svg" alt="Line"  class="mx-2" /></a> |
+              <a href="https://www.facebook.com/search/top?q=%E6%BC%A2%E6%96%87%E5%B8%9D" target="_blank"><img src="/img/facebook.svg" alt="Facebook" class="ms-2" /></a>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="position-absolute end-0 box-bg08 d-none d-sm-none d-md-block">
-      <img src="/img/Object08.svg" class="Object08 img-fluid" alt="Object08" />
+      <img src="/img/Object08.svg" class="Object08 img-fluid" alt="Background Image" />
     </div>
   </footer>
 </template>

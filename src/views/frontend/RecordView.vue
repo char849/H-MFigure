@@ -1,5 +1,5 @@
 <template>
-  <section class="box-bg01">
+  <section class="box-bg01 mb-7 mb-md-9">
     <div class="container">
       <div class="row">
         <div class="col-12 text-dark mt-3 mt-md-6" data-aos="fade-down">
@@ -64,13 +64,14 @@
           <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
           <div class="col-12 col-md-8 mb-6 mb-xl-0 mt-md-3">
             <div
-            v-if="!isLoading && filterOrders.length === 0"
+              v-if="!isLoading && filterOrders.length === 0"
               class="mt-2 mb-4 fs-3 ms-1 fw-medium text-dark text-center"
               data-aos="fade-up"
             >
-            <i class="bi bi-journal-check"></i> 請輸入訂購時的姓名、電話進行查詢交易記錄
+              <i class="bi bi-journal-check"></i>
+              請輸入訂購時的姓名、電話進行查詢交易記錄
             </div>
-              <div v-else-if="filterOrders.length > 0" data-aos="fade-up">
+            <div v-else-if="filterOrders.length > 0" data-aos="fade-up">
               <div class="mt-2 mb-4 fs-3 ms-1 fw-medium text-dark text-center">
                 <i class="bi bi-journal-bookmark-fill"></i> 您的課程交易記錄
               </div>
@@ -116,13 +117,10 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-end my-md-5" data-aos="fade-right">
-      <img src="/img/Object07.svg" class="box-bg08 pb-6 d-none d-md-block" alt="Object08" />
-    </div>
   </section>
 </template>
+
 <script setup>
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
@@ -138,30 +136,27 @@ const form = ref({
   },
   message: '',
 });
-
 const isPhone = (value) => {
   const phoneNumber = /(^09|\+?8869)\d{2}(-?\d{3}-?\d{3})$/;
   return phoneNumber.test(value) ? true : '需要正確的電話號碼';
 };
-
 const getOrders = () => {
   isLoading.value = true;
   axios
     .get(`${VITE_API}/api/${VITE_PATH}/orders`)
     .then((res) => {
-      isLoading.value = false;
       orders.value = res.data.orders;
       filterOrders.value = orders.value.filter(
         (item) => item.user.name === form.value.user.name
           && item.user.tel === form.value.user.tel,
       );
+      isLoading.value = false;
     })
     .catch((err) => {
       isLoading.value = false;
       Swal.fire('error', err.response.data.message);
     });
 };
-
 onMounted(() => {
   getOrders();
 });

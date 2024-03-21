@@ -42,38 +42,33 @@
     </div>
   </nav>
 </template>
+
 <script setup>
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { onMounted } from 'vue';
-
 import useCollapse from '@/mixins/mixins';
-
 import { useRouter } from 'vue-router';
 
 const { closeNavHam } = useCollapse();
-
 const { VITE_API } = import.meta.env;
-
 const router = useRouter();
-
 const logout = () => {
   const api = `${VITE_API}/logout`;
   axios
     .post(api)
     .then((res) => {
       if (res.data.success) {
+        // 登出時清除 cookie 內的 token
+        document.cookie = 'hexToken=; expires=;';
         router.push('/login');
         Swal.value(res.data.message);
       }
     })
     .catch((err) => {
       if (err.response && err.response.data) {
-      // Access error response data if available
         Swal.fire(err.response.data.message);
       } else {
-      // Handle other types of errors
         Swal.fire('己成功登出');
       }
     });

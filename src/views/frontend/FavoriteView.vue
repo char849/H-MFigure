@@ -27,7 +27,7 @@
             <span class="text-info fs-4">Course Collection</span>
           </div>
           <div
-            class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-7 mx-auto justify-content-center"
+            class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-7 mx-auto justify-content-start"
             data-aos="fade-up"
           >
             <template v-for="item in filterProducts" :key="item.id">
@@ -39,12 +39,12 @@
                     :src="item.imageUrl"
                     class="rounded-top-5 w-100 object-fit-cover"
                     height="250"
-                    alt="img04"
+                    alt="課程圖片"
                   />
                   <div class="card-body position-relative">
                     <div
-                      class="rounded-pill bg-secondary fs-6
-                       px-3 py-1 text-white position-absolute category"
+                      class="rounded-pill bg-secondary fs-6 px-3 py-1
+                       text-white position-absolute category"
                     >
                       {{ item.category }}
                     </div>
@@ -90,7 +90,7 @@
                           <img
                             src="/img/arrow-right-long.svg"
                             class="ps-3 pb-1"
-                            alt="arrow-right"
+                            alt="課程介紹"
                           />
                         </RouterLink>
                       </div>
@@ -115,20 +115,19 @@
     </div>
   </section>
 </template>
+
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
 
 const isLoading = ref(false);
 const { VITE_API, VITE_PATH } = import.meta.env;
 const products = ref([]);
 const favoriteList = ref([]);
-
-// eslint-disable-next-line max-len
-const filterProducts = computed(() => products.value.filter((item) => favoriteList.value.includes(item.id)));
-
+const filterProducts = computed(() => products.value.filter(
+  (item) => favoriteList.value.includes(item.id),
+));
 const getProducts = () => {
   isLoading.value = true;
   axios
@@ -142,14 +141,12 @@ const getProducts = () => {
       Swal.fire(err.response.data.message);
     });
 };
-
 const getFavorite = () => {
   const favoriteListStr = localStorage.getItem('homeFavorite');
   if (favoriteListStr) {
     favoriteList.value = JSON.parse(favoriteListStr);
   }
 };
-
 const setFavorite = (id) => {
   // 查資料裡面，有沒有這個ID
   if (favoriteList.value.includes(id)) {
@@ -162,7 +159,6 @@ const setFavorite = (id) => {
   localStorage.setItem('homeFavorite', JSON.stringify(favoriteList.value));
   getFavorite();
 };
-
 onMounted(() => {
   getProducts();
   getFavorite();

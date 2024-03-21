@@ -1,47 +1,56 @@
 <template>
   <div class="container-fulid box-bg09">
-    <VueLoading :active="isLoading" :z-index="1060"
-     class="text-center" />
-    <div class="container mt-6 mt-md-7 mb-6 mb-md-5" v-if="cartData.carts.length > 0">
-    <ul class="row justify-content-center list-unstyled py-3 px-3" data-aos="fade-down">
-      <li class="col-md-4">
-        <div
-          class="bg-danger p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-white"
-        >
-          1. 填寫資料
-        </div>
-      </li>
-      <li class="col-md-4">
-        <div class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-info text-muted">
-          2. 課程結帳
-        </div>
-      </li>
-      <li class="col-md-4">
-        <div class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-info text-muted">
-          3. 付款完成
-        </div>
-      </li>
-    </ul>
-    <div class="col-12 text-dark mt-1 mt-md-4" data-aos="fade-down">
-      <div class="mx-auto text-center OBJECTS">
-        <div class="fw-bold title mb-0">預約課程清單</div>
-        <span class="text-info fs-4">Course Reservation List</span>
-      </div>
-    </div>
-    <!-- 購物車列表 -->
-    <div class="row justify-content-center order mx-1" data-aos="fade-up">
-      <div class="col-12 col-md-8">
-        <div class="col-12">
-          <div class="text-end">
-            <button
-              class="btn btn-outline-danger rounded-pill my-2 my-md-3 my-xl-5 ps-6 pe-5 py-3 mb-4"
-              type="button"
-              @click="deleteAllCarts"
-              :disabled="cartData.carts.length === 0"
-            >
-              清空預約課程
-            </button>
+    <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
+    <div
+      class="container mt-6 mt-md-7 mb-6 mb-md-5"
+      v-if="cartData.carts.length > 0"
+    >
+      <ul
+        class="row justify-content-center list-unstyled py-3 px-3"
+        data-aos="fade-down"
+      >
+        <li class="col-md-4">
+          <div
+            class="bg-danger p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-white"
+          >
+            1. 填寫資料
           </div>
+        </li>
+        <li class="col-md-4">
+          <div
+            class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-info text-muted"
+          >
+            2. 課程結帳
+          </div>
+        </li>
+        <li class="col-md-4">
+          <div
+            class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-info text-muted"
+          >
+            3. 付款完成
+          </div>
+        </li>
+      </ul>
+      <div class="col-12 text-dark mt-1 mt-md-4" data-aos="fade-down">
+        <div class="mx-auto text-center OBJECTS">
+          <div class="fw-bold title mb-0">預約課程清單</div>
+          <span class="text-info fs-4">Course Reservation List</span>
+        </div>
+      </div>
+      <!-- 購物車列表 -->
+      <div class="row justify-content-center order mx-1" data-aos="fade-up">
+        <div class="col-12 col-md-8">
+          <div class="col-12">
+            <div class="text-end">
+              <button
+                class="btn btn-outline-danger rounded-pill my-2 my-md-3 my-xl-5 ps-6 pe-5 py-3 mb-4"
+                type="button"
+                @click="deleteAllCarts"
+                :disabled="cartData.carts.length === 0"
+              >
+                清空預約課程
+              </button>
+            </div>
             <table class="table align-middle">
               <thead>
                 <tr>
@@ -107,136 +116,142 @@
               <tfoot>
                 <tr>
                   <td colspan="4" class="text-end fw-bold">總計</td>
-                  <td class="text-end">${{ $filters.currency(cartData.total) }}</td>
+                  <td class="text-end">
+                    ${{ $filters.currency(cartData.total) }}
+                  </td>
                 </tr>
               </tfoot>
             </table>
-        </div>
-        <div class="col-12">
-          <div class="d-flex justify-content-center mt-5 mt-md-7">
-            <VeeForm
-              ref="formRef"
-              class="col-12"
-              v-slot="{ errors }"
-              @submit="createOrder"
-            >
-              <div class="mb-3">
-                <div
-                  class="mt-2 mb-4 fs-3 ms-1 fw-medium text-dark text-center"
-                >
-                  <i class="bi bi-feather fs-1 me-2"></i> 請填寫個人資料
+          </div>
+          <div class="col-12">
+            <div class="d-flex justify-content-center mt-5 mt-md-7">
+              <VeeForm
+                ref="formRef"
+                class="col-12"
+                v-slot="{ errors }"
+                @submit="createOrder"
+              >
+                <div class="mb-3">
+                  <div
+                    class="mt-2 mb-4 fs-3 ms-1 fw-medium text-dark text-center"
+                  >
+                    <i class="bi bi-feather fs-1 me-2"></i> 請填寫個人資料
+                  </div>
+                  <label for="email" class="form-label">Email</label>
+                  <VeeField
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="form-control py-3"
+                    :class="{ 'is-invalid': errors['email'] }"
+                    placeholder="請輸入 Email"
+                    rules="email|required"
+                    v-model="form.user.email"
+                  ></VeeField>
+                  <ErrorMessage
+                    name="email"
+                    class="invalid-feedback"
+                  ></ErrorMessage>
                 </div>
-                <label for="email" class="form-label">Email</label>
-                <VeeField
-                  id="email"
-                  name="email"
-                  type="email"
-                  class="form-control py-3"
-                  :class="{ 'is-invalid': errors['email'] }"
-                  placeholder="請輸入 Email"
-                  rules="email|required"
-                  v-model="form.user.email"
-                ></VeeField>
-                <ErrorMessage
-                  name="email"
-                  class="invalid-feedback"
-                ></ErrorMessage>
-              </div>
 
-              <div class="mb-3">
-                <label for="name" class="form-label">同學姓名</label>
-                <VeeField
-                  id="name"
-                  name="姓名"
-                  type="text"
-                  class="form-control py-3"
-                  :class="{ 'is-invalid': errors['姓名'] }"
-                  placeholder="請輸入姓名"
-                  rules="required"
-                  v-model="form.user.name"
-                ></VeeField>
-                <ErrorMessage
-                  name="姓名"
-                  class="invalid-feedback"
-                ></ErrorMessage>
-              </div>
+                <div class="mb-3">
+                  <label for="name" class="form-label">同學姓名</label>
+                  <VeeField
+                    id="name"
+                    name="姓名"
+                    type="text"
+                    class="form-control py-3"
+                    :class="{ 'is-invalid': errors['姓名'] }"
+                    placeholder="請輸入姓名"
+                    rules="required"
+                    v-model="form.user.name"
+                  ></VeeField>
+                  <ErrorMessage
+                    name="姓名"
+                    class="invalid-feedback"
+                  ></ErrorMessage>
+                </div>
 
-              <div class="mb-3">
-                <label for="tel" class="form-label">同學電話</label>
-                <VeeField
-                  id="tel"
-                  name="電話"
-                  type="tel"
-                  class="form-control py-3"
-                  :class="{ 'is-invalid': errors['電話'] }"
-                  placeholder="請輸入電話"
-                  :rules="isPhone"
-                  v-model="form.user.tel"
-                ></VeeField>
-                <ErrorMessage
-                  name="電話"
-                  class="invalid-feedback"
-                ></ErrorMessage>
-              </div>
+                <div class="mb-3">
+                  <label for="tel" class="form-label">同學電話</label>
+                  <VeeField
+                    id="tel"
+                    name="電話"
+                    type="tel"
+                    class="form-control py-3"
+                    :class="{ 'is-invalid': errors['電話'] }"
+                    placeholder="請輸入電話"
+                    :rules="isPhone"
+                    v-model="form.user.tel"
+                  ></VeeField>
+                  <ErrorMessage
+                    name="電話"
+                    class="invalid-feedback"
+                  ></ErrorMessage>
+                </div>
 
-              <div class="mb-3">
-                <label for="address" class="form-label">同學地址</label>
-                <VeeField
-                  id="address"
-                  name="地址"
-                  type="text"
-                  class="form-control py-3"
-                  :class="{ 'is-invalid': errors['地址'] }"
-                  placeholder="請輸入地址"
-                  rules="required"
-                  v-model="form.user.address"
-                ></VeeField>
-                <ErrorMessage
-                  name="地址"
-                  class="invalid-feedback"
-                ></ErrorMessage>
-              </div>
-              <div class="mb-3">
-                <label for="message" class="form-label">留言</label>
-                <textarea
-                  name=""
-                  id="message"
-                  class="form-control"
-                  cols="30"
-                  rows="10"
-                  v-model="form.message"
-                ></textarea>
-              </div>
-              <div class="text-end mb-0 mb-md-5">
-                <button
-                  type="submit"
-                  class="btn btn-danger rounded-pill my-2 my-md-3 my-xl-4 ps-6 pe-5 py-3"
-                  :disabled="
-                    Object.keys(errors).length > 0 ||
-                    cartData.carts.length === 0
-                  "
-                >
-                  確定預約
-                </button>
-              </div>
-            </VeeForm>
+                <div class="mb-3">
+                  <label for="address" class="form-label">同學地址</label>
+                  <VeeField
+                    id="address"
+                    name="地址"
+                    type="text"
+                    class="form-control py-3"
+                    :class="{ 'is-invalid': errors['地址'] }"
+                    placeholder="請輸入地址"
+                    rules="required"
+                    v-model="form.user.address"
+                  ></VeeField>
+                  <ErrorMessage
+                    name="地址"
+                    class="invalid-feedback"
+                  ></ErrorMessage>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">留言</label>
+                  <textarea
+                    name=""
+                    id="message"
+                    class="form-control"
+                    cols="30"
+                    rows="10"
+                    v-model="form.message"
+                  ></textarea>
+                </div>
+                <div class="text-end mb-0 mb-md-5">
+                  <button
+                    type="submit"
+                    class="btn btn-danger rounded-pill my-2 my-md-3 my-xl-4 ps-6 pe-5 py-3"
+                    :disabled="
+                      Object.keys(errors).length > 0 ||
+                      cartData.carts.length === 0
+                    "
+                  >
+                    確定預約
+                  </button>
+                </div>
+              </VeeForm>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="text-center mb-7 mb-md-9 pt-7 pt-md-9" v-else>
-    <h2 class="text-info">返回模型課程</h2>
-    <p class="display-3 text-info my-4 mb-6 mx-2">預約課程列表目前尚無課程!!!</p>
-    <RouterLink to="/products" class="fs-5 btn btn-danger rounded-5 py-3 px-5">
-      課程介紹 !
-    </RouterLink>
-  </div>
+    <div class="text-center mb-7 mb-md-9 pt-7 pt-md-9" v-else>
+      <h2 class="text-info">返回模型課程</h2>
+      <p class="display-3 text-info my-4 mb-6 mx-2">
+        預約課程列表目前尚無課程!!!
+      </p>
+      <RouterLink
+        to="/products"
+        class="fs-5 btn btn-danger rounded-5 py-3 px-5"
+      >
+        課程介紹 !
+      </RouterLink>
+    </div>
   </div>
 </template>
 
 <script setup>
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
@@ -244,7 +259,6 @@ import { useRouter } from 'vue-router';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
 const formRef = ref(null);
-
 const cartData = ref({ carts: [] });
 const orderId = ref('');
 const form = ref({
@@ -256,11 +270,9 @@ const form = ref({
   },
   message: '',
 });
-
 const router = useRouter();
 const isLoading = ref(false);
 const isLoadingItem = ref('');
-
 const isPhone = (value) => {
   const phoneNumber = /(^09|\+?8869)\d{2}(-?\d{3}-?\d{3})$/;
   return phoneNumber.test(value) ? true : '需要正確的電話號碼';
@@ -320,8 +332,8 @@ const updateCartItem = (item) => {
   axios
     .put(`${VITE_API}/api/${VITE_PATH}/cart/${item.id}`, { data })
     .then(() => {
-      isLoading.value = false;
       getCarts();
+      isLoading.value = false;
       isLoadingItem.value = '';
       Swal.fire('己更改預約人數');
     })
@@ -348,7 +360,6 @@ const createOrder = () => {
       Swal.fire(err.response.data.message);
     });
 };
-
 onMounted(() => {
   getCarts();
 });

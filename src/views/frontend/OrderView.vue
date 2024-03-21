@@ -2,8 +2,10 @@
   <div class="container-fulid box-bg09">
     <template v-if="order.is_paid">
       <div class="container mt-5 mt-md-7 mb-5">
-        <ul class="row justify-content-center list-unstyled py-0 py-md-3 px-3"
-        data-aos="fade-down">
+        <ul
+          class="row justify-content-center list-unstyled py-0 py-md-3 px-3"
+          data-aos="fade-down"
+        >
           <li class="col-md-4">
             <div
               class="bg-info p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-dark"
@@ -30,8 +32,11 @@
           <div class="mx-auto text-center OBJECTS04">
             <div class="fw-bold title mb-0">課程己完成付款</div>
             <span class="text-info fs-4">Complete Payment for Course</span>
-            <VueLoading :active="isLoading" :z-index="1060"
-     class="text-center" />
+            <VueLoading
+              :active="isLoading"
+              :z-index="1060"
+              class="text-center"
+            />
           </div>
         </div>
         <div class="row justify-content-center order mx-1">
@@ -39,7 +44,7 @@
             <div class="col-12">
               <h3 class="mb-3 text-success">訂單課程清單</h3>
               <table class="table">
-                <thead class=" border-bottom">
+                <thead class="border-bottom">
                   <th>課程名稱</th>
                   <th>報名人數</th>
                   <th class="text-center d-none d-md-block">總價</th>
@@ -119,9 +124,7 @@
                   </tr>
                   <tr>
                     <th class="ps-3">總金額</th>
-                    <td>
-                      NT ${{ $filters.currency(order.total) }}
-                    </td>
+                    <td>NT ${{ $filters.currency(order.total) }}</td>
                   </tr>
                   <tr>
                     <td colspan="2" class="text-center py-3">
@@ -143,7 +146,10 @@
     </template>
     <template v-else>
       <div class="container mt-5 mt-md-7 mb-5">
-        <ul class="row justify-content-center list-unstyled py-0 py-md-3 px-3" data-aos="fade-down">
+        <ul
+          class="row justify-content-center list-unstyled py-0 py-md-3 px-3"
+          data-aos="fade-down"
+        >
           <li class="col-md-4">
             <div
               class="bg-info p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-dark"
@@ -170,8 +176,11 @@
           <div class="mx-auto text-center OBJECTS04">
             <div class="fw-bold title mb-0">實體課程下訂</div>
             <span class="text-info fs-4">Place an order for the course</span>
-            <VueLoading :active="isLoading" :z-index="1060"
-     class="text-center" />
+            <VueLoading
+              :active="isLoading"
+              :z-index="1060"
+              class="text-center"
+            />
           </div>
         </div>
         <div class="row justify-content-center order mx-1">
@@ -179,7 +188,7 @@
             <div class="col-12">
               <h3 class="mb-3 text-success">訂單課程清單</h3>
               <table class="table">
-                <thead class=" border-bottom">
+                <thead class="border-bottom">
                   <th>課程名稱</th>
                   <th>報名人數</th>
                   <th class="text-center d-none d-md-block">總價</th>
@@ -253,9 +262,7 @@
                   </tr>
                   <tr>
                     <th class="ps-3">總金額</th>
-                    <td>
-                      NT ${{ $filters.currency(order.total) }}
-                    </td>
+                    <td>NT ${{ $filters.currency(order.total) }}</td>
                   </tr>
                   <tr>
                     <td colspan="2" class="text-center py-3">
@@ -280,7 +287,6 @@
 </template>
 
 <script setup>
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
@@ -290,22 +296,19 @@ const { VITE_API, VITE_PATH } = import.meta.env;
 const route = useRoute();
 const router = useRouter();
 const orderId = ref(null);
-
 const order = ref({
   user: {},
 });
 const isLoading = ref(false);
-
 const getOrder = () => {
   isLoading.value = true;
   orderId.value = route.params.id;
   axios
     .get(`${VITE_API}api/${VITE_PATH}/order/${orderId.value}`)
     .then((res) => {
-      isLoading.value = false;
       if (res.data.success) {
-        // eslint-disable-next-line no-shadow
         order.value = res.data.order;
+        isLoading.value = false;
       } else {
         Swal.fire(res.data.message, '', 'success');
       }
@@ -321,19 +324,17 @@ const pay = (id) => {
     .post(`${VITE_API}api/${VITE_PATH}/pay/${id}`)
     .then(() => {
       Swal.fire('己完成付款');
-      isLoading.value = false;
       getOrder(id);
+      isLoading.value = false;
     })
     .catch((err) => {
       isLoading.value = false;
       Swal.fire(err, '', 'error');
     });
 };
-
 const goShopping = () => {
   router.push('/products');
 };
-
 onMounted(() => {
   getOrder();
 });

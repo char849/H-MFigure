@@ -40,15 +40,12 @@
 
 <script setup>
 import { defineProps, defineEmits } from 'vue';
-// eslint-disable-next-line no-unused-vars
-const props = defineProps({
+
+const { pages } = defineProps({
   pages: Object,
 });
-
 const emits = defineEmits(['emit-pages']);
-
 const updatePage = (page) => {
   emits('emit-pages', page);
 };
-
 </script>

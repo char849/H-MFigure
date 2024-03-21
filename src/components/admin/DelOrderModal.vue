@@ -34,11 +34,7 @@
           >
             取消
           </button>
-          <button
-            type="button"
-            class="btn btn-danger"
-            @click="delOrder"
-          >
+          <button type="button" class="btn btn-danger" @click="delOrder">
             確認刪除
           </button>
         </div>
@@ -46,23 +42,20 @@
     </div>
   </div>
 </template>
+
 <script setup>
 import axios from 'axios';
 import useModal from '@/hooks/useModal';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
 
 const {
   openModal, hideModal, modalRef, defineEmits,
 } = useModal();
-
-// eslint-disable-next-line no-unused-vars
 const props = defineProps({
   item: Object,
 });
 const { VITE_API, VITE_PATH } = import.meta.env;
 const emits = defineEmits(['del-item']);
-
 const delOrder = () => {
   const url = `${VITE_API}api/${VITE_PATH}/admin/order/${props.item.id}`;
   axios.delete(url).then(() => {
@@ -71,7 +64,6 @@ const delOrder = () => {
     emits('del-item');
   });
 };
-
 defineExpose({
   openModal,
   hideModal,

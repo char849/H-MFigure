@@ -45,7 +45,7 @@
             </li>
           </ul>
           <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
-          <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4 mx-auto justify-content-center"
+          <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4 mx-auto justify-content-start"
            data-aos="fade-up">
             <template v-for="product in products" :key="product.id">
               <div
@@ -56,7 +56,7 @@
                     :src="product.imageUrl"
                     class="rounded-top-5 w-100 object-fit-cover"
                     height="250"
-                    alt="img04"
+                    alt="課程圖片"
                   />
                   <div class="card-body position-relative">
                     <div
@@ -103,7 +103,7 @@
                           <img
                             src="/img/arrow-right-long.svg"
                             class="ps-3 pb-1"
-                            alt="arrow-right"/>
+                            alt="課程介紹"/>
                         </RouterLink>
                       </div>
                     </div>
@@ -122,38 +122,29 @@
 
 <script setup>
 import PaginationComponent from '@/components/PaginationComponent.vue';
-
 import axios from 'axios';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
-
 import {
   ref, watchEffect, onMounted,
 } from 'vue';
-
 import { useRoute } from 'vue-router';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
-
 const route = useRoute();
-
 const products = ref([]);
 const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
 const favoriteList = ref([]);
 const pagination = ref({});
-const currentPage = ref(1);
 const isLoading = ref(false);
-
-// eslint-disable-next-line no-shadow
 const getProducts = (currentPage = 1) => {
   const { category = '' } = route.query;
   isLoading.value = true;
   axios
     .get(`${VITE_API}api/${VITE_PATH}/products?category=${category}&page=${currentPage}`)
     .then((res) => {
-      isLoading.value = false;
       products.value = res.data.products;
       pagination.value = res.data.pagination;
+      isLoading.value = false;
     })
     .catch((err) => {
       Swal.fire(err.response.data.message);
@@ -165,7 +156,6 @@ const getFavorite = () => {
     favoriteList.value = JSON.parse(favoriteListStr);
   }
 };
-
 const setFavorite = (id) => {
   // 查資料裡面，有沒有這個ID
   if (favoriteList.value.includes(id)) {
@@ -179,13 +169,10 @@ const setFavorite = (id) => {
   localStorage.setItem('homeFavorite', JSON.stringify(favoriteList.value));
   getFavorite();
 };
-
 onMounted(() => {
   getFavorite();
 });
-
 watchEffect(() => {
   getProducts();
 });
-
 </script>

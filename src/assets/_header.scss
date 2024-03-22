@@ -34,7 +34,7 @@ body {
 }
 
 .headerBtn {
-  top: 90%;
+  top: 83%;
   left: 47%;
   bottom: -50px;
   font-size: 14px !important;
@@ -337,7 +337,6 @@ hr.line {
     top: 60%;
     right: -5%;
   }
-
   .OBJECTS02 {
     margin-top: 15%;
     background-image: url(/public/img/OBJECTS.svg);
@@ -349,7 +348,8 @@ hr.line {
 
 @media (max-width: 912px) {
   .bgImg {
-    height: 700px;
+    height: 100vh;
+    object-fit: cover;   
     .bgImgInner {
       top: 20px;
       right: -50px !important;

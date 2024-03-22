@@ -6,23 +6,23 @@
           class="row justify-content-center list-unstyled py-0 py-md-3 px-3"
           data-aos="fade-down"
         >
-          <li class="col-md-4">
+          <li class="col-4 col-md-4">
             <div
-              class="bg-info p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-dark"
+              class="bg-info p-3 px-1 badge rounded-pill mall_w w-100 mb-2 bg-secondary text-dark"
             >
               1. 填寫資料
             </div>
           </li>
-          <li class="col-md-4">
+          <li class="col-4 col-md-4">
             <div
-              class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-info text-dark"
+              class="p-3 px-1 badge rounded-pill mall_w w-100 mb-2 bg-info text-dark"
             >
               2. 課程結帳
             </div>
           </li>
-          <li class="col-md-4">
+          <li class="col-4 col-md-4">
             <div
-              class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-danger text-white"
+              class="p-3 px-1 badge rounded-pill mall_w w-100 mb-2 bg-danger text-white"
             >
               3. 付款完成
             </div>
@@ -30,7 +30,7 @@
         </ul>
         <div class="col-12 text-dark mt-1 mt-md-4" data-aos="zoom-in-down">
           <div class="mx-auto text-center OBJECTS04">
-            <div class="fw-bold title mb-0">課程己完成付款</div>
+            <div class="fw-bold title mb-0">己完成付款</div>
             <span class="text-info fs-4">Complete Payment for Course</span>
             <VueLoading
               :active="isLoading"
@@ -41,7 +41,7 @@
         </div>
         <div class="row justify-content-center order mx-1">
           <div class="col-12 col-md-8" data-aos="fade-up">
-            <div class="col-12">
+            <div class="col-12 mt-3">
               <h3 class="mb-3 text-success">訂單課程清單</h3>
               <table class="table">
                 <thead class="border-bottom">
@@ -150,30 +150,30 @@
           class="row justify-content-center list-unstyled py-0 py-md-3 px-3"
           data-aos="fade-down"
         >
-          <li class="col-md-4">
+          <li class="col-4 col-md-4">
             <div
-              class="bg-info p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-dark"
+              class="bg-info p-3 px-1 badge rounded-pill mall_w w-100 mb-2 bg-secondary text-dark"
             >
               1. 填寫資料
             </div>
           </li>
-          <li class="col-md-4">
+          <li class="col-4 col-md-4">
             <div
-              class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-danger text-white"
+              class="p-3 px-1 badge rounded-pill mall_w w-100 mb-2 bg-danger text-white"
             >
               2. 課程結帳
             </div>
           </li>
-          <li class="col-md-4">
+          <li class="col-4 col-md-4">
             <div
-              class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-info text-dark"
+              class="p-3 px-1 badge rounded-pill mall_w w-100 mb-2 bg-info text-dark"
             >
               3. 付款完成
             </div>
           </li>
         </ul>
         <div class="col-12 text-dark mt-1 mt-md-4" data-aos="zoom-in-down">
-          <div class="mx-auto text-center OBJECTS04">
+          <div class="mx-auto text-center OBJECTS">
             <div class="fw-bold title mb-0">實體課程下訂</div>
             <span class="text-info fs-4">Place an order for the course</span>
             <VueLoading

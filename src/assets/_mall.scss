@@ -17,6 +17,17 @@
   width: 100%;
 }
 
+.mall_w {
+  font-size: 28px !important;
+}
+
+@media (max-width: 430px) {
+  .mall_w {
+    font-size: 14px !important;
+  }
+}
+
+
 @media (max-width: 414px) {
   .OBJECTS {
     background-image: url(/public/img/OBJECTS.svg);
@@ -27,8 +38,5 @@
   }
   .order {
     margin-top: -170px !important;
-  }
-  .class_w {
-    width: 30%;
-  }
+  }    
 }

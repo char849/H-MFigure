@@ -9,23 +9,23 @@
         class="row justify-content-center list-unstyled py-3 px-3"
         data-aos="fade-down"
       >
-        <li class="col-md-4">
+        <li class="col-4 col-md-4">
           <div
-            class="bg-danger p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-white"
+            class="bg-danger p-3 px-1 badge rounded-pill mall_w w-100 mb-2 bg-secondary text-white"
           >
             1. 填寫資料
           </div>
         </li>
-        <li class="col-md-4">
+        <li class="col-4 col-md-4">
           <div
-            class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-info text-muted"
+            class="p-3 px-1 badge rounded-pill mall_w w-100 mb-2 bg-info text-muted"
           >
             2. 課程結帳
           </div>
         </li>
-        <li class="col-md-4">
+        <li class="col-4 col-md-4">
           <div
-            class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-info text-muted"
+            class="p-3 px-1 badge rounded-pill mall_w w-100 mb-2 bg-info text-muted"
           >
             3. 付款完成
           </div>

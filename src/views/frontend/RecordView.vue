@@ -81,31 +81,32 @@
               <div
                 v-for="(order, index) in filterOrders"
                 :key="index"
-                class="mb-3"
+                class="mb-3 overflow-x-auto"
               >
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">訂單編號</th>
-                      <th scope="col">訂單姓名</th>
-                      <th scope="col">訂單日期</th>
-                      <th scope="col">訂單總額</th>
-                      <th scope="col">付款狀態</th>
+                      <th scope="col" class="px-4 py-3">訂單編號</th>
+                      <th scope="col" class="px-4 py-3">訂單姓名</th>
+                      <th scope="col" class="px-4 py-3">訂單日期</th>
+                      <th scope="col" class="px-4 py-3">訂單總額</th>
+                      <th scope="col" class="px-4 py-3 text-nowrap">付款狀態</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row" class="text-dark">{{ order.id }}</th>
-                      <td class="text-dark">
+                      <th scope="row" class="text-dark px-4 py-4
+                      text-nowrap">{{ order.id }}</th>
+                      <td class="text-dark px-4 py-4">
                         {{ order.user.name }}
                       </td>
-                      <td class="text-dark">
+                      <td class="text-dark px-4 py-4">
                         {{ $filters.date(order.paid_date) }}
                       </td>
-                      <td class="text-dark">
+                      <td class="text-dark px-4 py-4 text-nowrap">
                         NT ${{ $filters.currency(order.total) }}
                       </td>
-                      <td class="text-dark">
+                      <td class="text-dark px-4 py-4 text-nowrap">
                         {{ order.is_paid ? "已付款" : "未付款" }}
                       </td>
                     </tr>

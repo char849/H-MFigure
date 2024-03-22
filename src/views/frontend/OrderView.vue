@@ -228,7 +228,7 @@
               <table class="table border">
                 <tbody>
                   <tr>
-                    <th style="width: 200px" class="ps-3">姓名</th>
+                    <th class="ps-3">姓名</th>
                     <td>{{ order.user.name }}</td>
                   </tr>
                   <tr>

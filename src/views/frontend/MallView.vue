@@ -69,7 +69,6 @@
                       <!--  刪除的方法帶入id,removeCartItem(item.id) -->
                       <button
                         type="button"
-                        id="btn01"
                         class="btn btn-outline-danger btn-sm"
                         @click="removeCartItem(item.id)"
                         :disabled="isLoadingItem === item.id"

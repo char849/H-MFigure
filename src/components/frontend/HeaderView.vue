@@ -318,7 +318,7 @@
         <div class="container">
           <div class="row">
             <div class="col-12 text-dark mt-7">
-              <div class="">
+              <div class="ein_center">
                 <div
                   class="fw-bold title mt-5 mb-2 d-none d-md-block d-lg-block d-xl-block"
                 >

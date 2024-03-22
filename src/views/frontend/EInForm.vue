@@ -4,7 +4,7 @@
       <div class="container">
       <div class="row">
         <div
-          class="col-12 text-dark mt-xl-7 mt-lg-7 mt-md-7"
+          class="col-12 text-dark mt-xl-7 mt-lg-7 mt-md-7 ein_center"
           data-aos="fade-down"
         >
           <div
@@ -26,9 +26,9 @@
           <span class="text-info fs-4">Exhibition Information</span>
         </div>
         <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
-        <div class="row g-5" data-aos="fade-up">
+        <div class="row g-5 justify-content-center m-0" data-aos="fade-up">
           <template v-for="article in articles" :key="article.id">
-            <div class="col-12 col-xl-4 col-lg-4 mx-3 mx-xl-0 mx-lg-0 mx-md-3">
+            <div class="col-12 col-xl-4 col-lg-5">
               <div class="card02 rounded-5 shadow bg-white h-100">
                 <img
                   :src="article.image"
@@ -38,7 +38,7 @@
                 />
                 <div class="card-body position-relative">
                   <h4 class="card-title pt-5 px-3 px-md-4">【{{ article.title }}】</h4>
-                  <p class="card-text text-dark px-4 px-md-5 pt-3 ein_w">
+                  <p class="card-text text-dark px-4 px-md-4 px-lg-4 px-xl-5 pt-3 ein_w">
                     {{ article.description }}
                   </p>
                   <div class="pb-6 pb-md-5 pb-lg-5 pb-xl-5 pt-2">
@@ -46,10 +46,10 @@
                       ><img
                         src="/img/calendar.svg"
                         alt="Calendar"
-                        class="ms-4 pb-xl-2 pe-2"
+                        class="ms-4 ms-xl-5 pb-xl-2 pe-2"
                       />{{ article.date }}</span
                     >
-                    <span class="text-secondary ps-3 ps-xl-7 ps-md-10">{{
+                    <span class="text-secondary ps-3 ps-md-10 ps-lg-6 ps-xl-5">{{
                       article.info
                     }}</span>
                   </div>

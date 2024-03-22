@@ -245,7 +245,7 @@
                   </tr>
                   <tr>
                     <th style="width: 100px" class="ps-3">訂單編號</th>
-                    <td>{{ order.id }}</td>
+                    <td class="text-break">{{ order.id }}</td>
                   </tr>
                   <tr>
                     <th class="ps-3">下單時間</th>

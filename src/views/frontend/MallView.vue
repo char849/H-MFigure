@@ -55,8 +55,8 @@
               <thead>
                 <tr>
                   <th></th>
-                  <th class="class_w">課程名稱</th>
-                  <th>上課人數 / 位</th>
+                  <th class="text-nowrap px-2">課程名稱</th>
+                  <th class="text-nowrap">上課人數 / 位</th>
                   <th></th>
                   <th class="text-end">單價</th>
                 </tr>
@@ -78,7 +78,7 @@
                       </button>
                     </td>
 
-                    <td>
+                    <td class="px-2">
                       <!-- 資料格式包在下一層 product 中，所以要再加一層 product  -->
                       {{ item.product.title }}
                     </td>
@@ -173,7 +173,7 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="tel" class="form-label">同學電話</label>
+                  <label for="tel" class="form-label">聯絡電話</label>
                   <VeeField
                     id="tel"
                     name="電話"
@@ -191,7 +191,7 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="address" class="form-label">同學地址</label>
+                  <label for="address" class="form-label">聯絡地址</label>
                   <VeeField
                     id="address"
                     name="地址"
@@ -245,7 +245,7 @@
         to="/products"
         class="fs-5 btn btn-danger rounded-5 py-3 px-5"
       >
-        課程介紹 !
+        查看課程 !
       </RouterLink>
     </div>
   </div>

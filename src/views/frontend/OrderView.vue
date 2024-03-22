@@ -80,7 +80,7 @@
               </table>
             </div>
             <div class="col-12 mb-6">
-              <h3 class="text-success">上課資訊</h3>
+              <h3 class="text-success mt-6">上課資訊</h3>
               <table class="table border">
                 <tbody>
                   <tr>
@@ -224,7 +224,7 @@
               </table>
             </div>
             <div class="col-12 mb-6">
-              <h3 class="text-success">上課資訊</h3>
+              <h3 class="text-success mt-6">上課資訊</h3>
               <table class="table border">
                 <tbody>
                   <tr>
@@ -233,7 +233,7 @@
                   </tr>
                   <tr>
                     <th class="ps-3">Email</th>
-                    <td>{{ order.user.email }}</td>
+                    <td class="text-break">{{ order.user.email }}</td>
                   </tr>
                   <tr>
                     <th class="ps-3">電話</th>

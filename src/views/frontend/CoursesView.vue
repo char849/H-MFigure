@@ -3,7 +3,7 @@
     <div class="OBJECTS05">
       <div class="container">
         <div class="row">
-          <div class="col-12 text-dark mt-xl-7 mt-lg-7 mt-md-7" data-aos="fade-down">
+          <div class="col-12 text-dark mt-xl-7 mt-lg-7 mt-md-7 ein_center" data-aos="fade-down">
             <div
               class="fw-bold title mt-5 mb-2 d-none d-md-block d-lg-block d-xl-block"
             >
@@ -13,7 +13,7 @@
               >
             </div>
             <div
-              class="fw-bold title mt-7 mb-2 d-block d-md-none d-xl-none d-lg-none"
+              class="fw-bold title mt-5 mt-md-7 mb-2 d-block d-md-none d-xl-none d-lg-none"
             >
               模型課程
               <div class="text-info fw-normal fs-5 d-md-none">
@@ -23,7 +23,7 @@
             <span class="text-info fs-4">Model Course</span>
           </div>
           <ul
-            class="col-12 mt-5 mt-xl-0 mt-lg-0 mt-md-5 nav
+            class="col-12 mt-4 mt-xl-0 mt-lg-0 mt-md-5 nav
              nav-pills d-inline-flex justify-content-center
               justify-content-xl-end justify-content-lg-end justify-content-md-center"
               data-aos="fade-down"

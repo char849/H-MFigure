@@ -52,7 +52,10 @@
               <div
                 class="col-12 col-xl-4 col-lg-5 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
               >
-                <div class="card02 rounded-5 shadow bg-white">
+              <div class="card02 rounded-5 shadow bg-white cardTo position-relative">
+                <div role="button"
+                @click="getProduct(product.id)"
+                >
                   <img
                     :src="product.imageUrl"
                     class="rounded-top-5 w-100 object-fit-cover"
@@ -111,6 +114,7 @@
                   </div>
                 </div>
               </div>
+              </div>
             </template>
           </div>
           <!-- 分頁元件 -->
@@ -128,11 +132,13 @@ import Swal from 'sweetalert2';
 import {
   ref, watchEffect, onMounted,
 } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
 const route = useRoute();
+const router = useRouter();
 const products = ref([]);
+const product = ref([]);
 const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
 const favoriteList = ref([]);
 const pagination = ref({});
@@ -149,6 +155,18 @@ const getProducts = (currentPage = 1) => {
     })
     .catch((err) => {
       Swal.fire(err.response.data.message);
+    });
+};
+
+const getProduct = (id) => {
+  axios
+    .get(
+      `${VITE_API}api/${VITE_PATH}/product/${id}`,
+    )
+    .then((res) => {
+      // 將遠端資料取回
+      product.value = res.data.product;
+      router.push(`/product/${id}`);
     });
 };
 const getFavorite = () => {

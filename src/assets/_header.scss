@@ -497,6 +497,9 @@ hr.line {
     background-repeat: no-repeat;
     width: 100%;
   }
+  .headerBtn {
+    top: 81%;
+  }
 }
 
 @media (max-width: 430px) {
@@ -540,11 +543,8 @@ hr.line {
   }
 }
 
-@media (max-width: 414px) {
-  .card {
-    top: 54%;
-  }
-  .headerBtn {
+@media (max-width: 414px) {  
+  .headerBtn {    
     left: 38%;
   }
   .class {
@@ -609,6 +609,12 @@ hr.line {
   .infoBtn {
     left: 5%;
   }  
+  .card {
+    top: 51%;
+  }
+  .headerBtn {
+    top: 87%;
+  }
 }
 
 @media (max-width: 360px) {
@@ -631,9 +637,6 @@ hr.line {
   }
   .card {
     top: 48%;
-  }
-  .headerBtn {
-    top: 81%;
   }
 }
 

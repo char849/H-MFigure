@@ -58,7 +58,7 @@
                   <th class="text-nowrap">課程名稱</th>
                   <th class="text-nowrap">上課人數 / 位</th>
                   <th></th>
-                  <th class="text-start">單價</th>
+                  <th class="text-end">單價</th>
                 </tr>
               </thead>
               <tbody>
@@ -73,7 +73,8 @@
                         class="btn btn-outline-danger btn-sm"
                         @click="removeCartItem(item.id)"
                         :disabled="isLoadingItem === item.id"
-                      > x
+                      >
+                        <i class="bi bi-x fs-6 fs-md-5"></i>
                       </button>
                     </td>
 
@@ -106,7 +107,7 @@
                       </div>
                     </td>
                     <td></td>
-                    <td class="text-start">
+                    <td class="text-end">
                       ${{ $filters.currency(item.total) }}
                     </td>
                   </tr>

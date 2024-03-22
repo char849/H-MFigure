@@ -241,7 +241,7 @@
                   </tr>
                   <tr>
                     <th class="ps-3">地址</th>
-                    <td>{{ order.user.address }}</td>
+                    <td class="text-break">{{ order.user.address }}</td>
                   </tr>
                   <tr>
                     <th style="width: 100px" class="ps-3">訂單編號</th>

@@ -81,7 +81,7 @@
                     alt="Step1"
                   />
                 </div>
-                <p class="card-text py-4 px-5">
+                <p class="card-text py-4 px-4 px-md-5">
                   進行3D列印，時間約3~5天不等，3D列印完成後，模型可能還需要進行修飾和打磨，以去除可能存在的層次感，使表面更加平滑。
                 </p>
               </div>
@@ -106,7 +106,7 @@
                     alt="Step2"
                   />
                 </div>
-                <p class="card-text py-4 px-5">
+                <p class="card-text py-4 px-4 px-md-5">
                   進行角色適合的風格配色作業，此階段時間為一個月或以上的上課時間，講師將根據設計的需要，仔細塗抹各種細節。這可能包括陰影、亮點和其他色彩層次，以使模型更具立體感。
                 </p>
               </div>
@@ -132,7 +132,7 @@
                     alt="Step3"
                   />
                 </div>
-                <p class="card-text py-4 px-5">
+                <p class="card-text py-4 px-4 px-md-5">
                   最後，進行任何必要的修飾，確保整個模型呈現出理想中的效果。這也可能包括防護層的施加，以保護模型表面。
                 </p>
               </div>

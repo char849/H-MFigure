@@ -137,7 +137,7 @@
                   >
                     <i class="bi bi-feather fs-1 me-2"></i> 請填寫個人資料
                   </div>
-                  <label for="email" class="form-label">Email</label>
+                  <label for="email" class="form-label">Email*</label>
                   <VeeField
                     id="email"
                     name="email"
@@ -155,7 +155,7 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="name" class="form-label">同學姓名</label>
+                  <label for="name" class="form-label">同學姓名*</label>
                   <VeeField
                     id="name"
                     name="姓名"
@@ -173,7 +173,7 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="tel" class="form-label">聯絡電話</label>
+                  <label for="tel" class="form-label">聯絡電話*</label>
                   <VeeField
                     id="tel"
                     name="電話"
@@ -191,7 +191,7 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="address" class="form-label">聯絡地址</label>
+                  <label for="address" class="form-label">聯絡地址*</label>
                   <VeeField
                     id="address"
                     name="地址"

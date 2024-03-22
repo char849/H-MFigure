@@ -45,7 +45,8 @@
             </li>
           </ul>
           <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
-          <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4 mx-auto justify-content-start"
+          <div class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4 mx-auto justify-content-center
+           justify-content-md-start"
            data-aos="fade-up">
             <template v-for="product in products" :key="product.id">
               <div

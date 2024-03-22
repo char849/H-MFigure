@@ -37,8 +37,8 @@
                   height="280"
                 />
                 <div class="card-body position-relative">
-                  <h4 class="card-title pt-5 px-4">【{{ article.title }}】</h4>
-                  <p class="card-text text-dark px-5 pt-3">
+                  <h4 class="card-title pt-5 px-3 px-md-4">【{{ article.title }}】</h4>
+                  <p class="card-text text-dark px-4 px-md-5 pt-3 ein_w">
                     {{ article.description }}
                   </p>
                   <div class="pb-6 pb-md-5 pb-lg-5 pb-xl-5 pt-2">
@@ -46,7 +46,7 @@
                       ><img
                         src="/img/calendar.svg"
                         alt="Calendar"
-                        class="ms-5 pb-xl-2 pe-2"
+                        class="ms-4 pb-xl-2 pe-2"
                       />{{ article.date }}</span
                     >
                     <span class="text-secondary ps-3 ps-xl-7 ps-md-10">{{

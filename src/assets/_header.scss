@@ -500,6 +500,9 @@ hr.line {
   .headerBtn {
     top: 81%;
   }
+  .card {
+    top: 48%;
+  }
 }
 
 @media (max-width: 430px) {
@@ -543,10 +546,7 @@ hr.line {
   }
 }
 
-@media (max-width: 414px) {  
-  .headerBtn {    
-    left: 38%;
-  }
+@media (max-width: 414px) {    
   .class {
     margin-top: -30% !important;
   }
@@ -557,6 +557,12 @@ hr.line {
     top: 100%;
     left: 29%;
   }  
+  .headerBtn {
+    top: 82%;
+  }
+  .card {
+    top: 48%;
+  }
 }
 
 @media (max-width: 412px) {

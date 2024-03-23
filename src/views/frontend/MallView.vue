@@ -45,7 +45,7 @@
               <button
                 class="btn btn-outline-danger rounded-pill my-2 my-md-3 my-xl-5 ps-6 pe-5 py-3 mb-4"
                 type="button"
-                @click="deleteAllCarts"
+                @click="confirmDeleteAllCarts"
                 :disabled="cartData.carts.length === 0"
               >
                 清空預約課程
@@ -320,6 +320,21 @@ const deleteAllCarts = () => {
       isLoading.value = false;
       Swal.fire(err.response.data.message);
     });
+};
+const confirmDeleteAllCarts = () => {
+  Swal.fire({
+    title: '確認清空預約課程',
+    text: '您確定要清空所有預約課程嗎？',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: '是的，清空',
+    cancelButtonText: '取消',
+    reverseButtons: true,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      deleteAllCarts();
+    }
+  });
 };
 const updateCartItem = (item) => {
   const data = {

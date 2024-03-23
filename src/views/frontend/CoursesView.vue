@@ -40,6 +40,7 @@
               <RouterLink
                 class="btn btn-danger rounded-pill mx-2 px-5 py-2 mt-3 mt-xl-0 mt-lg-0 mt-md-0"
                 :to="`/products?category=${item}&page=${currentPage}`"
+                :class="{ 'active': item === $route.query.category }"
                 >{{ item }}</RouterLink
               >
             </li>
@@ -52,16 +53,17 @@
               <div
                 class="col-12 col-xl-4 col-lg-5 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
               >
-              <div class="card02 rounded-5 shadow bg-white cardTo position-relative">
-                <div role="button"
+              <div class="card02 rounded-5 shadow bg-white position-relative">
+                <div class="cardTo"
+                role="button"
                 @click="getProduct(product.id)"
                 >
                   <img
                     :src="product.imageUrl"
                     class="rounded-top-5 w-100 object-fit-cover"
                     height="250"
-                    alt="課程圖片"
-                  />
+                    alt="課程圖片" />
+                </div>
                   <div class="card-body position-relative">
                     <div
                       class="rounded-pill bg-secondary fs-6
@@ -78,9 +80,12 @@
                       @click="setFavorite(product.id)"
                     >
                       <span v-if="favoriteList.includes(product.id)"
-                        ><i class="bi bi-heart-fill fs-4 text-danger"></i
+                        ><i class="bi bi-heart-fill fs-4 text-danger"
+                         ></i
                       ></span>
-                      <span v-else><i class="bi bi-heart fs-4 text-danger"></i></span>
+                      <span v-else>
+                        <i class="bi bi-heart fs-4 text-danger"
+                       ></i></span>
                     </div>
                     <div
                       class="fs-5 card-text text-info px-5 pt-2"
@@ -112,7 +117,6 @@
                       </div>
                     </div>
                   </div>
-                </div>
               </div>
               </div>
             </template>
@@ -143,6 +147,7 @@ const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
 const favoriteList = ref([]);
 const pagination = ref({});
 const isLoading = ref(false);
+
 const getProducts = (currentPage = 1) => {
   const { category = '' } = route.query;
   isLoading.value = true;

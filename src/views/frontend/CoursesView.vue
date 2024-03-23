@@ -33,6 +33,7 @@
                 class="btn btn-danger rounded-pill mx-2 px-5 py-2 mt-3 mt-xl-0 mt-lg-0
                  mt-md-0 my-md-4"
                 to="/products"
+                :class="{ 'active': $route.query.category === undefined }"
                 >全部課程</RouterLink
               >
             </li>
@@ -80,7 +81,8 @@
                       @click="setFavorite(product.id)"
                     >
                       <span v-if="favoriteList.includes(product.id)"
-                        ><i class="bi bi-heart-fill fs-4 text-danger"
+                        >
+                        <i class="bi bi-heart-fill fs-4 text-danger"
                          ></i
                       ></span>
                       <span v-else>

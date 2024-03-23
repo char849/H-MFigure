@@ -40,6 +40,14 @@
   width: 200px;
 }
 
+.btn {
+  &:first-child:active,
+  &.active {
+    box-shadow: 0px 0px 0px 4px rgba(165, 140, 121, 0.60);
+  }
+}
+
+
 @media (max-width: 820px) {
   .price {
     margin-top: -10%;

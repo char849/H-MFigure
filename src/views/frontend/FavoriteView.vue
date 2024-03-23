@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
           <div
-            class="col-12 text-dark mt-xl-7 mt-lg-7 mt-md-7"
+            class="col-12 text-dark mt-xl-7 mt-lg-7 mt-md-7 ein_center"
             data-aos="fade-down"
           >
             <div
@@ -27,7 +27,7 @@
             <span class="text-info fs-4">Course Collection</span>
           </div>
           <div
-            class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-7 mx-auto justify-content-start"
+            class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-7 justify-content-center m-0"
             data-aos="fade-up"
           >
             <template v-for="item in filterProducts" :key="item.id">

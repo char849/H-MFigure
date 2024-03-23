@@ -60,7 +60,7 @@
               <span class="text-info fs-4">Production Process</span>
             </div>
           </div>
-          <div class="row g-4 class">
+          <div class="row g-4 class justify-content-start">
             <div class="col-12 col-xl-4 col-lg-4 mb-6 mb-xl-0">
               <div
                 class="box position-relative rounded-5 mx-3 mt-0 mt-xl-7 mt-lg-7 shadow bg-white"
@@ -344,7 +344,7 @@
               class="text-center"
             />
             <div
-              class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4"
+              class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-4 justify-content-center m-0"
               data-aos="fade-up"
             >
               <template v-for="(article, index) in articles" :key="article.id">

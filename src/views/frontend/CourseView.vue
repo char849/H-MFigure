@@ -1,6 +1,6 @@
 <template>
   <section class="box-bg01">
-    <div class="container-fulid box-bg10 pb-7 pb-md-9">
+    <div class="container-fulid pb-4">
       <div class="container">
       <div class="row">
         <div class="col-12 text-dark mt-3 mt-xl-6 mt-md-4" data-aos="fade-down">
@@ -93,10 +93,19 @@
       </div>
     </div>
     </div>
+    <div class="d-flex justify-content-end">
+        <img
+          src="/img/Object02.svg"
+          class="box-bg02 pb-3"
+          alt="Background Image"
+        />
+      </div>
   </section>
+  <CoueseSwiperView :category="category" />
 </template>
 
 <script setup>
+import CoueseSwiperView from '@/components/frontend/CourseSwiperView.vue';
 import axios from 'axios';
 // import Swal from 'sweetalert2';
 import useCounterStore from '@/stores/cartStore';
@@ -111,11 +120,14 @@ const { id } = route.params;
 const product = ref({});
 const qty = ref(1);
 const isLoading = ref(false);
+const category = ref('');
+
 const getProduct = () => {
   isLoading.value = true;
   axios.get(`${VITE_API}api/${VITE_PATH}/product/${id}`).then((res) => {
     // 將遠端資料取回
     product.value = res.data.product;
+    category.value = res.data.product.category;
     isLoading.value = false;
   });
 };

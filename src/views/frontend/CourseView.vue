@@ -76,7 +76,7 @@
                   <button
                     type="button"
                     class="btn btn-danger rounded-pill ps-6 pe-5 py-3 orderBtn my-3 my-md-0"
-                    @click.prevent="addToCart(product.id, qty)"
+                    @click.prevent="cartStore.addToCart(product.id, qty)"
                   >
                     加入預約清單
                     <img
@@ -98,9 +98,12 @@
 
 <script setup>
 import axios from 'axios';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
+import useCounterStore from '@/stores/cartStore';
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+
+const cartStore = useCounterStore();
 
 const { VITE_API, VITE_PATH } = import.meta.env;
 const route = useRoute();
@@ -116,20 +119,20 @@ const getProduct = () => {
     isLoading.value = false;
   });
 };
-const addToCart = (productId, quantity) => {
-  // 加入購物車的資料格式
-  const data = {
-    product_id: productId,
-    qty: quantity,
-  };
-  isLoading.value = true;
-  axios
-    .post(`${VITE_API}api/${VITE_PATH}/cart`, { data }) // 將資料格式帶入
-    .then(() => {
-      isLoading.value = false;
-      Swal.fire('己加入預約清單');
-    });
-};
+// const addToCart = (productId, quantity) => {
+//   // 加入購物車的資料格式
+//   const data = {
+//     product_id: productId,
+//     qty: quantity,
+//   };
+//   isLoading.value = true;
+//   axios
+//     .post(`${VITE_API}api/${VITE_PATH}/cart`, { data }) // 將資料格式帶入
+//     .then(() => {
+//       isLoading.value = false;
+//       Swal.fire('己加入預約清單');
+//     });
+// };
 onMounted(() => {
   getProduct();
 });

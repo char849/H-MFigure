@@ -1,14 +1,16 @@
 <template>
   <nav class="navbar navbar-expand-lg sticky-top bg-primary">
-    <div class="container position-relative"
-     :class="{ 'bg-primary': isMenuOpen, 'rounded': isMenuOpen }">
+    <div
+      class="container position-relative"
+      :class="{ 'bg-primary': isMenuOpen, rounded: isMenuOpen }"
+    >
       <button
         class="navbar-toggler position-absolute"
         type="button"
         @click.prevent="toggleCollapse"
         :aria-expanded="isMenuOpen ? 'true' : 'false'"
       >
-      <img src="/img/bars.svg" alt="Bars" />
+        <img src="/img/bars.svg" alt="Bars" />
       </button>
       <RouterLink class="navbar-brand mx-md-auto d-lg-none" to="/">
         <img
@@ -19,10 +21,7 @@
         />
       </RouterLink>
 
-      <RouterLink
-        class="nav-link me-4 mb-5 d-lg-none"
-        to="/favorite"
-      >
+      <RouterLink class="nav-link me-4 mb-5 d-lg-none" to="/favorite">
         <img src="/img/heart.svg" alt="Favorite" />
       </RouterLink>
 
@@ -30,29 +29,44 @@
         class="nav-link me-4 mb-5 d-lg-none text-dark position-relative"
         to="/mall"
       >
+        <span
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+        >
+        {{ cartsLength }}
+        </span>
         <img src="/img/bag-shopping.svg" alt="Mall" />
       </RouterLink>
 
-      <div class="collapse navbar-collapse" id="navbarNav" ref="collapse"
-       >
+      <div class="collapse navbar-collapse" id="navbarNav" ref="collapse">
         <ul
           class="navbar-nav ms-lg-0 ms-lg-0 ms-xl-7 ms-xxl-9 d-flex align-items-center fw-bold"
           @click="closeNavHam($event)"
         >
           <li class="nav-item active mx-auto me-lg-5 me-xl-5">
-            <RouterLink class="nav-link" to="/products" @click="toggleNavHamAndCloseMenu"
+            <RouterLink
+              class="nav-link"
+              to="/products"
+              @click="toggleNavHamAndCloseMenu"
               >模型課程</RouterLink
             >
           </li>
 
           <li class="nav-item mx-auto me-lg-5 me-xl-5">
-            <RouterLink class="nav-link" to="/record" @click="toggleNavHamAndCloseMenu"
+            <RouterLink
+              class="nav-link"
+              to="/record"
+              @click="toggleNavHamAndCloseMenu"
               >訂單記錄</RouterLink
             >
           </li>
 
-          <li class="nav-item mx-auto me-lg-4 me-xl-4 pb-5 pb-md-5 pb-lg-0 pb-xl-0">
-            <RouterLink class="nav-link" to="/information"  @click="toggleNavHamAndCloseMenu"
+          <li
+            class="nav-item mx-auto me-lg-4 me-xl-4 pb-5 pb-md-5 pb-lg-0 pb-xl-0"
+          >
+            <RouterLink
+              class="nav-link"
+              to="/information"
+              @click="toggleNavHamAndCloseMenu"
               >展覽資訊</RouterLink
             >
           </li>
@@ -74,6 +88,12 @@
 
           <li class="nav-item ms-6 d-none d-lg-block nav-link">
             <RouterLink to="/mall" class="position-relative">
+              <span
+                class="position-absolute top-0 start-100
+                 translate-middle badge rounded-pill bg-danger"
+              >
+              {{ cartsLength }}
+              </span>
               <img src="/img/bag-shopping.svg" alt="Mall" />
             </RouterLink>
           </li>
@@ -81,12 +101,18 @@
       </div>
     </div>
   </nav>
-  <div :class="{ 'menu-background': true, 'active': isMenuOpen }"></div>
+  <div :class="{ 'menu-background': true, active: isMenuOpen }"></div>
 </template>
 
 <script setup>
+import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
 import useCollapse from '@/mixins/mixins';
+import useCounterStore from '@/stores/cartStore';
+
+const cartStore = useCounterStore();
+
+const { cartsLength } = storeToRefs(cartStore);
 
 const collapse = ref();
 const { toggleNavHam, closeNavHam } = useCollapse();

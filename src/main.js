@@ -1,33 +1,19 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import './assets/all.scss';
 import { createApp } from 'vue';
-
 import { createPinia } from 'pinia';
-
 import Loading from 'vue-loading-overlay';
-
-// eslint-disable-next-line import/no-extraneous-dependencies
 import AOS from 'aos';
-
-// eslint-disable-next-line import/no-extraneous-dependencies
 import 'aos/dist/aos.css';
 import 'vue-loading-overlay/dist/css/index.css';
-
-// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   Form, Field, ErrorMessage, defineRule, configure,
 } from 'vee-validate';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import * as AllRules from '@vee-validate/rules';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { localize, setLocale } from '@vee-validate/i18n';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
 // bootstrap-icons
 import 'bootstrap-icons/font/bootstrap-icons.css';
-// import axios from 'axios';
-// import VueAxios from 'vue-axios';
-
 import App from './App.vue';
 import router from './router';
 import 'bootstrap';
@@ -38,7 +24,6 @@ import { date, currency } from './methods/filters';
 Object.keys(AllRules).forEach((rule) => {
   defineRule(rule, AllRules[rule]);
 });
-
 /**
  * 這裡是設定 vee-validate 的語系
  */
@@ -54,12 +39,9 @@ AOS.init({
 });
 
 const app = createApp(App);
-
 const pinia = createPinia();
 app.use(pinia);
 app.use(router);
-
-// app.use(VueAxios, axios);
 app.config.globalProperties.$filters = {
   date,
   currency,

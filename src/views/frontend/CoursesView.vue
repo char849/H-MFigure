@@ -124,7 +124,7 @@
             </template>
           </div>
           <!-- 分頁元件 -->
-  <PaginationComponent :pages="pagination" @emit-pages="getProducts" />
+          <PaginationComponent :pages="pagination" @emit-pages="getProducts" />
         </div>
       </div>
     </div>
@@ -150,6 +150,8 @@ const favoriteList = ref([]);
 const pagination = ref({});
 const isLoading = ref(false);
 
+const currentPage = ref(1);
+// eslint-disable-next-line
 const getProducts = (currentPage = 1) => {
   const { category = '' } = route.query;
   isLoading.value = true;

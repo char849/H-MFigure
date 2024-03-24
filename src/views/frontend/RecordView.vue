@@ -1,6 +1,7 @@
 <template>
-  <section class="box-bg01 mb-7 mb-md-9">
-    <div class="container">
+  <section>
+    <div class="container-fulid box-bg10 pb-7 pb-md-9">
+      <div class="container">
       <div class="row">
         <div class="col-12 text-dark mt-3 mt-md-6" data-aos="fade-down">
           <div class="mx-auto text-center OBJECTS">
@@ -9,7 +10,7 @@
           </div>
         </div>
         <div
-          class="row class justify-content-center mx-auto"
+          class="row class05 justify-content-center mx-auto"
           data-aos="fade-up"
         >
           <div class="col-12 col-md-8 mb-6 mb-xl-0">
@@ -62,7 +63,7 @@
             </div>
           </div>
           <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
-          <div class="col-12 col-md-8 mb-6 mb-xl-0 mt-md-3">
+          <div class="col-12 col-md-8 mt-md-3">
             <div
               v-if="!isLoading && filterOrders.length === 0"
               class="mt-2 mb-4 fs-3 ms-1 fw-medium text-dark text-center"
@@ -72,7 +73,7 @@
               請輸入訂購時的姓名、電話進行查詢交易記錄
             </div>
             <div v-else-if="filterOrders.length > 0" data-aos="fade-up">
-              <div class="mt-2 mb-4 fs-3 ms-1 fw-medium text-dark text-center">
+              <div class="mt-2 fs-3 mb-5 ms-1 fw-medium text-dark text-center">
                 <i class="bi bi-journal-bookmark-fill"></i> 您的課程交易記錄
               </div>
               <div class="text-right my-3 text-danger">
@@ -117,6 +118,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 </template>

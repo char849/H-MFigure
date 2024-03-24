@@ -15,6 +15,10 @@ footer {
   }
 }
 
+.bg_opacity{
+  background: rgba(164, 139, 120, 0.2); 
+}
+
 @media (max-width: 768px) {
   .OBJECTS03 {
     background-image: url(/public/img/OBJECTS02.svg);

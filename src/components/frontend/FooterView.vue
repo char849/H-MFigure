@@ -1,5 +1,6 @@
 <template>
-  <footer class="position-relative bg-dark rounded-top-5 OBJECTS03">
+  <div :class="{ 'bg_opacity': isSingleProductPage }">
+    <footer class="position-relative bg-dark rounded-top-5 OBJECTS03">
     <div class="container">
       <div class="row">
         <div class="col-12 d-xl-flex d-lg-flex">
@@ -42,4 +43,13 @@
       <img src="/img/Object08.svg" class="Object08 img-fluid" alt="Background Image" />
     </div>
   </footer>
+  </div>
 </template>
+
+<script setup>
+import { computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const isSingleProductPage = computed(() => router.currentRoute.value.name === '單一產品');
+</script>

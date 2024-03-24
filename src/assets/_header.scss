@@ -503,6 +503,9 @@ hr.line {
   .card {
     top: 48%;
   }
+  .box-bg04 {
+    width: 100%;
+  }
 }
 
 @media (max-width: 430px) {
@@ -511,6 +514,7 @@ hr.line {
   }
   .headerBtn {
     left: 39%;
+    background: transparent;
   }
   .class {
     margin-top: -29% !important;

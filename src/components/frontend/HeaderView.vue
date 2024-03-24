@@ -60,7 +60,7 @@
               <span class="text-info fs-4">Production Process</span>
             </div>
           </div>
-          <div class="row g-4 class justify-content-center m-0">
+          <div class="row g-4 class justify-content-center mx-auto">
             <div class="col-12 col-xl-4 col-lg-4 mb-6 mb-xl-0">
               <div
                 class="box position-relative rounded-5 mx-auto mt-0 mt-xl-7 mt-lg-7 shadow bg-white"

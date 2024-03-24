@@ -60,10 +60,10 @@
               <span class="text-info fs-4">Production Process</span>
             </div>
           </div>
-          <div class="row g-4 class justify-content-start">
+          <div class="row g-4 class justify-content-center m-0">
             <div class="col-12 col-xl-4 col-lg-4 mb-6 mb-xl-0">
               <div
-                class="box position-relative rounded-5 mx-3 mt-0 mt-xl-7 mt-lg-7 shadow bg-white"
+                class="box position-relative rounded-5 mx-2 mt-0 mt-xl-7 mt-lg-7 shadow bg-white"
               >
                 <span
                   class="position-absolute py-2 px-4 top-0 start-50
@@ -88,7 +88,7 @@
             </div>
             <div class="col-12 col-xl-4 col-lg-4">
               <div
-                class="box position-relative rounded-5 shadow mx-3 bg-primary"
+                class="box position-relative rounded-5 shadow mx-2 bg-primary"
               >
                 <span
                   class="position-absolute py-2 px-4 top-0 start-50
@@ -113,7 +113,7 @@
             </div>
             <div class="col-12 col-xl-4 col-lg-4">
               <div
-                class="box position-relative rounded-5 mx-3 mt-6 mt-xl-7 mt-lg-7
+                class="box position-relative rounded-5 mx-2 mt-6 mt-xl-7 mt-lg-7
                  shadow me-0 me-md-3 bg-white"
               >
                 <span
@@ -244,7 +244,7 @@
     </section>
     <section class="position-relative box-bg05">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center m-0">
           <div class="col-12 col-xl-6 col-lg-6"></div>
           <div
             class="col-12 col-xl-6 col-lg-6 d-xl-flex d-lg-flex z-3 box04 position-relative"

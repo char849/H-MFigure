@@ -63,7 +63,7 @@
           <div class="row g-4 class justify-content-center m-0">
             <div class="col-12 col-xl-4 col-lg-4 mb-6 mb-xl-0">
               <div
-                class="box position-relative rounded-5 mx-2 mt-0 mt-xl-7 mt-lg-7 shadow bg-white"
+                class="box position-relative rounded-5 mx-auto mt-0 mt-xl-7 mt-lg-7 shadow bg-white"
               >
                 <span
                   class="position-absolute py-2 px-4 top-0 start-50
@@ -88,7 +88,7 @@
             </div>
             <div class="col-12 col-xl-4 col-lg-4">
               <div
-                class="box position-relative rounded-5 shadow mx-2 bg-primary"
+                class="box position-relative rounded-5 shadow mx-auto bg-primary"
               >
                 <span
                   class="position-absolute py-2 px-4 top-0 start-50
@@ -113,7 +113,7 @@
             </div>
             <div class="col-12 col-xl-4 col-lg-4">
               <div
-                class="box position-relative rounded-5 mx-2 mt-6 mt-xl-7 mt-lg-7
+                class="box position-relative rounded-5 mx-auto mt-6 mt-xl-7 mt-lg-7
                  shadow me-0 me-md-3 bg-white"
               >
                 <span

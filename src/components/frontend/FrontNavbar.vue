@@ -12,7 +12,8 @@
       >
         <img src="/img/bars.svg" alt="Bars" />
       </button>
-      <RouterLink class="navbar-brand mx-md-auto d-lg-none" to="/">
+      <RouterLink class="navbar-brand mx-md-auto d-lg-none" to="/"
+       :class="{ 'bg-primary': isMenuOpen, rounded: isMenuOpen }" @click.prevent="toggleCollapse">
         <img
           src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-lee849/1707749509526.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=GXFEqpQy04CExUb7x4STbngGE0KIedpcFYbd6aw6OWElk1a13FI%2FZBV7QUdPhIwwiN3OYzyl4XQfPnBMPIVO76gvrzZLptxpXGE%2BT7KECZ435Q0uo%2BaQ0jBD0tYAd%2F0MFXCFKlT9KAWhsukV7%2F8yFXVI%2FTIAsxXsts3MB29%2FvnKv36x%2Bjb0fz7Z2mQofOXHoTEqKscvgfknyK4OoxxuErk0wswWiXu1eVeEmyAB%2BK6Nqhnj%2Fu1f0icBEA4CstMJGqMbNSsCRcUCpPD%2BmRPHN9Z1I403Q6UneyVOPjuFTVMkEmcydyiVyP6taAMqTRsPaFosUMVuy1RgVJOGyWH1GSQ%3D%3D"
           alt="Logo"
@@ -21,13 +22,15 @@
         />
       </RouterLink>
 
-      <RouterLink class="nav-link me-4 mb-5 d-lg-none" to="/favorite">
+      <RouterLink class="nav-link me-4 mb-5 d-lg-none" to="/favorite"
+      :class="{ 'bg-primary': isMenuOpen, rounded: isMenuOpen }" @click.prevent="toggleCollapse">
         <img src="/img/heart.svg" alt="Favorite" />
       </RouterLink>
 
       <RouterLink
         class="nav-link me-4 mb-5 d-lg-none text-dark position-relative"
         to="/mall"
+        :class="{ 'bg-primary': isMenuOpen, rounded: isMenuOpen }" @click.prevent="toggleCollapse"
       >
         <span
           class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
@@ -71,7 +74,7 @@
             >
           </li>
 
-          <RouterLink class="navbar-brand d-none d-lg-block" to="/">
+          <RouterLink class="navbar-brand d-none d-lg-block" to="/" @click="closeMenu">
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-lee849/1707749509526.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=GXFEqpQy04CExUb7x4STbngGE0KIedpcFYbd6aw6OWElk1a13FI%2FZBV7QUdPhIwwiN3OYzyl4XQfPnBMPIVO76gvrzZLptxpXGE%2BT7KECZ435Q0uo%2BaQ0jBD0tYAd%2F0MFXCFKlT9KAWhsukV7%2F8yFXVI%2FTIAsxXsts3MB29%2FvnKv36x%2Bjb0fz7Z2mQofOXHoTEqKscvgfknyK4OoxxuErk0wswWiXu1eVeEmyAB%2BK6Nqhnj%2Fu1f0icBEA4CstMJGqMbNSsCRcUCpPD%2BmRPHN9Z1I403Q6UneyVOPjuFTVMkEmcydyiVyP6taAMqTRsPaFosUMVuy1RgVJOGyWH1GSQ%3D%3D"
               alt="Logo"
@@ -101,7 +104,8 @@
       </div>
     </div>
   </nav>
-  <div :class="{ 'menu-background': true, active: isMenuOpen }"></div>
+  <div :class="{ 'menu-background': true, active: isMenuOpen }"
+   @click.prevent="toggleCollapse"></div>
 </template>
 
 <script setup>

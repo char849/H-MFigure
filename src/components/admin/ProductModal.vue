@@ -325,7 +325,12 @@ const updateProduct = () => {
   const missingFields = requiredFields.filter((field) => !tempProduct.value[field]);
   if (missingFields.length > 0) {
     const missingFieldsChinese = missingFields.map((field) => fieldTranslations[field]);
-    Swal.fire(`以下欄位為必填：${missingFieldsChinese.join(', ')}`);
+    Swal.fire({
+      title: '以下欄位為必填',
+      text: (`${missingFieldsChinese.join(', ')}`),
+      icon: 'warning',
+      reverseButtons: true,
+    });
     return;
   }
   let url = `${VITE_API}api/${VITE_PATH}/admin/product`;

@@ -12,8 +12,10 @@
       >
         <img src="/img/bars.svg" alt="Bars" />
       </button>
-      <RouterLink class="navbar-brand mx-md-auto d-lg-none" to="/"
-       :class="{ 'bg-primary': isMenuOpen, rounded: isMenuOpen }" @click.prevent="toggleCollapse">
+      <RouterLink class="navbar-brand mx-md-auto d-lg-none"
+        :to="{ path: '/', query: { toggleMenu: false }}"
+        :class="{ 'bg-primary': isMenuOpen, rounded: isMenuOpen }"
+        @click="handleIndexClick">
         <img
           src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-lee849/1707749509526.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=GXFEqpQy04CExUb7x4STbngGE0KIedpcFYbd6aw6OWElk1a13FI%2FZBV7QUdPhIwwiN3OYzyl4XQfPnBMPIVO76gvrzZLptxpXGE%2BT7KECZ435Q0uo%2BaQ0jBD0tYAd%2F0MFXCFKlT9KAWhsukV7%2F8yFXVI%2FTIAsxXsts3MB29%2FvnKv36x%2Bjb0fz7Z2mQofOXHoTEqKscvgfknyK4OoxxuErk0wswWiXu1eVeEmyAB%2BK6Nqhnj%2Fu1f0icBEA4CstMJGqMbNSsCRcUCpPD%2BmRPHN9Z1I403Q6UneyVOPjuFTVMkEmcydyiVyP6taAMqTRsPaFosUMVuy1RgVJOGyWH1GSQ%3D%3D"
           alt="Logo"
@@ -22,15 +24,18 @@
         />
       </RouterLink>
 
-      <RouterLink class="nav-link me-4 mb-5 d-lg-none" to="/favorite"
-      :class="{ 'bg-primary': isMenuOpen, rounded: isMenuOpen }" @click.prevent="toggleCollapse">
+      <RouterLink class="nav-link me-4 mb-5 d-lg-none"
+      :to="{ path: '/favorite', query: { toggleMenu: false }}"
+      :class="{ 'bg-primary': isMenuOpen, rounded: isMenuOpen }"
+       @click="handleFavoriteClick">
         <img src="/img/heart.svg" alt="Favorite" />
       </RouterLink>
 
       <RouterLink
         class="nav-link me-4 mb-5 d-lg-none text-dark position-relative"
-        to="/mall"
-        :class="{ 'bg-primary': isMenuOpen, rounded: isMenuOpen }" @click.prevent="toggleCollapse"
+        :to="{ path: '/mall', query: { toggleMenu: false }}"
+        :class="{ 'bg-primary': isMenuOpen, rounded: isMenuOpen }"
+        @click="handleMallClick"
       >
         <span
           class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
@@ -113,9 +118,10 @@ import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
 import useCollapse from '@/mixins/mixins';
 import useCounterStore from '@/stores/cartStore';
+import { useRouter } from 'vue-router';
 
 const cartStore = useCounterStore();
-
+const router = useRouter();
 const { cartsLength } = storeToRefs(cartStore);
 
 const collapse = ref();
@@ -134,5 +140,29 @@ const toggleCollapse = () => {
 const toggleNavHamAndCloseMenu = () => {
   toggleNavHam();
   closeMenu();
+};
+const handleFavoriteClick = () => {
+  if (isMenuOpen.value) {
+    isMenuOpen.value = false;
+    router.push({ path: '/favorite', query: { toggleMenu: false } });
+  } else {
+    router.push({ path: '/favorite', query: { toggleMenu: false } });
+  }
+};
+const handleMallClick = () => {
+  if (isMenuOpen.value) {
+    isMenuOpen.value = false;
+    router.push({ path: '/mall', query: { toggleMenu: false } });
+  } else {
+    router.push({ path: '/mall', query: { toggleMenu: false } });
+  }
+};
+const handleIndexClick = () => {
+  if (isMenuOpen.value) {
+    isMenuOpen.value = false;
+    router.push({ path: '/', query: { toggleMenu: false } });
+  } else {
+    router.push({ path: '/', query: { toggleMenu: false } });
+  }
 };
 </script>

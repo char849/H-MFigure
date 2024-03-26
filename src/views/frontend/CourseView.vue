@@ -119,15 +119,15 @@
           class="row g-5 class04 pb-md-4 pb-lg-4 pb-xl-4 mx-auto justify-content-center"
           data-aos="fade-up"
         >
-          <template v-for="(item, index) in filterProducts" :key="item.id">
+          <template v-for="(product, index) in filterProducts" :key="product.id">
             <div
               v-if="index < 3"
               class="col-12 col-xl-4 col-lg-5 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
             >
               <div class="card02 rounded-5 shadow bg-white position-relative">
-                <div class="cardTo" role="button" @click="getProduct(item.id)">
+                <div class="cardTo" role="button" @click="getProduct(product.id)">
                   <img
-                    :src="item.imageUrl"
+                    :src="product.imageUrl"
                     class="rounded-top-5 w-100 object-fit-cover"
                     height="250"
                     alt="課程圖片"
@@ -138,15 +138,15 @@
                     class="rounded-pill bg-secondary fs-6
                      px-3 py-1 text-white position-absolute category"
                   >
-                    {{ item.category }}
+                    {{ product.category }}
                   </div>
-                  <h4 class="card-title pt-5 px-4">【 {{ item.title }} 】</h4>
+                  <h4 class="card-title pt-5 px-4">【 {{ product.title }} 】</h4>
                   <!-- Favorite icon -->
                   <div
                     class="card_Favorite position-absolute"
-                    @click="setFavorite(item.id)"
+                    @click="setFavorite(product.id)"
                   >
-                    <span v-if="favoriteList.includes(item.id)">
+                    <span v-if="favoriteList.includes(product.id)">
                       <i class="bi bi-heart-fill fs-4 text-danger"></i
                     ></span>
                     <span v-else>
@@ -155,24 +155,24 @@
                   </div>
                   <div
                     class="fs-5 card-text text-info px-5 pt-2"
-                    v-if="item.price === item.origin_price"
+                    v-if="product.price === product.origin_price"
                   >
-                    {{ item.price }} 元
+                    {{ product.price }} 元
                   </div>
                   <div v-else class="mt-3 d-flex c_font">
                     <del class="ms-5 card-text text-info pt-2">
-                      原價 ${{ item.origin_price }} 元</del
+                      原價 ${{ product.origin_price }} 元</del
                     >
                     <p
                       class="card-text text-dark ms-3 ms-xl-5 ms-lg-5 ms-md-9 pt-2"
                     >
-                      特價 ${{ item.price }} 元
+                      特價 ${{ product.price }} 元
                     </p>
                   </div>
                   <div class="pb-7 pb-md-5 pb-lg-5 pb-xl-5 pt-2 pt-md-6 d-flex">
                     <div class="classBtn04 position-absolute">
-                      <RouterLink
-                        :to="`/product/${item.id}`"
+                      <button
+                        @click="handleRefresh(product.id)"
                         type="button"
                         class="btn btn-danger rounded-pill ps-6 pe-4 py-2 w-100"
                       >
@@ -182,7 +182,7 @@
                           class="ps-3 pb-1"
                           alt="課程介紹"
                         />
-                      </RouterLink>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -208,11 +208,12 @@ import useCounterStore from '@/stores/cartStore';
 import {
   ref, onMounted, computed, watchEffect,
 } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const cartStore = useCounterStore();
 const { VITE_API, VITE_PATH } = import.meta.env;
 const route = useRoute();
+const router = useRouter();
 const { id } = route.params;
 const product = ref({});
 const products = ref([]);
@@ -234,9 +235,12 @@ const getProducts = () => {
 const getProduct = () => {
   isLoading.value = true;
   axios.get(`${VITE_API}api/${VITE_PATH}/product/${id}`).then((res) => {
-    // 將遠端資料取回
     product.value = res.data.product;
     category.value = res.data.product.category;
+    isLoading.value = false;
+    router.push(`/product/${product.value.id}`);
+  }).catch((err) => {
+    Swal.fire('Error fetching product data:', err);
     isLoading.value = false;
   });
 };
@@ -261,6 +265,19 @@ const setFavorite = (productId) => {
   // 更新本地存储中的我的最爱列表
   localStorage.setItem('homeFavorite', JSON.stringify(favoriteList.value));
 };
+
+const handleRefresh = (productId) => {
+  axios.get(`${VITE_API}api/${VITE_PATH}/product/${productId}`).then((res) => {
+    product.value = res.data.product;
+    category.value = res.data.product.category;
+    isLoading.value = false;
+    router.push(`/product/${product.value.id}`);
+  }).catch((err) => {
+    Swal.fire('Error fetching product data:', err);
+    isLoading.value = false;
+  });
+};
+
 onMounted(() => {
   getProduct();
   getFavorite();

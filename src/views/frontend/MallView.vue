@@ -33,7 +33,7 @@
       </ul>
       <div class="col-12 text-dark mt-1 mt-md-4" data-aos="fade-down">
         <div class="mx-auto text-center OBJECTS">
-          <div class="fw-bold title mb-0">預約課程清單</div>
+          <div class="fw-bold title mb-0">預約清單</div>
           <span class="text-info fs-4">Course Reservation List</span>
         </div>
       </div>
@@ -220,7 +220,7 @@
                 <div class="text-end mb-0 mb-md-5">
                   <button
                     type="submit"
-                    class="btn btn-danger rounded-pill my-2 my-md-3 my-xl-4 ps-6 pe-5 py-3"
+                    class="btn btn-danger rounded-pill my-2 my-md-3 my-xl-4 px-5 py-3"
                     :disabled="
                       Object.keys(errors).length > 0 ||
                       cartData.carts.length === 0

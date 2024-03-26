@@ -38,6 +38,7 @@
         @click="handleMallClick"
       >
         <span
+          v-if="cartsLength > 0"
           class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
         >
         {{ cartsLength }}
@@ -97,6 +98,7 @@
           <li class="nav-item ms-6 d-none d-lg-block nav-link">
             <RouterLink to="/mall" class="position-relative">
               <span
+                v-if="cartsLength > 0"
                 class="position-absolute top-0 start-100
                  translate-middle badge rounded-pill bg-danger"
               >

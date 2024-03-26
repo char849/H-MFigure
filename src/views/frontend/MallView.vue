@@ -3,7 +3,7 @@
     <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
     <div
       class="container mt-6 mt-md-7 mb-6 mb-md-5"
-      v-if="cartData.carts.length > 0"
+      v-if="cartStore.cartsLength > 0"
     >
       <ul
         class="row justify-content-center list-unstyled py-3 px-3"
@@ -45,8 +45,8 @@
               <button
                 class="btn btn-outline-danger rounded-pill my-2 my-md-3 my-xl-5 ps-6 pe-5 py-3 mb-4"
                 type="button"
-                @click="confirmDeleteAllCarts"
-                :disabled="cartData.carts.length === 0"
+                @click="cartStore.confirmDeleteAllCarts"
+                :disabled="cartStore.cart.length === 0"
               >
                 清空預約課程
               </button>
@@ -63,14 +63,14 @@
               </thead>
               <tbody>
                 <!-- 購物車列表，判斷購物車資料有沒有存在 -->
-                <template v-if="cartData.carts">
-                  <tr v-for="item in cartData.carts" :key="item.id">
+                <template v-if="cartStore.cart.length > 0">
+                  <tr v-for="item in cartStore.cart" :key="item.id">
                     <td>
                       <!--  刪除的方法帶入id,removeCartItem(item.id) -->
                       <button
                         type="button"
                         class="btn btn-outline-danger btn-sm"
-                        @click="removeCartItem(item.id)"
+                        @click="cartStore.removeCartItem(item.id)"
                         :disabled="isLoadingItem === item.id"
                       >
                         <i class="bi bi-x fs-6 fs-md-5"></i>
@@ -116,7 +116,7 @@
                 <tr>
                   <td colspan="4" class="text-end fw-bold">總計</td>
                   <td class="text-end">
-                    ${{ $filters.currency(cartData.total) }}
+                    ${{ $filters.currency(cartStore.total) }}
                   </td>
                 </tr>
               </tfoot>
@@ -223,7 +223,7 @@
                     class="btn btn-danger rounded-pill my-2 my-md-3 my-xl-4 px-5 py-3"
                     :disabled="
                       Object.keys(errors).length > 0 ||
-                      cartData.carts.length === 0
+                      cartStore.cartsLength === 0
                     "
                   >
                     確定預約
@@ -253,12 +253,15 @@
 <script setup>
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import useCounterStore from '@/stores/cartStore';
 
+const cartStore = useCounterStore(); // 從 cartStore 解構取得值和函式
 const { VITE_API, VITE_PATH } = import.meta.env;
 const formRef = ref(null);
-const cartData = ref({ carts: [] });
+const router = useRouter();
+const isLoading = ref(false);
 const orderId = ref('');
 const form = ref({
   user: {
@@ -269,93 +272,11 @@ const form = ref({
   },
   message: '',
 });
-const router = useRouter();
-const isLoading = ref(false);
-const isLoadingItem = ref('');
 const isPhone = (value) => {
   const phoneNumber = /(^09|\+?8869)\d{2}(-?\d{3}-?\d{3})$/;
   return phoneNumber.test(value) ? true : '需要正確的電話號碼';
 };
 
-const getCarts = () => {
-  isLoading.value = true;
-  axios
-    .get(`${VITE_API}api/${VITE_PATH}/cart`)
-    .then((res) => {
-      cartData.value = res.data.data;
-      isLoading.value = false;
-    })
-    .catch((err) => {
-      isLoading.value = false;
-      Swal.fire(err.response.data.message);
-    });
-};
-const removeCartItem = (id) => {
-  isLoadingItem.value = id;
-  isLoading.value = true;
-  axios
-    .delete(`${VITE_API}/api/${VITE_PATH}/cart/${id}`)
-    .then(() => {
-      isLoading.value = false;
-      getCarts();
-      // 讀取完後，清空id
-      isLoadingItem.value = '';
-      Swal.fire('己取消單一預約課程');
-    })
-    .catch((err) => {
-      isLoading.value = false;
-      Swal.fire(err.response.data.message);
-    });
-};
-const deleteAllCarts = () => {
-  isLoading.value = true;
-  axios
-    .delete(`${VITE_API}/api/${VITE_PATH}/carts`)
-    .then(() => {
-      isLoading.value = false;
-      getCarts();
-      Swal.fire('己取消所有預約課程');
-    })
-    .catch((err) => {
-      isLoading.value = false;
-      Swal.fire(err.response.data.message);
-    });
-};
-const confirmDeleteAllCarts = () => {
-  Swal.fire({
-    title: '確認清空預約課程',
-    text: '您確定要清空所有預約課程嗎？',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonText: '是的，清空',
-    cancelButtonText: '取消',
-    reverseButtons: true,
-  }).then((result) => {
-    if (result.isConfirmed) {
-      deleteAllCarts();
-    }
-  });
-};
-const updateCartItem = (item) => {
-  const data = {
-    product_id: item.product_id, // 要用 product_id, 不能用id, 新增相同產品到購物車時需累加項目
-    qty: item.qty,
-  };
-  isLoading.value = true;
-  isLoadingItem.value = item.id;
-  axios
-    .put(`${VITE_API}/api/${VITE_PATH}/cart/${item.id}`, { data })
-    .then(() => {
-      getCarts();
-      isLoading.value = false;
-      isLoadingItem.value = '';
-      Swal.fire('己更改預約人數');
-    })
-    .catch((err) => {
-      isLoading.value = false;
-      Swal.fire(err.response.data.message);
-    });
-};
 const createOrder = () => {
   isLoading.value = true;
   const order = form.value;
@@ -367,14 +288,12 @@ const createOrder = () => {
       Swal.fire('己成功預約課程');
       formRef.value.resetForm();
       isLoading.value = false;
-      getCarts();
+      // 清空購物車
+      cartStore.clearCartLength();
     })
     .catch((err) => {
       isLoading.value = false;
       Swal.fire(err.response.data.message);
     });
 };
-onMounted(() => {
-  getCarts();
-});
 </script>

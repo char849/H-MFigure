@@ -124,8 +124,9 @@
               v-if="index < 3"
               class="col-12 col-xl-4 col-lg-5 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
             >
-              <div class="card02 rounded-5 shadow bg-white position-relative">
-                <div class="cardTo" role="button" @click="getProduct(product.id)">
+              <div class="card02 rounded-5 shadow bg-white position-relative cardTo"
+              role="button" @click="handleRefresh(product.id)">
+                <div>
                   <img
                     :src="product.imageUrl"
                     class="rounded-top-5 w-100 object-fit-cover"

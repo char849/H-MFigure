@@ -65,7 +65,7 @@
                       ><select
                         id=""
                         class="form-select w-25 me-1 ps-5"
-                        v-model="qty"
+                        v-model.number="qty"
                       >
                         <option
                           :value="num"
@@ -204,13 +204,13 @@
 <script setup>
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import useCounterStore from '@/stores/cartStore';
+import useCartStore from '@/stores/cartStore';
 import {
   ref, onMounted, computed, watchEffect,
 } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-const cartStore = useCounterStore();
+const cartStore = useCartStore();
 const { VITE_API, VITE_PATH } = import.meta.env;
 const route = useRoute();
 const router = useRouter();
@@ -218,9 +218,11 @@ const { id } = route.params;
 const product = ref({});
 const products = ref([]);
 const qty = ref(1);
+
 const isLoading = ref(false);
 const category = ref('');
 const favoriteList = ref([]);
+
 const filterProducts = computed(() => products.value.filter(
   (item) => category.value === '' || item.category === category.value,
 ));

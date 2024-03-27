@@ -119,10 +119,10 @@
 import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
 import useCollapse from '@/mixins/mixins';
-import useCounterStore from '@/stores/cartStore';
+import useCartStore from '@/stores/cartStore';
 import { useRouter } from 'vue-router';
 
-const cartStore = useCounterStore();
+const cartStore = useCartStore();
 const router = useRouter();
 const { cartsLength } = storeToRefs(cartStore);
 

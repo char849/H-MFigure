@@ -91,7 +91,7 @@
                           <select
                             class="form-select rounded-end"
                             v-model="item.qty"
-                            @change="updateCartItem(item)"
+                            @change="cartStore.updateCartItem(item)"
                             :disabled="isLoadingItem === item.id"
                           >
                             <option
@@ -255,9 +255,9 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import useCounterStore from '@/stores/cartStore';
+import useCartStore from '@/stores/cartStore';
 
-const cartStore = useCounterStore(); // 從 cartStore 解構取得值和函式
+const cartStore = useCartStore(); // 從 cartStore 解構取得值和函式
 const { VITE_API, VITE_PATH } = import.meta.env;
 const formRef = ref(null);
 const router = useRouter();

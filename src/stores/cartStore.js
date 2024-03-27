@@ -5,7 +5,7 @@ import { ref, reactive, onMounted } from 'vue';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
 
-const useCounterStore = defineStore('cartStore', () => {
+const useCartStore = defineStore('cartStore', () => {
   const isLoading = ref(false);
   const cart = reactive([]);
   const finalTotal = ref(0);
@@ -29,10 +29,20 @@ const useCounterStore = defineStore('cartStore', () => {
         isLoading.value = false;
       });
   };
-  const addToCart = (id) => {
+  const addToCart = (id, qty = 1) => {
+    // // 檢查購物車中是否已經有相同品項
+    // const existingItem = cart.value.cart.find(
+    //   (item) => item.product_id === id,
+    // );
+
+    // // 如果購物車中已有相同品項，且總數加上新增數量超過 5，則不進行累加
+    // if (existingItem && existingItem.qty + qty > 5) {
+    //   Swal.fire('上課人數最多不得超過5位');
+    //   return;
+    // }
     const data = {
       product_id: id,
-      qty: 1,
+      qty,
     };
     isLoading.value = true;
     axios.post(`${VITE_API}api/${VITE_PATH}/cart`, { data })
@@ -91,7 +101,7 @@ const useCounterStore = defineStore('cartStore', () => {
   };
   const updateCartItem = (item) => {
     const data = {
-      product_id: item.product_id, // 要用 product_id, 不能用id, 新增相同產品到購物車時需累加項目
+      product_id: item.product_id,
       qty: item.qty,
     };
     isLoading.value = true;
@@ -131,4 +141,4 @@ const useCounterStore = defineStore('cartStore', () => {
   };
 });
 
-export default useCounterStore;
+export default useCartStore;

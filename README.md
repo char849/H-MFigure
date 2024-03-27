@@ -1,11 +1,42 @@
-## 單人專題
-專案技術
+## 手作模型|實體課程
+
+![手作模型|實體課程](https://char849.github.io/H-MFigure/#/)
+提供模型設計稿讓學員體驗從 3D 列印一個原型，再上色的過程，不用會做設計稿也能實現自己做模型的樂趣，另外也有提供模型展覽活動資訊，有分需要報名或者可以免費入場的參展消息發佈，讓對模型有興趣的學員，不錯過參展機會。
+
+## 功能
+
+前台
+
+- 首頁製作流程、環境介紹、展覽資訊
+- 顯示課程列表
+- 依照類別篩選課程
+- 查看課程簡介
+- 同類別課程列表
+- 課程加入預約清單
+- 課程加入收藏清單與移除
+- 顯示收藏清單列表
+- 預約清單進行付款
+- 編輯預約課程人數數量、取消預約
+- 查詢己付款的訂單記錄
+- 填寫預約課程資訊、表單驗證、送出預訂
+
+
+後台(管理者)
+
+- 檢視預約課程列表
+- 管理新增預約課程品項
+- 管理刪除預約課程品項
+- 管理編輯預約課程品項
+- 檢視預約課程訂單列表
+- 檢視課程訂單
+- 刪除未付款的課程訂單
+
+
+## 專案技術
 Vue3 / Vite / Composition API / Vue Router / Bootstrap5 / Sass / RESTful API / Pinia
 
-第三方套件
-vee-validate / i18n / vee-validate / rules sweetalert2 /  vue-loading-overlay / axios / AOS
 
-專案管理
+## 專案管理
 Notion / whimsical / Git / GitHub / 
 
 
@@ -43,16 +74,18 @@ npm run deploy
 
 ## 套件
 
-以下是已經安裝在專案中的套件。
-
-- axios (^1.6.5)
+- axios (^1.6.7)
 - bootstrap (^5.3.2)
 - bootstrap-icons (^1.11.3)
 - dotenv (^16.3.1)
 - pinia (^2.1.7)
 - vue (^3.3.11)
 - vue-router (^4.2.5)
-- @vitejs/plugin-vue (^4.5.2)
+- sweetalert2 (^11.10.5)
+- @popperjs/core (^2.11.8)
+- vee-validate/i18n (^4.12.5)
+- vee-validate/rules (^4.12.5)
+- aos (^2.3.4)
 - eslint (^8.49.0)
 - eslint-config-airbnb-base (^15.0.0)
 - eslint-import-resolver-alias (^1.1.2)

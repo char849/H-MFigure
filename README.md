@@ -1,6 +1,6 @@
 ## 單人專題
 專案技術
-Vue3 / Vite / Composition API / Vue Router / Bootstrap5 / Sass / RESTful API / Pini
+Vue3 / Vite / Composition API / Vue Router / Bootstrap5 / Sass / RESTful API / Pinia
 
 第三方套件
 vee-validate / i18n / vee-validate / rules sweetalert2 /  vue-loading-overlay / axios / AOS

@@ -226,6 +226,7 @@ const favoriteList = ref([]);
 const filterProducts = computed(() => products.value.filter(
   (item) => category.value === '' || item.category === category.value,
 ));
+
 const getProducts = () => {
   isLoading.value = true;
   axios.get(`${VITE_API}api/${VITE_PATH}/products/all`).then((res) => {

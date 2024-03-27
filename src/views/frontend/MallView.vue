@@ -296,4 +296,5 @@ const createOrder = () => {
       Swal.fire(err.response.data.message);
     });
 };
+
 </script>

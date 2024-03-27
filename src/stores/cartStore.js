@@ -20,7 +20,9 @@ const useCartStore = defineStore('cartStore', () => {
         cart.splice(0);
         cart.push(...res.data.data.carts);
         finalTotal.value = res.data.data.final_total;
-        total.value = res.data.data.total;
+        // 購物車中的每個項目，数量相加，以得到總人数然後將總人数更新到 total.value
+        total.value = cart.reduce((acc, item) => acc + item.qty, 0);
+        // total.value = res.data.data.total;
         cartsLength.value = cart.length;
         isLoading.value = false;
       })
@@ -30,16 +32,11 @@ const useCartStore = defineStore('cartStore', () => {
       });
   };
   const addToCart = (id, qty = 1) => {
-    // // 檢查購物車中是否已經有相同品項
-    // const existingItem = cart.value.cart.find(
-    //   (item) => item.product_id === id,
-    // );
-
-    // // 如果購物車中已有相同品項，且總數加上新增數量超過 5，則不進行累加
-    // if (existingItem && existingItem.qty + qty > 5) {
-    //   Swal.fire('上課人數最多不得超過5位');
-    //   return;
-    // }
+    console.log('Qty:', qty);
+    if (total.value + qty > 5) {
+      Swal.fire('上課人數最多不得超過5位');
+      return;
+    }
     const data = {
       product_id: id,
       qty,

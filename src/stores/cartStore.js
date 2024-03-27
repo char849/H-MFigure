@@ -22,7 +22,7 @@ const useCartStore = defineStore('cartStore', () => {
         finalTotal.value = res.data.data.final_total;
         // 購物車中的每個項目，数量相加，以得到總人数然後將總人数更新到 total.value
         total.value = cart.reduce((acc, item) => acc + item.qty, 0);
-        // total.value = res.data.data.total;
+        total.value = res.data.data.total;
         cartsLength.value = cart.length;
         isLoading.value = false;
       })

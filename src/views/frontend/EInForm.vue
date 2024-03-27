@@ -1,6 +1,6 @@
 <template>
-  <div class="OBJECTS05">
-    <div class="container-fulid box-bg10 pb-7 pb-md-9">
+  <div class="OBJECTS_Five">
+    <div class="container-fulid box-bgTen pb-7 pb-md-9">
       <div class="container">
       <div class="row">
         <div

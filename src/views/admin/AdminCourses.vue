@@ -61,12 +61,12 @@
     :is-new="isNew"
     @get-data="getData"
     ref="productModalRef"
-  ></ProductModal>
+  />
   <DelModal
     :temp-product="tempProduct"
     @get-data="getData"
     ref="delModalRef"
-  ></DelModal>
+  />
 </template>
 
 <script setup>

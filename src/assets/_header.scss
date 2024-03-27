@@ -81,7 +81,7 @@ section {
   }
 }
 
-.OBJECTS02 {
+.OBJECTS_Two{
   background-image: url(/img/OBJECTS.svg);
   background-position: 193px 15px;
   background-repeat: no-repeat;
@@ -92,44 +92,44 @@ section {
   font-size: 48px;
 }
 
-.box-bg01 {
+.box-bgOne {
   background-image: url(/img/Object.svg);
   background-position: 0 330px;
   background-repeat: no-repeat;
   width: 100%;
 }
 
-.box-bg02 {
+.box-bgTwo {
   width: 698px;
   background-repeat: no-repeat;
 }
 
-.box-bg03 {
+.box-bgThree{
   background-image: url(/img/Object03.svg);
   background-position: right top 180px;
   background-repeat: no-repeat;
   width: 100%;
 }
 
-.box-bg04 {
+.box-bgFour{
   width: 500px;
   background-repeat: no-repeat;
 }
 
-.box-bg05 {
+.box-bgFive {
   background-image: url(/img/Object05.svg);
   background-position: right top 55%;
   background-repeat: no-repeat;
   width: 100%;
 }
 
-.box-bg06 {
+.box-bgSix {
   width: 1058px;
   top: 32%;
   padding-bottom: 42%;
 }
 
-.box-bg07 {
+.box-bgSeven {
   width: 696px;
 }
 
@@ -137,12 +137,12 @@ section {
   width: 416px;
 }
 
-.box04 {
+.boxFour {
   margin-top: 38% !important;
   margin-bottom: 19%;
 }
 
-.box05 {
+.boxFive {
   top: 98%;
   left: 34%;
 }
@@ -151,7 +151,7 @@ section {
   margin-top: -8% !important;
 }
 
-.class02 {
+.classTwo {
   margin-top: -10% !important;
 }
 
@@ -162,12 +162,12 @@ hr.line {
   margin-bottom: 48px;
 }
 
-.box03 {
+.boxThree {
   width: 30%;
   left: 50%;
 }
 
-.classBtn03 {
+.classBtnThree {
   top: 65%;
   right: -5%;
 }
@@ -181,10 +181,10 @@ hr.line {
 }
 
 @media (max-width: 1880px) { 
-  .box02 {
+  .boxTwo {
     width: 50%;
   }
-  .box03 {
+  .boxThree {
     width: 30%;
   }
 }
@@ -196,33 +196,33 @@ hr.line {
   .box {
     width: 100%;
   }
-  .box02 {
+  .boxTwo {
     width: 50%;
   }
-  .box03 {
+  .boxThree {
     width: 30%;
   }
-  .box-bg05 {
+  .box-bgFive {
     background-position: right top 45%;
   }
 
-  .box-bg06 {
+  .box-bgSix {
     width: 60%;
   }
-  .box04 {
+  .boxFour {
     margin-top: 25% !important;
     margin-bottom: 10%;
   }
-  .box05 {
+  .boxFive {
     top: 95%;
     left: 35%;
   }
-  .classBtn03 {
+  .classBtnThree {
     top: 90%;
     right: 22%;
   }
 
-  .OBJECTS02 {
+  .OBJECTSTwo {
     margin-top: 20px;
     background-image: url(/img/OBJECTS.svg);
     background-position: 0 15px;
@@ -230,7 +230,7 @@ hr.line {
     width: 100%;
   }
 
-  .box-bg07 {
+  .box-bgSeven {
     width: 90%;
   }
   .infoBtn {
@@ -249,29 +249,29 @@ hr.line {
       font-size: 40px;
     }
   }
-  .box02 {
+  .boxTwo {
     width: 50%;
   }
-  .box03 {
+  .boxThree {
     width: 25%;
   }
 
-  .box-bg05 {
+  .box-bgFive {
     background-position: right top 50%;
   }
 
-  .box-bg06 {
+  .box-bgFix {
     width: 65%;
   }
-  .box04 {
+  .boxFour {
     margin-top: 20% !important;
     margin-bottom: 8%;
   }
-  .box05 {
+  .boxFive {
     top: 100%;
     left: 30%;
   }
-  .classBtn03 {
+  .classBtnThree {
     top: 90%;
     right: 16%;
   }
@@ -281,13 +281,13 @@ hr.line {
   .headerBtn {
     left: 45%;
   }
-  .box-bg01 {
+  .box-bgOne {
     background-position: 0 370px;
   }
-  .box-bg05 {
+  .box-bgFive {
     background-position: right top 45%;
   }
-  .box04 {
+  .boxFour {
     margin-top: 20% !important;
     margin-bottom: 8%;
   }
@@ -297,47 +297,47 @@ hr.line {
 }
 
 @media (max-width: 991px) {
-  .box-bg01 {
+  .box-bgOne {
     background-position: 0 750px;
   }
   .class {
     margin-top: -16% !important;
   }
-  .box-bg03 {
+  .box-bgThree {
     background-image: none;
   }
-  .class02 {
+  .classTwo {
     margin-top: -22% !important;
   }
-  .box02 {
+  .boxTwo {
     width: 45%;
   }
-  .box03 {
+  .boxThree {
     width: 30%;
   }
-  .box04 {
+  .boxFour {
     margin-top: 30% !important;
     margin-bottom: 100%;
   }
-  .box05 {
+  .boxFive {
     top: 100%;
     left: 37%;
   }
-  .box-bg05 {
+  .box-bgFive {
     background-position: right top 70%;
   }
-  .box-bg06 {
+  .box-bgSix {
     width: 95%;
     top: 69%;
   }
   .infoBtn {
     left: 33%;
   }
-  .classBtn03 {
+  .classBtnThree {
     top: 60%;
     right: -5%;
   }
-  .OBJECTS02 {
+  .OBJECTS_Two {
     margin-top: 15%;
     background-image: url(/img/OBJECTS.svg);
     background-position: 0 15px;
@@ -373,16 +373,16 @@ hr.line {
   .classBtn {
     text-align: center;
   }
-  .box-bg01 {
+  .box-bgOne {
     background-position: 0 650px;
   }
   .OBJECTS {
     height: 200px;
   }
-  .box-bg05 {
+  .box-bgFive {
     background-position: right top 62%;
   }
-  .box-bg06 {
+  .box-bgFix {
     width: 95%;
     top: 70%;
   }
@@ -392,20 +392,20 @@ hr.line {
   .headerBtn {
     left: 44%;
   }
-  .box02 {
+  .boxTwo {
     width: 70%;
   }
-  .box03 {
+  .boxThree {
     width: 40%;
     left: 25%;
   }
   .pb-m {
     padding-bottom: 25%;
   }
-  .box-bg05 {
+  .box-bgFive {
     background-position: right top 62%;
   }
-  .box-bg06 {
+  .box-bgFix {
     width: 95%;
     top: 70%;
   }
@@ -415,34 +415,34 @@ hr.line {
   .card {
     top: 60%;
   }
-  .box-bg02 {
+  .box-bgTwo {
     width: 80%;
   }
-  .box-bg04 {
+  .box-bgFour {
     width: 60%;
   }
   .box04 {
     margin-top: 30% !important;
     margin-bottom: 100%;
   }
-  .box-bg05 {
+  .box-bgFive {
     background-position: right top 60%;
   }
-  .box02 {
+  .boxTwo {
     width: 70%;
   }
-  .box03 {
+  .boxThree {
     width: 40%;
     left: 25%;
   }
   .pb-m {
     padding-bottom: 28%;
   }
-  .classBtn02 {
+  .classBtnTwo {
     text-align: left;
   }
 
-  .OBJECTS02 {
+  .OBJECTS_Two {
     margin-top: 5%;
     background-image: url(/img/OBJECTS.svg);
     background-position: -70px 15px;
@@ -462,17 +462,17 @@ hr.line {
   .class {
     margin-top: -27% !important;
   }
-  .class02 {
+  .classTwo {
     margin-top: -32% !important;
   }
-  .box-bg05 {
+  .box-bgFive {
     background-position: left top 75%;
   }
-  .box-bg06 {
+  .box-bgFix {
     width: 95%;
     top: 80%;
   }
-  .box05 {
+  .boxFive {
     top: 100%;
     left: 36%;
   }
@@ -482,7 +482,7 @@ hr.line {
   .fs-3 {
     font-size: 24px;
   }
-  .classBtn03 {
+  .classBtnFive {
     width: 100%;
     top: 75%;
     right: -5%;
@@ -490,7 +490,7 @@ hr.line {
   .infoBtn {
     left: 10%;
   }
-  .OBJECTS02 {
+  .OBJECTS_Two {
     margin-top: 5%;
     background-image: url(/img/OBJECTS.svg);
     background-position: -70px 15px;
@@ -503,7 +503,7 @@ hr.line {
   .card {
     top: 48%;
   }
-  .box-bg04 {
+  .box-bgFour {
     width: 100%;
   }
 }
@@ -519,29 +519,29 @@ hr.line {
   .class {
     margin-top: -29% !important;
   }
-  .class02 {
+  .classTwo {
     margin-top: -39% !important;
   }
   .pb-m {
     padding-bottom: 18%;
   }
 
-  .box-bg05 {
+  .box-bgFive {
     background-position: left top 80%;
   }
-  .box-bg06 {
+  .box-bgSix {
     width: 95%;
     top: 80%;
   }
-  .box05 {
+  .boxFive {
     top: 100%;
     left: 26%;
   }
-  .box-bg07 {
+  .box-bgSeven {
     margin-top: 20%;
     width: 100%;
   }
-  .OBJECTS02 {
+  .OBJECTS_Two {
     margin-top: 20px;
     background-image: url(/public/img/OBJECTS.svg);
     background-position: center 15px;
@@ -554,10 +554,10 @@ hr.line {
   .class {
     margin-top: -30% !important;
   }
-  .class02 {
+  .classTwo {
     margin-top: -40% !important;
   }
-  .box05 {
+  .boxFive {
     top: 100%;
     left: 29%;
   }  
@@ -570,7 +570,7 @@ hr.line {
 }
 
 @media (max-width: 412px) {
-  .box05 {
+  .boxFive {
     top: 100%;
     left: 28%;
   }
@@ -589,7 +589,7 @@ hr.line {
   .headerBtn {
     left: 37%;
   }
-  .box05 {
+  .boxFive {
     top: 100%;
     left: 26%;
   }
@@ -599,7 +599,7 @@ hr.line {
   .class {
     margin-top: -35% !important;
   }
-  .class02 {
+  .classTwo {
     margin-top: -50% !important;
   }
   .card {
@@ -611,7 +611,7 @@ hr.line {
   .headerBtn {
     left: 37%;
   }
-  .classBtn03 {
+  .classBtnThree {
     width: 100%;
     top: 80%;
     right: -5%;
@@ -631,14 +631,14 @@ hr.line {
   .OBJECTS {
     width: 320px;
   }
-  .box05 {
+  .boxFive {
     top: 100%;
     left: 24%;
   }
-  .box-bg05 {
+  .box-bgFive {
     background-position: left top 85%;
   }
-  .box-bg06 {
+  .box-bgSix {
     width: 95%;
     top: 85%;
   }
@@ -660,14 +660,14 @@ hr.line {
   .OBJECTS {
     width: 280px;
   }
-  .box05 {
+  .boxFive {
     top: 100%;
     left: 17%;
   }
-  .box-bg05 {
+  .box-bgFive {
     background-position: left top 95%;
   }
-  .box-bg06 {
+  .box-bgSix {
     width: 95%;
     top: 90%;
   }

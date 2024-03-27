@@ -3,13 +3,6 @@ import Collapse from 'bootstrap/js/dist/collapse';
 
 export default () => {
   const collapse = ref(null);
-
-  // const closeNavHam = () => {
-  //   if (collapse.value) {
-  //     collapse.value.hide();
-  //   }
-  // };
-
   const closeNavHam = (event) => {
     if (event) {
       const { target } = event;

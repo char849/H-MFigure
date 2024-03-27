@@ -1,4 +1,4 @@
-.OBJECTS05 {
+.OBJECTS_Five{
   background-image: url(/img/OBJECTS.svg);
   background-position: 193px 15px;
   background-repeat: no-repeat;
@@ -9,7 +9,7 @@
   font-size: 20px;
 }
 
-.classBtn04 {
+.classBtnFour {
   top: 65%;
   right: -5%;
 }
@@ -29,9 +29,8 @@
   }
 }
 
-
 @media (max-width: 1024px) {
-  .OBJECTS05 {
+  .OBJECTS_Five {
     background-image: url(/img/OBJECTS.svg);
     background-position: left 15px;
     background-repeat: no-repeat;
@@ -40,7 +39,7 @@
 }
 
 @media (max-width: 767px) {
-  .OBJECTS05 {
+  .OBJECTS_Five {
     background-image: url(/img/OBJECTS.svg);
     background-position: left 15px;
     background-repeat: no-repeat;

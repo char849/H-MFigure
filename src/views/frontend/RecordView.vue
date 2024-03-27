@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="container-fulid box-bg10 pb-7 pb-md-9">
+    <div class="container-fulid box-bgTen pb-7 pb-md-9">
       <div class="container">
       <div class="row">
         <div class="col-12 text-dark mt-3 mt-md-6" data-aos="fade-down">
@@ -10,7 +10,7 @@
           </div>
         </div>
         <div
-          class="row class05 justify-content-center mx-auto"
+          class="row classFive justify-content-center mx-auto"
           data-aos="fade-up"
         >
           <div class="col-12 col-md-8 mb-6 mb-xl-0">

@@ -51,7 +51,7 @@
         </span>
       </button>
     </header>
-    <section ref="intro" class="box-bg01" id="intro" data-aos="fade-up">
+    <section ref="intro" class="box-bgOne" id="intro" data-aos="fade-up">
       <div class="container">
         <div class="row">
           <div class="col-12 text-dark mt-9">
@@ -111,7 +111,7 @@
                 </p>
               </div>
             </div>
-            <div class="col-12 col-xl-4 col-lg-4">
+            <div class="col-12 col-xl-4 col-lg-4 mt-md-0 mt-md-7">
               <div
                 class="box position-relative rounded-5 mx-auto mt-6 mt-xl-7 mt-lg-7
                  shadow me-0 me-md-3 bg-white"
@@ -143,12 +143,12 @@
       <div class="d-flex justify-content-end">
         <img
           src="/img/Object02.svg"
-          class="box-bg02 pb-6"
+          class="box-bgTwo pb-6"
           alt="Background Image"
         />
       </div>
     </section>
-    <section class="position-relative box-bg03 pb-m">
+    <section class="position-relative box-bgThree pb-m">
       <div class="container">
         <div class="row">
           <div class="col-12 text-dark mt-4 mt-xl-9">
@@ -161,7 +161,7 @@
         <div class="row">
           <div class="col-12 col-xl-5 col-lg-5" data-aos="fade-left">
             <div
-              class="d-xl-flex d-lg-flex d-md-flex class02 mx-3 mx-xl-0 mx-lg-0"
+              class="d-xl-flex d-lg-flex d-md-flex classTwo mx-3 mx-xl-0 mx-lg-0"
             >
               <div class="me-2 mt-1">
                 <img src="/img/people-roof.svg" width="28" alt="People Roof" />
@@ -223,7 +223,7 @@
           class="img-fluid"
         />
       </div>
-      <div class="position-absolute top-100 translate-middle box03">
+      <div class="position-absolute top-100 translate-middle boxThree">
         <img
           src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-lee849/1708079856450.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=khdvT%2BMv3vX2o9LxtAgnz0tOiDkMsFqr%2Fo0YuKYN06rBLtdd5AuIW%2BSIMyr0l1GYgLJQnS3466gvYlN2Twe0KIxB39c6XUViQyCC%2F9glgNsFKZrmvvsgLib1a2OlwVmYMXt8kU7qB0F72X57gvASn3EYENTMFF6ThThd9KrhOBhevX2uYmLI03PzIqAJPyNfopGmSaZ2mZw7ziyVcVhGNQC%2BCJidnhahXK6ONBZUmG7cGSajTQlWz9zNyivMztP0sThYSb1h00Bg9mPAKjCRYXdj4UMCjm%2BlrP7HBlECxyc6NyMwsGa09rjeUDUX2qWIcLoHtiAg0mRFfIhTWRkWng%3D%3D"
           alt="教學工作室"
@@ -234,7 +234,7 @@
       <div class="d-flex justify-content-start">
         <img
           src="/img/Object04.svg"
-          class="box-bg04 pb-6"
+          class="box-bgFour pb-6"
           alt="Background Image"
         />
       </div>
@@ -242,12 +242,12 @@
         class="position-absolute bg-success top-0 start-0 w-100 h-100 opacity-25 z-n1"
       ></div>
     </section>
-    <section class="position-relative box-bg05">
+    <section class="position-relative box-bgFive">
       <div class="container">
         <div class="row justify-content-center m-0">
           <div class="col-12 col-xl-6 col-lg-6"></div>
           <div
-            class="col-12 col-xl-6 col-lg-6 d-xl-flex d-lg-flex z-3 box04 position-relative"
+            class="col-12 col-xl-6 col-lg-6 d-xl-flex d-lg-flex z-3 boxFour position-relative"
             data-aos="fade-right"
           >
             <div
@@ -283,7 +283,7 @@
                 </p>
               </div>
             </div>
-            <div class="position-absolute box05">
+            <div class="position-absolute boxFive">
               <div class="classBtn mb-7">
                 <RouterLink
                   to="/products"
@@ -303,7 +303,7 @@
         </div>
       </div>
       <div
-        class="position-absolute start-0 bottom-0 z-0 box-bg06"
+        class="position-absolute start-0 bottom-0 z-0 box-bgSix"
         data-aos="fade-left"
       >
         <img
@@ -314,7 +314,7 @@
       </div>
     </section>
     <section>
-      <div class="OBJECTS02">
+      <div class="OBJECTS_Two">
         <div class="container">
           <div class="row">
             <div class="col-12 text-dark mt-7">
@@ -375,7 +375,7 @@
                             class="ms-5 pb-xl-2 pb- pe-2"
                           />{{ article.date }}</span
                         >
-                        <div class="classBtn03 position-absolute">
+                        <div class="classBtnThree position-absolute">
                           <RouterLink
                             to="/information"
                             type="button"
@@ -402,14 +402,14 @@
         <div class="d-flex justify-content-start" data-aos="fade-left">
           <img
             src="/img/Object06.svg"
-            class="box-bg07 pb-5"
+            class="box-bgSeven pb-5"
             alt="Background Image"
           />
         </div>
         <div class="d-flex ms-auto justify-content-end" data-aos="fade-right">
           <img
             src="/img/Object07.svg"
-            class="box-bg07 pb-5"
+            class="box-bgSeven pb-5"
             alt="Background Image"
           />
         </div>
@@ -447,7 +447,7 @@ const moveTo = () => {
   if (intro.value) {
     window.scrollTo({
       top: intro.value.offsetTop,
-      behavior: 'smooth', // 可以使滾動過程平滑
+      behavior: 'smooth',
     });
   }
 };

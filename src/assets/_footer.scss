@@ -1,4 +1,4 @@
-.OBJECTS03 {
+.OBJECTS_Three {
   background-image: url(/img/OBJECTS02.svg);
   background-position: 0 15px;
   background-repeat: no-repeat;
@@ -10,17 +10,17 @@ footer {
     color: #828282;
     text-decoration: none;
   }
-  .box-bg08 {
+  .box-bgEight {
     top: 10%;
   }
 }
 
-.bg_opacity{
-  background: rgba(164, 139, 120, 0.2); 
+.bg_opacity {
+  background: rgba(164, 139, 120, 0.2);
 }
 
 @media (max-width: 768px) {
-  .OBJECTS03 {
+  .OBJECTS_Three {
     background-image: url(/img/OBJECTS02.svg);
     background-position: center center;
     background-repeat: no-repeat;

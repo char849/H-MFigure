@@ -1,5 +1,5 @@
 <template>
-  <section class="box-bg01">
+  <section class="box-bgOne">
     <div class="container-fulid">
       <div class="container">
         <div class="row">
@@ -13,7 +13,7 @@
             </div>
           </div>
           <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
-          <div class="row g-6 class03 mx-auto">
+          <div class="row g-6 classThree mx-auto">
             <div class="col-12 col-lg-6" data-aos="fade-left">
               <div class="d-flex flex-column">
                 <img
@@ -26,9 +26,9 @@
                   data-aos-delay="400"
                 >
                   <div class="fs_class text-primary mb-1">
-                    特價 ${{ product.price }}
+                    特價 ${{ $filters.currency(product.price) }}
                   </div>
-                  <del class="fs-4 mb-0">原價 ${{ product.origin_price }}</del>
+                  <del class="fs-4 mb-0">原價 ${{ $filters.currency(product.origin_price) }}</del>
                 </div>
               </div>
             </div>
@@ -101,12 +101,12 @@
     <div class="d-flex justify-content-end">
       <img
         src="/img/Object02.svg"
-        class="box-bg02 pb-3"
+        class="box-bgTwo pb-3"
         alt="Background Image"
       />
     </div>
   </section>
-  <section class="position-relative box-bg03">
+  <section class="position-relative box-bgThree">
     <div class="container">
       <div class="row">
         <div class="col-12 text-dark mt-3 mt-xl-6 mt-md-4">
@@ -116,7 +116,7 @@
           </div>
         </div>
         <div
-          class="row g-5 class04 pb-md-4 pb-lg-4 pb-xl-4 mx-auto justify-content-center"
+          class="row g-5 classFour pb-md-4 pb-lg-4 pb-xl-4 mx-auto justify-content-center"
           data-aos="fade-up"
         >
           <template v-for="(product, index) in filterProducts" :key="product.id">
@@ -158,20 +158,20 @@
                     class="fs-5 card-text text-info px-5 pt-2"
                     v-if="product.price === product.origin_price"
                   >
-                    {{ product.price }} 元
+                    {{ $filters.currency(product.price) }} 元
                   </div>
                   <div v-else class="mt-3 d-flex c_font">
                     <del class="ms-5 card-text text-info pt-2">
-                      原價 ${{ product.origin_price }} 元</del
+                      原價 ${{ $filters.currency(product.origin_price) }} 元</del
                     >
                     <p
                       class="card-text text-dark ms-3 ms-xl-5 ms-lg-5 ms-md-9 pt-2"
                     >
-                      特價 ${{ product.price }} 元
+                      特價 ${{ $filters.currency(product.price) }} 元
                     </p>
                   </div>
                   <div class="pb-7 pb-md-5 pb-lg-5 pb-xl-5 pt-2 pt-md-6 d-flex">
-                    <div class="classBtn04 position-absolute">
+                    <div class="classBtnFour position-absolute">
                       <button
                         @click="handleRefresh(product.id)"
                         type="button"
@@ -194,7 +194,7 @@
       </div>
     </div>
     <div class="d-flex justify-content-start">
-      <img src="/img/Object04.svg" class="box-bg04 mb-0 mb-md-3" alt="Background Image" />
+      <img src="/img/Object04.svg" class="box-bgFour mb-0 mb-md-3" alt="Background Image" />
     </div>
     <div
       class="position-absolute bg_opacity top-0 start-0 w-100 h-100 z-n1"
@@ -262,11 +262,11 @@ const setFavorite = (productId) => {
     favoriteList.value.splice(index, 1);
     Swal.fire('已移除我的最爱');
   } else {
-    // 否则添加到列表中
+    // 否則添加到列表中
     favoriteList.value.push(productId);
     Swal.fire('已添加到我的最爱');
   }
-  // 更新本地存储中的我的最爱列表
+  // 更新本地存儲中的我的最愛列表
   localStorage.setItem('homeFavorite', JSON.stringify(favoriteList.value));
 };
 

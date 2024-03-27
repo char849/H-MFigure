@@ -1,22 +1,18 @@
 .navbar-brand {
   margin-top: 80px !important;
 }
-
 .navbar {
   height: 88px;
 }
-
 .nav-link {
   &:hover,
   &:focus {
     transform: translateY(-2px);
   }
 }
-
 .navbar-toggler {
   top: 10px;
 }
-
 .menu-background {
   display: none;
   position: fixed;
@@ -27,11 +23,9 @@
   background-color: rgba(164, 139, 120, 0.8);
   z-index: 999;
 }
-
 .menu-background.active {
   display: block;
 }
-
 @media (max-width: 991px) {
   .navbar-brand {
     margin-top: 0 !important;
@@ -50,7 +44,6 @@
   .container.rounded {
     border-radius: 50px !important;
   }
-
   .navbar-toggler {
     border: 0 !important;
   }
@@ -58,7 +51,6 @@
     box-shadow: none !important;
   }
 }
-
 
 @media (max-width: 767px) {
   .navbar-brand {

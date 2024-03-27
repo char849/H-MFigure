@@ -29,7 +29,7 @@
           </li>
         </ul>
         <div class="col-12 text-dark mt-1 mt-md-4" data-aos="zoom-in-down">
-          <div class="mx-auto text-center OBJECTS04">
+          <div class="mx-auto text-center OBJECTS_Four">
             <div class="fw-bold title mb-0">己完成付款</div>
             <span class="text-info fs-4">Complete Payment for Course</span>
             <VueLoading

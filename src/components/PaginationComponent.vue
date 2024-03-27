@@ -39,8 +39,6 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue';
-
 const { pages } = defineProps({
   pages: Object,
 });

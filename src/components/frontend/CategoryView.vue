@@ -102,13 +102,9 @@ const getProduct = (id) => {
     router.push(`/product/${id}`);
   });
 };
-const filterProducts = computed(() => {
-  console.log('Category:', category.value);
-  console.log('Products:', products.value);
-  return products.value.filter(
-    (item) => category.value === '' || item.category === category.value,
-  );
-});
+const filterProducts = computed(() => products.value.filter(
+  (item) => category.value === '' || item.category === category.value,
+));
 const getFavorite = () => {
   const favoriteListStr = localStorage.getItem('homeFavorite');
   if (favoriteListStr) {

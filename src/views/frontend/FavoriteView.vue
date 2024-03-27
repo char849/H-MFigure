@@ -1,7 +1,7 @@
 <template>
-  <section class="position-relative box-bg05 mb-7">
+  <section class="position-relative box-bgFive mb-7">
     <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
-    <div class="OBJECTS05" v-if="filterProducts.length > 0">
+    <div class="OBJECTS_Five" v-if="filterProducts.length > 0">
       <div class="container">
         <div class="row">
           <div
@@ -82,7 +82,7 @@
                     <div
                       class="pb-7 pb-md-5 pb-lg-5 pb-xl-5 pt-2 pt-md-6 d-flex"
                     >
-                      <div class="classBtn04 position-absolute">
+                      <div class="classBtnFour position-absolute">
                         <RouterLink
                           :to="`/product/${item.id}`"
                           type="button"

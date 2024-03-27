@@ -136,7 +136,7 @@ const toggleCollapse = () => {
   toggleNavHam();
   isMenuOpen.value = !isMenuOpen.value;
   if (isMenuOpen.value) {
-    closeNavHam(); // 在選單打開時關閉選單
+    closeNavHam();
   }
 };
 const toggleNavHamAndCloseMenu = () => {

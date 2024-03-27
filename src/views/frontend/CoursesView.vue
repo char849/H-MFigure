@@ -1,6 +1,6 @@
 <template>
-  <section class="position-relative box-bg05 mb-7">
-    <div class="OBJECTS05">
+  <section class="position-relative box-bgFive mb-7">
+    <div class="OBJECTS_Five">
       <div class="container">
         <div class="row">
           <div class="col-12 text-dark mt-xl-7 mt-lg-7 mt-md-7 ein_center" data-aos="fade-down">
@@ -76,10 +76,10 @@
                       【 {{ product.title }} 】
                     </h4>
                     <!-- Favorite icon -->
-                    <div
+                      <div
                       class="card_Favorite position-absolute"
                       @click.stop="setFavorite(product.id)"
-                    >
+                      >
                       <span v-if="favoriteList.includes(product.id)"
                         >
                         <i class="bi bi-heart-fill fs-4 text-danger"
@@ -88,7 +88,7 @@
                       <span v-else>
                         <i class="bi bi-heart fs-4 text-danger"
                        ></i></span>
-                    </div>
+                      </div>
                     <div
                       class="fs-5 card-text text-info px-5 pt-2"
                       v-if="product.price === product.origin_price"
@@ -97,14 +97,14 @@
                     </div>
                     <div v-else class="mt-3 d-flex c_font">
                       <del class="ms-5 card-text text-info pt-2">
-                        原價 ${{ product.origin_price }} 元</del
+                        原價 ${{ $filters.currency(product.origin_price) }} 元</del
                       >
                       <p class="card-text text-dark ms-3 ms-xl-5 ms-lg-5 ms-md-9 pt-2">
-                        特價 ${{ product.price }} 元
+                        特價 ${{ $filters.currency(product.price) }} 元
                       </p>
                     </div>
                     <div class="pb-7 pb-md-5 pb-lg-5 pb-xl-5 pt-2 pt-md-6 d-flex">
-                      <div class="classBtn04 position-absolute">
+                      <div class="classBtnFour position-absolute">
                           <RouterLink
                          :to="`/product/${product.id}`"
                           type="button"

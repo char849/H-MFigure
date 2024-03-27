@@ -93,7 +93,8 @@
               </div>
               <div v-else>
                 <button
-                  class="btn btn-outline-primary btn-sm d-block w-100"
+                  type="button"
+                  class="btn btn-outline-dark btn-sm d-block w-100"
                   @click="createImages"
                 >
                   新增圖片
@@ -290,7 +291,7 @@
 <script setup>
 import axios from 'axios';
 import {
-  ref, defineProps, toRefs, defineEmits,
+  ref, toRefs,
 } from 'vue';
 import useModal from '@/hooks/useModal';
 import Swal from 'sweetalert2';

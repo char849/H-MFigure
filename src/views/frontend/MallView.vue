@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fulid box-bg09">
+  <div class="container-fulid box-bg_Nine">
     <VueLoading :active="isLoading" :z-index="1060" class="text-center" />
     <div
       class="container mt-6 mt-md-7 mb-6 mb-md-5"
@@ -146,11 +146,11 @@
                     placeholder="請輸入 Email"
                     rules="email|required"
                     v-model="form.user.email"
-                  ></VeeField>
+                  />
                   <ErrorMessage
                     name="email"
                     class="invalid-feedback"
-                  ></ErrorMessage>
+                  />
                 </div>
 
                 <div class="mb-3">
@@ -164,11 +164,11 @@
                     placeholder="請輸入姓名"
                     rules="required"
                     v-model="form.user.name"
-                  ></VeeField>
+                  />
                   <ErrorMessage
                     name="姓名"
                     class="invalid-feedback"
-                  ></ErrorMessage>
+                  />
                 </div>
 
                 <div class="mb-3">
@@ -182,11 +182,11 @@
                     placeholder="請輸入電話"
                     :rules="isPhone"
                     v-model="form.user.tel"
-                  ></VeeField>
+                  />
                   <ErrorMessage
                     name="電話"
                     class="invalid-feedback"
-                  ></ErrorMessage>
+                  />
                 </div>
 
                 <div class="mb-3">
@@ -200,11 +200,11 @@
                     placeholder="請輸入地址"
                     rules="required"
                     v-model="form.user.address"
-                  ></VeeField>
+                  />
                   <ErrorMessage
                     name="地址"
                     class="invalid-feedback"
-                  ></ErrorMessage>
+                  />
                 </div>
                 <div class="mb-3">
                   <label for="message" class="form-label">留言</label>

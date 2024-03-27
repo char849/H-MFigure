@@ -49,7 +49,7 @@ import useModal from '@/hooks/useModal';
 import Swal from 'sweetalert2';
 
 const {
-  openModal, hideModal, modalRef, defineEmits,
+  openModal, hideModal, modalRef,
 } = useModal();
 const props = defineProps({
   item: Object,

@@ -3,6 +3,11 @@ import './assets/all.scss';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import Loading from 'vue-loading-overlay';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'vue-loading-overlay/dist/css/index.css';
@@ -46,6 +51,8 @@ app.config.globalProperties.$filters = {
   date,
   currency,
 };
+library.add(fas, far, fab);
+app.component('font-awesome-icon', FontAwesomeIcon);
 app.component('VeeForm', Form);
 app.component('VeeField', Field);
 app.component('ErrorMessage', ErrorMessage);

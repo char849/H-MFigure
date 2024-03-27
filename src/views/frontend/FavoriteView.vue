@@ -27,14 +27,16 @@
             <span class="text-info fs-4">Course Collection</span>
           </div>
           <div
-            class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-7 justify-content-center m-0"
+            class="row g-5 pb-5 pb-md-4 pb-lg-4 pb-xl-7 justify-content-start m-0"
             data-aos="fade-up"
           >
             <template v-for="item in filterProducts" :key="item.id">
               <div
                 class="col-12 col-xl-4 col-lg-5 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
               >
-                <div class="card02 rounded-5 shadow bg-white">
+                <div class="card02 rounded-5 shadow bg-white position-relative cardTo"
+                role="button"
+                @click="getProduct(item.id)">
                   <img
                     :src="item.imageUrl"
                     class="rounded-top-5 w-100 object-fit-cover"
@@ -52,7 +54,7 @@
                     <!-- Favorite icon -->
                     <div
                       class="card_Favorite position-absolute"
-                      @click="setFavorite(item.id)"
+                      @click.stop="setFavorite(item.id)"
                     >
                       <span v-if="favoriteList.includes(item.id)"
                         ><i class="bi bi-heart-fill fs-4 text-danger"></i
@@ -120,14 +122,28 @@
 import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useRouter } from 'vue-router';
 
 const isLoading = ref(false);
 const { VITE_API, VITE_PATH } = import.meta.env;
+const router = useRouter();
 const products = ref([]);
+const product = ref([]);
 const favoriteList = ref([]);
 const filterProducts = computed(() => products.value.filter(
   (item) => favoriteList.value.includes(item.id),
 ));
+const getProduct = (id) => {
+  axios
+    .get(
+      `${VITE_API}api/${VITE_PATH}/product/${id}`,
+    )
+    .then((res) => {
+      // 將遠端資料取回
+      product.value = res.data.product;
+      router.push(`/product/${id}`);
+    });
+};
 const getProducts = () => {
   isLoading.value = true;
   axios

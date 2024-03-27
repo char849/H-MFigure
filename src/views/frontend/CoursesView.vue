@@ -54,10 +54,10 @@
               <div
                 class="col-12 col-xl-4 col-lg-5 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
               >
-              <div class="card02 rounded-5 shadow bg-white position-relative">
-                <div class="cardTo"
+              <div class="card02 rounded-5 shadow bg-white position-relative cardTo"
                 role="button"
-                @click="getProduct(product.id)"
+                @click="getProduct(product.id)">
+                <div
                 >
                   <img
                     :src="product.imageUrl"
@@ -78,7 +78,7 @@
                     <!-- Favorite icon -->
                     <div
                       class="card_Favorite position-absolute"
-                      @click="setFavorite(product.id)"
+                      @click.stop="setFavorite(product.id)"
                     >
                       <span v-if="favoriteList.includes(product.id)"
                         >
@@ -149,7 +149,6 @@ const categories = ref(['熱門', '昆蟲類', '動物科', '甲殼類']);
 const favoriteList = ref([]);
 const pagination = ref({});
 const isLoading = ref(false);
-
 const currentPage = ref(1);
 // eslint-disable-next-line
 const getProducts = (currentPage = 1) => {

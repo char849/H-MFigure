@@ -498,10 +498,13 @@ hr.line {
     width: 100%;
   }
   .headerBtn {
-    top: 81%;
+    top: 90%;
   }
   .card {
-    top: 48%;
+    top: 55%;
+    .text-secondary {
+      font-size: 16px;
+    }
   }
   .box-bgFour {
     width: 100%;
@@ -566,7 +569,10 @@ hr.line {
   }
   .card {
     top: 48%;
-  }
+    .text-secondary {
+      font-size: 16px;
+    }
+  }  
 }
 
 @media (max-width: 412px) {
@@ -608,9 +614,9 @@ hr.line {
       font-size: 16px;
     }
   }
-  .headerBtn {
-    left: 37%;
-  }
+  // .headerBtn {
+  //   left: 37%;
+  // }
   .classBtnThree {
     width: 100%;
     top: 80%;
@@ -619,9 +625,9 @@ hr.line {
   .infoBtn {
     left: 5%;
   }  
-  .card {
-    top: 51%;
-  }
+  // .card {
+  //   top: 51%;
+  // }
   .headerBtn {
     top: 87%;
   }
@@ -646,10 +652,10 @@ hr.line {
     left: 3%;
   }
   .headerBtn {
-    top: 82%;
+    top: 94%;
   }
   .card {
-    top: 48%;
+    top: 55%;
   }
 }
 

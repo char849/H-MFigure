@@ -1,7 +1,7 @@
 <!-- eslint-disable no-undef -->
 <template>
   <div style="overflow-x: hidden">
-    <header class="position-relative mix-vh-100" data-aos="fade-left">
+    <header class="position-relative" data-aos="fade-left">
       <div class="container bgImg position-relative">
         <div class="card position-absolute translate-middle rounded-4 mx-auto">
           <div class="card-body mx-2 px-lg-3 px-xl-6">

@@ -1,6 +1,6 @@
 <template>
   <DashboardBar />
-  <RouterView  v-if="status" />
+  <RouterView v-if="status" />
 </template>
 
 <script setup>

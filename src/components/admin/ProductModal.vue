@@ -75,6 +75,7 @@
                   "
                 >
                   <button
+                    type="button"
                     class="btn btn-outline-dark btn-sm d-block w-100"
                     @click="tempProduct.imagesUrl.push('')"
                   >
@@ -84,6 +85,7 @@
 
                 <div v-else>
                   <button
+                    type="button"
                     class="btn btn-outline-danger btn-sm d-block w-100"
                     @click="tempProduct.imagesUrl.pop()"
                   >

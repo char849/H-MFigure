@@ -52,8 +52,8 @@
                     </div>
                     <h4 class="card-title pt-5 px-4">【 {{ item.title }} 】</h4>
                     <!-- Favorite icon -->
-                    <div
-                      class="card_Favorite position-absolute"
+                    <button type="button"
+                      class="card_Favorite rise-shake position-absolute"
                       @click.stop="setFavorite(item.id)"
                     >
                       <span v-if="favoriteList.includes(item.id)"
@@ -62,7 +62,7 @@
                       <span v-else
                         ><i class="bi bi-heart fs-4 text-danger"></i
                       ></span>
-                    </div>
+                    </button>
                     <div
                       class="fs-5 card-text text-info px-5 pt-2"
                       v-if="item.price === item.origin_price"

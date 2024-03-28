@@ -145,7 +145,7 @@
                   <!-- Favorite icon -->
                   <button type="button"
                     class="card_Favorite rise-shake position-absolute"
-                    @click="setFavorite(product.id)"
+                    @click.stop="setFavorite(product.id)"
                   >
                     <span v-if="favoriteList.includes(product.id)">
                       <i class="bi bi-heart-fill fs-4 text-danger"></i

@@ -76,11 +76,11 @@
                       【 {{ product.title }} 】
                     </h4>
                     <!-- Favorite icon -->
-                      <div
-                      class="card_Favorite position-absolute"
+                      <button type="button"
+                      class="card_Favorite rise-shake position-absolute"
                       @click.stop="setFavorite(product.id)"
                       >
-                      <span v-if="favoriteList.includes(product.id)"
+                      <span class="" v-if="favoriteList.includes(product.id)"
                         >
                         <i class="bi bi-heart-fill fs-4 text-danger"
                          ></i
@@ -88,7 +88,7 @@
                       <span v-else>
                         <i class="bi bi-heart fs-4 text-danger"
                        ></i></span>
-                      </div>
+                      </button>
                     <div
                       class="fs-5 card-text text-info px-5 pt-2"
                       v-if="product.price === product.origin_price"

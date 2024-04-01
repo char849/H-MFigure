@@ -21,7 +21,7 @@ const useCartStore = defineStore('cartStore', () => {
         cart.splice(0);
         cart.push(...res.data.data.carts);
         finalTotal.value = res.data.data.final_total;
-        // 購物車中的每個項目，数量相加，以得到總人数然後將總人数更新到 total.value
+        // 購物車中的每個項目，数量相加，以得到總人数然後將總人数更新到 totalQty.value
         totalQty.value = cart.reduce((acc, item) => acc + item.qty, 0);
         total.value = res.data.data.total;
         cartsLength.value = cart.length;
@@ -33,7 +33,6 @@ const useCartStore = defineStore('cartStore', () => {
       });
   };
   const addToCart = (id, qty = 1) => {
-    console.log('Qty:', qty);
     if (totalQty.value + qty > 5) {
       Swal.fire('上課人數最多不得超過5位');
       return;
@@ -50,7 +49,6 @@ const useCartStore = defineStore('cartStore', () => {
         Swal.fire('己加入預約清單');
       });
   };
-
   const removeCartItem = (id) => {
     isLoadingItem.value = id;
     isLoading.value = true;

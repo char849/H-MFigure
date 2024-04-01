@@ -152,6 +152,7 @@ const isLoading = ref(false);
 const currentPage = ref(1);
 // eslint-disable-next-line
 const getProducts = (currentPage = 1) => {
+  // route：取得當前 URL 的訊息，像是 path
   const { category = '' } = route.query;
   isLoading.value = true;
   axios
@@ -165,7 +166,6 @@ const getProducts = (currentPage = 1) => {
       Swal.fire(err.response.data.message);
     });
 };
-
 const getProduct = (id) => {
   axios
     .get(
@@ -174,15 +174,18 @@ const getProduct = (id) => {
     .then((res) => {
       // 將遠端資料取回
       product.value = res.data.product;
+      // router：操作路由的方法，像是跳轉（push)
       router.push(`/product/${id}`);
     });
 };
+// 取得 Favorite 將 string 轉成 array
 const getFavorite = () => {
   const favoriteListStr = localStorage.getItem('homeFavorite');
   if (favoriteListStr) {
     favoriteList.value = JSON.parse(favoriteListStr);
   }
 };
+// 存入 localStorage 將 array 轉成 string
 const setFavorite = (id) => {
   // 查資料裡面，有沒有這個ID
   if (favoriteList.value.includes(id)) {
@@ -196,6 +199,7 @@ const setFavorite = (id) => {
   localStorage.setItem('homeFavorite', JSON.stringify(favoriteList.value));
   getFavorite();
 };
+// 初始化
 onMounted(() => {
   getFavorite();
 });

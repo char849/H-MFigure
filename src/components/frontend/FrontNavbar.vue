@@ -116,6 +116,7 @@
 </template>
 
 <script setup>
+// 使用解構賦值需要搭配 storeToRefs 讓資料維持在會變動的狀態
 import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
 import useCollapse from '@/mixins/mixins';
@@ -124,6 +125,7 @@ import { useRouter } from 'vue-router';
 
 const cartStore = useCartStore();
 const router = useRouter();
+// 在 pinia 裡定義好的 cartsLength 放到模板裡面
 const { cartsLength } = storeToRefs(cartStore);
 
 const collapse = ref();

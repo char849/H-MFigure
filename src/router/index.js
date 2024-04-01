@@ -43,7 +43,7 @@ const routes = [
         component: () => import('../views/frontend/FavoriteView.vue'),
       },
       {
-        path: 'mall', // 購物車
+        path: 'mall',
         name: '購物袋',
         component: () => import('../views/frontend/MallView.vue'),
       },
@@ -77,7 +77,6 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  linkActiveClass: 'text-navActive',
   routes,
 
   scrollBehavior() {

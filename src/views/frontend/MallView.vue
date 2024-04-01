@@ -162,7 +162,7 @@
                     class="form-control py-3"
                     :class="{ 'is-invalid': errors['姓名'] }"
                     placeholder="請輸入姓名"
-                    rules="required"
+                    :rules="isName"
                     v-model="form.user.name"
                   />
                   <ErrorMessage
@@ -275,6 +275,11 @@ const form = ref({
 const isPhone = (value) => {
   const phoneNumber = /(^09|\+?8869)\d{2}(-?\d{3}-?\d{3})$/;
   return phoneNumber.test(value) ? true : '需要正確的電話號碼';
+};
+
+const isName = (value) => {
+  const userName = /^[\u4E00-\u9FA5]{2,4}$/;
+  return userName.test(value) ? true : '請輸入有效的中文姓名';
 };
 
 const createOrder = () => {

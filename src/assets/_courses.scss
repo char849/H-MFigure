@@ -34,6 +34,10 @@
   border: transparent;
 }
 
+.courses-conter {
+  justify-content: start;
+}
+
 @keyframes jump-shaking {
   0% {
       transform: translateY(0);
@@ -85,6 +89,9 @@
   }
   .card-text {
     font-size: 16px;
+  }
+  .courses-conter {
+    justify-content: center;
   }
 }
 

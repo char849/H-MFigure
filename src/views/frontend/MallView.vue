@@ -96,7 +96,7 @@
                           >
                             <option
                               :value="num"
-                              v-for="num in 5"
+                              v-for="num in 10"
                               :key="`${num}-${item.id}`"
                             >
                               {{ num }}
@@ -262,6 +262,7 @@ const { VITE_API, VITE_PATH } = import.meta.env;
 const formRef = ref(null);
 const router = useRouter();
 const isLoading = ref(false);
+const isLoadingItem = ref();
 const orderId = ref('');
 const form = ref({
   user: {

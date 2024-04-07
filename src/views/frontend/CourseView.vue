@@ -69,7 +69,7 @@
                       >
                         <option
                           :value="num"
-                          v-for="num in 5"
+                          v-for="num in 10"
                           :key="`${num}-${id}`"
                         >
                           {{ num }}

@@ -33,8 +33,8 @@ const useCartStore = defineStore('cartStore', () => {
       });
   };
   const addToCart = (id, qty = 1) => {
-    if (totalQty.value + qty > 5) {
-      Swal.fire('上課人數最多不得超過5位');
+    if (totalQty.value + qty > 10) {
+      Swal.fire('上課人數最多不得超過10位');
       return;
     }
     const data = {

@@ -1,4 +1,4 @@
-import{B as N}from"./index-F1Y_3h4J.js";var K={exports:{}},U={exports:{}};/*!
+import{B as N}from"./index-FuQMzG8J.js";var K={exports:{}},U={exports:{}};/*!
   * Bootstrap data.js v5.3.2 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)

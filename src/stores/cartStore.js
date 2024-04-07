@@ -34,7 +34,7 @@ const useCartStore = defineStore('cartStore', () => {
   };
   const addToCart = (id, qty = 1) => {
     if (totalQty.value + qty > 10) {
-      Swal.fire('為了上課品質，上課人數最多不得超過10位');
+      Swal.fire('同一團所有預約課程，上課人數最多不得超過10位');
       return;
     }
     const data = {

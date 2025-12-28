@@ -30,12 +30,12 @@
           <template v-for="article in articles" :key="article.id">
             <div class="col-12 col-xl-4 col-lg-5">
               <div class="card02 rounded-5 shadow bg-white h-100">
-                <img
+                <!-- <img
                   :src="article.image"
                   class="rounded-top-5 w-100 object-fit-cover"
                   alt="展覽資訊"
                   height="280"
-                />
+                /> -->
                 <div class="card-body position-relative">
                   <h4 class="card-title pt-5 px-3 px-md-4">【{{ article.title }}】</h4>
                   <p class="card-text text-dark px-4 px-md-4 px-lg-4 px-xl-5 pt-3 ein_w">

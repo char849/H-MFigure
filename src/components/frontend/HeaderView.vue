@@ -35,7 +35,7 @@
           </div>
         </div>
         <img
-          src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-lee849/1707895244621.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=D9RILXl9%2BQzu5JD%2FWgJoJe6mBwlImeYJQzxe27JYeKoNm%2BKcoSX70j1%2FadgGfeOuNzlmbRSu7UbTW2ZJk%2FZN%2BAQerCUVBOsrq1bJ2z749gIt5BH5UhklkApO14MNMhEur3l6sdpXlOO5GZCRy5R7GNZaXElZQ9u%2F3AN7qYa53xCkvFRGVwPvtYlXN0yhHjaILPNQlrDkEnhLPxGrbTFSqMshpdxb14yxZEYB6V4vtPg8qiG9ahFvgWF%2FJbrFCkGgAGM6vxRKgSBvvHFayA6qVHDzeHmJ3mfHFYkhAcsXofAHkkySbttFoYgqdlR7oTA3Ba3OLUswz3mxH8OJDgpMjA%3D%3D"
+          src="/img/img-banner-inner.png"
           alt="手作模型館"
           class="img-fluid bgImgInner position-absolute"
         />
@@ -218,14 +218,14 @@
       </div>
       <div class="position-absolute bottom-0 end-0 box02" data-aos="fade-right">
         <img
-          src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-lee849/1708078812910.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=WDqRBe%2Fc8RQizFpMlpxxvQx1onemZjulQhFClO8n%2F7DBsyoEDJ7m9X5jrRXHQsetHeuXLbeB3ZHuzxnxpoaoxrtLC4y97yOVKV67KgUZ6OMH2TtEvf1xAwVS0Oem68ef19088KssynM0bgwXDn2FkKfuZeEhZP8xaUbJN0kl4tzcuCdivsYBvc5ZZkhv%2BvlZ92korkeFe2ABRctH9n1ko%2BHlS5YNF%2FeSNLs1x2qUCIRbAr%2Bsz1VOcHzyvdcqVsYqEItvmq4hRP326Lcv44ryWAHB42CMY6hi1yeS058tvtVeBP4ssnzJ53lBvL8oTY9Q7QYvdJgD%2FBeQ%2FZc3xjwVrA%3D%3D"
+          src="/img/img01a.png"
           alt="環境介紹"
           class="img-fluid"
         />
       </div>
       <div class="position-absolute top-100 translate-middle boxThree">
         <img
-          src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-lee849/1708079856450.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=khdvT%2BMv3vX2o9LxtAgnz0tOiDkMsFqr%2Fo0YuKYN06rBLtdd5AuIW%2BSIMyr0l1GYgLJQnS3466gvYlN2Twe0KIxB39c6XUViQyCC%2F9glgNsFKZrmvvsgLib1a2OlwVmYMXt8kU7qB0F72X57gvASn3EYENTMFF6ThThd9KrhOBhevX2uYmLI03PzIqAJPyNfopGmSaZ2mZw7ziyVcVhGNQC%2BCJidnhahXK6ONBZUmG7cGSajTQlWz9zNyivMztP0sThYSb1h00Bg9mPAKjCRYXdj4UMCjm%2BlrP7HBlECxyc6NyMwsGa09rjeUDUX2qWIcLoHtiAg0mRFfIhTWRkWng%3D%3D"
+          src="/img/img02a.png"
           alt="教學工作室"
           class="img-fluid"
           data-aos="fade-right"
@@ -307,7 +307,7 @@
         data-aos="fade-left"
       >
         <img
-          src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-lee849/1708100545759.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=U8NiaqiGtIDhWAKovvHT3gQouMGl9pTovyDJQ%2F8m4zGn%2Fze1vmCXA5y9A82GwaXGEcm2V6CALCzF%2FbdlDEg1pnpGGQFV11gGNyQASYXsFSUuV0slTrzj%2F5dDXoQR26MwgbdSKAGajNcT3T4nq9dYjJq0DEORGwafUYNpWJYg3IiBRJgUHmW9jcouzQy4xfRvXwyw2qCkHHTV68rcgjeCmAHBVdS%2BwHyPF1l7xQ1SIqqD8FytA7%2Bqvef9v0zDDtCvlahveggu6EwBKQSaWtEKO66zMFR23vzr26U5e3IZvjDhM47O439%2BRuyadCFfTWHI1sKWEofbE4kE6Ub1SFjjrg%3D%3D"
+          src="/img/img03a.png"
           alt="實際製作體驗"
           class="img-fluid"
         />
@@ -353,12 +353,12 @@
                   class="col-12 col-xl-4 col-lg-4 mx-2 mx-xl-0 mx-lg-0 mx-md-0"
                 >
                   <div class="card02 rounded-5 shadow bg-white h-100">
-                    <img
+                    <!-- <img
                       :src="article.image"
                       class="rounded-top-5 w-100 object-fit-cover"
                       alt="展覽資訊"
                       height="280"
-                    />
+                    /> -->
                     <div class="card-body position-relative">
                       <h4 class="card-title pt-5 px-4">
                         【{{ article.title }}】
